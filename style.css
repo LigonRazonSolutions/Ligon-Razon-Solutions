@@ -23,13 +23,17 @@
 
   --container: 1240px;
   --transition: 0.32s ease;
+
+  --font-heading: 'Satoshi', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-body);
 }
 
 html {
@@ -75,6 +79,35 @@ button,
 input,
 textarea {
   font: inherit;
+}
+
+/* Website font system: Satoshi for headings, DM Sans for body */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  font-family: var(--font-heading);
+}
+
+p,
+a,
+li,
+span,
+small,
+strong,
+label,
+button,
+input,
+textarea {
+  font-family: var(--font-body);
 }
 
 .page-shell {
@@ -6598,4 +6631,6638 @@ body.home-redesign .contact-btn:hover,
 
 body.home-redesign .lrs-primary-btn span {
   display: none !important;
+}
+
+
+/* =========================================================
+   ABOUT PAGE REDESIGN
+   - Homepage-aligned light/glass layout.
+   - Scoped to about-redesign-page only.
+========================================================= */
+.about-redesign-page {
+  background:
+    radial-gradient(circle at 84% 12%, rgba(82, 169, 185, 0.16), transparent 28%),
+    radial-gradient(circle at 16% 32%, rgba(82, 169, 185, 0.08), transparent 26%),
+    linear-gradient(180deg, #f8fcfd 0%, #f4f9fb 44%, #f8fcfd 100%);
+}
+
+.about-redesign-page::before,
+.about-redesign-page::after {
+  display: none;
+}
+
+.about-hero-redesign {
+  position: relative;
+  overflow: hidden;
+  padding: 132px 0 90px;
+}
+
+.about-hero-redesign::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(245,250,252,0.72) 45%, rgba(82,169,185,0.10) 100%),
+    repeating-linear-gradient(135deg, transparent 0 32px, rgba(82,169,185,0.045) 32px 33px);
+  pointer-events: none;
+}
+
+.about-hero-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);
+  gap: clamp(32px, 5vw, 76px);
+  align-items: center;
+  min-height: 300px;
+  margin-bottom: 34px;
+}
+
+.about-hero-copy {
+  max-width: 760px;
+}
+
+.about-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 18px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  color: #277f8c;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(82, 169, 185, 0.18);
+  box-shadow: 0 12px 28px rgba(34, 43, 60, 0.05);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+
+.about-hero-copy h1 {
+  max-width: 720px;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -1.8px;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.about-hero-copy h1 span {
+  color: #2f9eaa;
+}
+
+.about-hero-copy p {
+  max-width: 650px;
+  color: #475569;
+  font-size: 17px;
+  line-height: 1.85;
+  margin-bottom: 26px;
+}
+
+.about-hero-btn,
+.about-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #ffffff;
+  background: #2e8ea0;
+  border: 1px solid rgba(82, 169, 185, 0.35);
+  box-shadow: 0 16px 30px rgba(82, 169, 185, 0.22);
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+}
+
+.about-hero-btn::after,
+.about-cta-btn::after {
+  content: "→";
+  margin-left: 12px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.about-hero-btn:hover,
+.about-cta-btn:hover {
+  transform: translateY(-2px);
+  background: #327f93;
+  box-shadow: 0 18px 36px rgba(82, 169, 185, 0.28);
+}
+
+.about-hero-art {
+  position: relative;
+  min-height: 300px;
+}
+
+.about-art-line {
+  position: absolute;
+  inset: 0;
+  border-radius: 42px;
+  background:
+    radial-gradient(circle at 20% 44%, rgba(82,169,185,0.22) 0 2px, transparent 3px);
+  background-size: 18px 18px;
+  mask-image: linear-gradient(90deg, transparent 0%, black 34%, black 76%, transparent 100%);
+  opacity: 0.7;
+}
+
+.about-art-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(82,169,185,0.26), rgba(255,255,255,0.42));
+  border: 1px solid rgba(82,169,185,0.18);
+  box-shadow:
+    0 24px 60px rgba(34, 43, 60, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.68);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.about-art-orb-large {
+  width: min(260px, 58vw);
+  height: min(260px, 58vw);
+  right: 0;
+  top: 0;
+}
+
+.about-art-orb-mid {
+  width: 158px;
+  height: 158px;
+  right: 184px;
+  top: 84px;
+  display: grid;
+  place-items: center;
+  background: #3198a6;
+  opacity: 0.92;
+}
+
+.about-art-orb-mid span {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: relative;
+  margin: 0 2px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+}
+
+.about-art-orb-mid span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -16px;
+  width: 28px;
+  height: 16px;
+  border-radius: 16px 16px 4px 4px;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.72);
+}
+
+.about-art-orb-small {
+  width: 108px;
+  height: 108px;
+  right: 136px;
+  top: 176px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(226,243,247,0.78));
+}
+
+.about-art-logo {
+  position: absolute;
+  width: min(220px, 48%);
+  right: 58px;
+  top: 96px;
+  opacity: 0.18;
+  filter: drop-shadow(0 20px 40px rgba(34, 43, 60, 0.12));
+}
+
+.about-art-logo img {
+  width: 100%;
+  height: auto;
+}
+
+.about-overview-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(310px, 1fr);
+  gap: 24px;
+}
+
+.about-side-stack {
+  display: grid;
+  gap: 24px;
+}
+
+.about-glass-panel {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(82, 169, 185, 0.14);
+  box-shadow: 0 18px 44px rgba(34, 43, 60, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.about-glass-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(82,169,185,0.045), transparent 44%);
+  pointer-events: none;
+}
+
+.about-story-card,
+.about-mini-card,
+.about-stat-card,
+.about-founder-card,
+.about-team-card,
+.about-hipaa-card {
+  border-radius: 14px;
+}
+
+.about-story-card {
+  padding: clamp(28px, 4vw, 44px);
+}
+
+.about-story-card h2,
+.about-mini-card h2,
+.about-hipaa-content h2 {
+  position: relative;
+  z-index: 1;
+  color: #111827;
+  font-size: clamp(24px, 2vw, 30px);
+  line-height: 1.2;
+  margin: 0 0 18px;
+}
+
+.about-section-line {
+  display: block;
+  width: 34px;
+  height: 3px;
+  margin: 0 0 16px;
+  background: #52a9b9;
+  border-radius: 999px;
+}
+
+.about-story-card p,
+.about-mini-card p,
+.about-founder-copy p,
+.about-hipaa-content p,
+.about-cta-band p {
+  position: relative;
+  z-index: 1;
+  color: #435163;
+  font-size: 14px;
+  line-height: 1.82;
+}
+
+.about-story-card p + p,
+.about-mini-card p + p {
+  margin-top: 18px;
+}
+
+.about-mini-card {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 18px;
+  padding: 28px;
+}
+
+.about-custom-icon,
+.about-stat-mark,
+.about-cta-icon,
+.about-shield-mark {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  background: rgba(82, 169, 185, 0.10);
+  border: 1px solid rgba(82, 169, 185, 0.16);
+}
+
+.about-custom-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.about-icon-target::before,
+.about-icon-target::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 13px;
+  border: 3px solid #2e8ea0;
+}
+
+.about-icon-target::after {
+  inset: 21px;
+  background: #52a9b9;
+}
+
+.about-icon-target span {
+  position: absolute;
+  left: 50%;
+  top: 7px;
+  width: 3px;
+  height: 34px;
+  transform: translateX(-50%);
+  background: #52a9b9;
+  border-radius: 999px;
+}
+
+.about-icon-eye::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 17px;
+  height: 14px;
+  border: 3px solid #2e8ea0;
+  border-radius: 50% / 70%;
+}
+
+.about-icon-eye span {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 8px;
+  height: 8px;
+  background: #52a9b9;
+  border-radius: 50%;
+}
+
+.about-stats-row {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 24px 0 26px;
+}
+
+.about-stat-card {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 24px;
+}
+
+.about-stat-card strong {
+  display: block;
+  color: #2e8ea0;
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.about-stat-card h3 {
+  color: #111827;
+  font-size: 14px;
+  line-height: 1.3;
+  margin-bottom: 7px;
+}
+
+.about-stat-card p {
+  color: #536174;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.about-stat-mark {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+}
+
+.about-mark-calendar::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 15px;
+  width: 28px;
+  height: 25px;
+  border: 3px solid #2e8ea0;
+  border-radius: 5px;
+}
+
+.about-mark-calendar::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 11px;
+  width: 18px;
+  height: 7px;
+  border-left: 3px solid #52a9b9;
+  border-right: 3px solid #52a9b9;
+}
+
+.about-mark-globe::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 3px solid #2e8ea0;
+  border-radius: 50%;
+}
+
+.about-mark-globe::after {
+  content: "";
+  position: absolute;
+  left: 26px;
+  top: 11px;
+  width: 3px;
+  height: 32px;
+  background: #52a9b9;
+  box-shadow: -10px 15px 0 -1px #52a9b9, 10px 15px 0 -1px #52a9b9;
+}
+
+.about-mark-people::before,
+.about-mark-people::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #2e8ea0;
+}
+
+.about-mark-people::before {
+  width: 16px;
+  height: 16px;
+  left: 14px;
+  top: 14px;
+  box-shadow: 17px 4px 0 -2px #52a9b9;
+}
+
+.about-mark-people::after {
+  left: 11px;
+  bottom: 13px;
+  width: 34px;
+  height: 15px;
+  border-radius: 18px 18px 6px 6px;
+  background: transparent;
+  border: 3px solid #2e8ea0;
+}
+
+.about-section-title {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin: 24px auto 22px;
+}
+
+.about-section-title h2 {
+  color: #111827;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.about-section-title p {
+  color: #536174;
+  font-size: 14px;
+}
+
+.about-founders-row {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.about-founder-card {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.92fr) 1fr;
+  gap: 24px;
+  padding: 16px;
+  align-items: center;
+}
+
+.about-founder-photo {
+  overflow: hidden;
+  border-radius: 10px;
+  background: #eef5f7;
+  aspect-ratio: 1 / 1.1;
+}
+
+.about-founder-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-founder-copy h3 {
+  color: #111827;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.about-role {
+  color: #2e8ea0 !important;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.about-social-pills {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.about-social-pills span {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #222b3c;
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(82,169,185,0.16);
+  box-shadow: 0 8px 18px rgba(34,43,60,0.08);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.about-team-title {
+  margin-top: 8px;
+}
+
+.about-team-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.about-team-card {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 14px;
+  align-items: center;
+  min-height: 84px;
+  padding: 14px;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(82, 169, 185, 0.13);
+  box-shadow: 0 14px 32px rgba(34, 43, 60, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.about-team-photo {
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #eef5f7;
+}
+
+.about-team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-team-info h3 {
+  color: #111827;
+  font-size: 13px;
+  line-height: 1.25;
+  margin-bottom: 7px;
+}
+
+.about-team-info p {
+  color: #2e8ea0;
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.about-hipaa-card {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 30px;
+  align-items: center;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.about-hipaa-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 145px;
+  border-right: 1px solid rgba(82, 169, 185, 0.16);
+  padding-right: 26px;
+}
+
+.about-hipaa-logo img {
+  max-width: 210px;
+  max-height: 120px;
+  object-fit: contain;
+}
+
+.about-hipaa-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.about-hipaa-title h2 {
+  margin: 0;
+}
+
+.about-shield-mark {
+  width: 28px;
+  height: 32px;
+  border-radius: 14px 14px 18px 18px;
+  background: #2e8ea0;
+  border: none;
+  clip-path: polygon(50% 0, 92% 14%, 84% 72%, 50% 100%, 16% 72%, 8% 14%);
+}
+
+.about-shield-mark::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 9px;
+  width: 12px;
+  height: 7px;
+  border-left: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
+  transform: rotate(-45deg);
+}
+
+.about-cta-band {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 92px 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 32px 38px;
+  overflow: hidden;
+  border-radius: 14px;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 8% 50%, rgba(255,255,255,0.16), transparent 20%),
+    radial-gradient(circle at 100% 12%, rgba(255,255,255,0.10), transparent 28%),
+    linear-gradient(135deg, #247f91 0%, #1f8794 46%, #222b3c 100%);
+  box-shadow: 0 20px 44px rgba(34,43,60,0.15);
+}
+
+.about-cta-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 5% 18%, rgba(255,255,255,0.16) 0 2px, transparent 3px);
+  background-size: 16px 16px;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.about-cta-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.about-cta-icon::before {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 17px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.about-cta-icon::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  width: 34px;
+  height: 18px;
+  border-radius: 18px 18px 8px 8px;
+  background: rgba(255,255,255,0.76);
+}
+
+.about-cta-band h2 {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.about-cta-band p {
+  color: rgba(255,255,255,0.84);
+  max-width: 760px;
+}
+
+.about-cta-btn {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  color: #247f91;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  white-space: nowrap;
+}
+
+.about-cta-btn:hover {
+  background: #f4fbfc;
+  color: #222b3c;
+}
+
+@media (max-width: 1100px) {
+  .about-hero-layout,
+  .about-overview-grid,
+  .about-founders-row {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero-art {
+    min-height: 260px;
+    max-width: 560px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about-art-orb-large {
+    right: 12%;
+  }
+
+  .about-art-orb-mid {
+    right: 42%;
+  }
+
+  .about-art-orb-small {
+    right: 30%;
+  }
+
+  .about-team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .about-hipaa-card {
+    grid-template-columns: 190px 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .about-hero-redesign {
+    padding: 112px 0 76px;
+  }
+
+  .about-stats-row,
+  .about-team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-founder-card {
+    grid-template-columns: 1fr;
+  }
+
+  .about-founder-photo {
+    max-height: 340px;
+  }
+
+  .about-hipaa-card {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hipaa-logo {
+    border-right: 0;
+    border-bottom: 1px solid rgba(82, 169, 185, 0.16);
+    padding: 0 0 22px;
+  }
+
+  .about-cta-band {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .about-cta-btn {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-hero-redesign {
+    padding: 104px 0 68px;
+  }
+
+  .about-hero-copy h1 {
+    font-size: clamp(34px, 10vw, 44px);
+  }
+
+  .about-overview-grid {
+    gap: 18px;
+  }
+
+  .about-side-stack {
+    gap: 18px;
+  }
+
+  .about-story-card,
+  .about-mini-card {
+    padding: 22px;
+  }
+
+  .about-mini-card,
+  .about-stat-card,
+  .about-team-card {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats-row,
+  .about-team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-team-card {
+    display: flex;
+  }
+
+  .about-cta-band {
+    padding: 28px 22px;
+  }
+
+  .about-cta-btn {
+    width: 100%;
+  }
+
+  .about-art-orb-large {
+    width: 210px;
+    height: 210px;
+    right: 0;
+  }
+
+  .about-art-orb-mid {
+    width: 128px;
+    height: 128px;
+    right: 42%;
+  }
+
+  .about-art-orb-small {
+    width: 92px;
+    height: 92px;
+    right: 23%;
+  }
+}
+
+/* =========================================================
+   ABOUT PAGE REFINEMENTS
+   - Places the favicon logo cleanly inside the large upper-right circle.
+   - Fixes the small people mark so the two figures sit beside each other.
+   - Matches About page accent styles with the homepage brand direction.
+   - Removes founder social pills and button arrows.
+   - Makes team member cards larger.
+========================================================= */
+.about-redesign-page {
+  --about-navy: #222b3c;
+  --about-teal: #52a9b9;
+  --about-teal-soft: rgba(82, 169, 185, 0.14);
+  --about-line: rgba(82, 169, 185, 0.22);
+}
+
+.about-hero-copy h1 span,
+.about-role,
+.about-team-info p,
+.about-stat-card strong {
+  color: var(--about-teal) !important;
+}
+
+.about-pill {
+  color: #3f8f9e !important;
+  border-color: rgba(82, 169, 185, 0.20) !important;
+}
+
+.about-section-line {
+  background: var(--about-teal) !important;
+}
+
+.about-hero-btn,
+.about-cta-btn {
+  background: var(--about-teal) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(82, 169, 185, 0.38) !important;
+  box-shadow: 0 14px 28px rgba(34, 43, 60, 0.12) !important;
+}
+
+.about-hero-btn::after,
+.about-cta-btn::after {
+  display: none !important;
+  content: none !important;
+}
+
+.about-hero-btn:hover,
+.about-cta-btn:hover {
+  background: #478f9e !important;
+  color: #ffffff !important;
+  box-shadow: 0 18px 34px rgba(34, 43, 60, 0.16) !important;
+}
+
+.about-hero-art {
+  isolation: isolate;
+}
+
+.about-art-orb {
+  border-color: rgba(82, 169, 185, 0.22) !important;
+}
+
+.about-art-orb-large {
+  width: clamp(240px, 25vw, 310px) !important;
+  height: clamp(240px, 25vw, 310px) !important;
+  right: 0 !important;
+  top: 0 !important;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 68% 66%, rgba(34, 43, 60, 0.08), transparent 42%),
+    linear-gradient(135deg, rgba(82, 169, 185, 0.36), rgba(255, 255, 255, 0.52)) !important;
+}
+
+.about-art-logo {
+  width: clamp(145px, 16vw, 205px) !important;
+  right: clamp(42px, 4.4vw, 58px) !important;
+  top: clamp(42px, 4.4vw, 58px) !important;
+  opacity: 0.58 !important;
+  z-index: 4 !important;
+  filter: drop-shadow(0 20px 38px rgba(34, 43, 60, 0.16)) !important;
+}
+
+.about-art-logo img {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.about-art-orb-mid {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  background: var(--about-teal) !important;
+  z-index: 3;
+}
+
+.about-art-orb-mid span {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  width: 17px !important;
+  height: 17px !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+}
+
+.about-art-orb-mid span::after {
+  width: 26px !important;
+  height: 15px !important;
+  bottom: -15px !important;
+  background: rgba(255, 255, 255, 0.76) !important;
+}
+
+.about-art-orb-small {
+  z-index: 2;
+}
+
+.about-custom-icon,
+.about-stat-mark,
+.about-shield-mark {
+  background: rgba(82, 169, 185, 0.10) !important;
+  border: 1px solid rgba(82, 169, 185, 0.20) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.64), 0 10px 22px rgba(34,43,60,0.06) !important;
+}
+
+.about-icon-target::before,
+.about-icon-eye::before,
+.about-mark-calendar::before,
+.about-mark-globe::before,
+.about-mark-people::after {
+  border-color: var(--about-navy) !important;
+}
+
+.about-icon-target::after,
+.about-icon-target span,
+.about-icon-eye span,
+.about-mark-calendar::after,
+.about-mark-globe::after,
+.about-mark-people::before {
+  background: var(--about-teal) !important;
+}
+
+.about-mark-calendar::after {
+  border-left-color: var(--about-teal) !important;
+  border-right-color: var(--about-teal) !important;
+}
+
+.about-mark-people::before {
+  box-shadow: 17px 4px 0 -2px var(--about-navy) !important;
+}
+
+.about-shield-mark {
+  background: var(--about-teal) !important;
+  border: none !important;
+}
+
+.about-social-pills {
+  display: none !important;
+}
+
+.about-team-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+.about-team-card {
+  grid-template-columns: 108px 1fr !important;
+  gap: 22px !important;
+  min-height: 148px !important;
+  padding: 20px !important;
+  border-color: rgba(82, 169, 185, 0.16) !important;
+  box-shadow: 0 18px 38px rgba(34, 43, 60, 0.08) !important;
+}
+
+.about-team-photo {
+  width: 108px !important;
+  height: 108px !important;
+  border-radius: 14px !important;
+}
+
+.about-team-info h3 {
+  font-size: 15px !important;
+  margin-bottom: 10px !important;
+}
+
+.about-team-info p {
+  font-size: 14px !important;
+}
+
+.about-cta-band {
+  color: #ffffff !important;
+  background:
+    radial-gradient(circle at 12% 48%, rgba(82, 169, 185, 0.24), transparent 28%),
+    radial-gradient(circle at 92% 18%, rgba(82, 169, 185, 0.14), transparent 26%),
+    linear-gradient(135deg, #222b3c 0%, #1a2333 48%, #111827 100%) !important;
+  border: 1px solid rgba(82, 169, 185, 0.20) !important;
+  box-shadow: 0 22px 46px rgba(34, 43, 60, 0.20) !important;
+}
+
+.about-cta-band::before {
+  background:
+    radial-gradient(circle at 5% 18%, rgba(82, 169, 185, 0.20) 0 2px, transparent 3px) !important;
+  opacity: 0.32 !important;
+}
+
+.about-cta-icon {
+  width: 72px !important;
+  height: 72px !important;
+  border-radius: 24px !important;
+  background: rgba(82, 169, 185, 0.14) !important;
+  border: 1px solid rgba(82, 169, 185, 0.28) !important;
+}
+
+.about-cta-icon::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 17px !important;
+  right: 17px !important;
+  top: 34px !important;
+  height: 3px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,0.84) !important;
+}
+
+.about-cta-icon::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 15px !important;
+  top: 27px !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  box-shadow: 21px -11px 0 0 rgba(255,255,255,0.88), 42px 8px 0 0 rgba(255,255,255,0.70) !important;
+}
+
+.about-cta-btn {
+  background: #ffffff !important;
+  color: #222b3c !important;
+  border-color: rgba(255,255,255,0.28) !important;
+}
+
+.about-cta-btn:hover {
+  background: #edf8fa !important;
+  color: #222b3c !important;
+}
+
+@media (max-width: 1100px) {
+  .about-art-logo {
+    right: clamp(34px, 5vw, 52px) !important;
+    top: clamp(34px, 5vw, 52px) !important;
+  }
+
+  .about-team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-art-logo {
+    width: 145px !important;
+    right: 38px !important;
+    top: 38px !important;
+  }
+
+  .about-art-orb-mid {
+    gap: 12px !important;
+  }
+
+  .about-team-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-team-card {
+    grid-template-columns: 96px 1fr !important;
+    min-height: 132px !important;
+    padding: 18px !important;
+  }
+
+  .about-team-photo {
+    width: 96px !important;
+    height: 96px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-team-card {
+    grid-template-columns: 88px 1fr !important;
+    gap: 18px !important;
+  }
+
+  .about-team-photo {
+    width: 88px !important;
+    height: 88px !important;
+  }
+}
+
+/* =========================================================
+   ABOUT HERO ART + ICON CLEANUP FIX
+   - Centers favicon logo inside the large top-right circle.
+   - Centers the two people marks inside their assigned circle.
+   - Moves the smallest circle to the bottom of the large circle with a 50% overlap.
+   - Removes layout space for Mission/Vision/HIPAA title icons.
+========================================================= */
+.about-hero-art {
+  --about-orb-large-size: clamp(240px, 25vw, 310px);
+  --about-logo-size: clamp(118px, 12vw, 160px);
+  --about-orb-small-size: clamp(96px, 9vw, 116px);
+}
+
+.about-art-orb-large {
+  width: var(--about-orb-large-size) !important;
+  height: var(--about-orb-large-size) !important;
+  right: 0 !important;
+  top: 0 !important;
+}
+
+.about-art-logo {
+  width: var(--about-logo-size) !important;
+  height: var(--about-logo-size) !important;
+  right: calc((var(--about-orb-large-size) - var(--about-logo-size)) / 2) !important;
+  top: calc((var(--about-orb-large-size) - var(--about-logo-size)) / 2) !important;
+  display: grid !important;
+  place-items: center !important;
+  opacity: 0.66 !important;
+  z-index: 4 !important;
+}
+
+.about-art-logo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.about-art-orb-mid {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 24px !important;
+  padding: 0 !important;
+}
+
+.about-art-orb-mid span {
+  position: relative !important;
+  flex: 0 0 auto !important;
+  display: block !important;
+  margin: 0 !important;
+  transform: translateY(-8px) !important;
+}
+
+.about-art-orb-mid span::after {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.about-art-orb-small {
+  width: var(--about-orb-small-size) !important;
+  height: var(--about-orb-small-size) !important;
+  right: calc(var(--about-orb-large-size) * 0.18) !important;
+  top: calc(var(--about-orb-large-size) - (var(--about-orb-small-size) / 2)) !important;
+  z-index: 2 !important;
+}
+
+.about-mini-card {
+  grid-template-columns: 1fr !important;
+}
+
+.about-mini-card .about-custom-icon {
+  display: none !important;
+}
+
+.about-hipaa-title {
+  gap: 0 !important;
+}
+
+.about-hipaa-title .about-shield-mark {
+  display: none !important;
+}
+
+@media (max-width: 1100px) {
+  .about-hero-art {
+    --about-orb-large-size: clamp(230px, 32vw, 292px);
+    --about-logo-size: clamp(110px, 16vw, 148px);
+    --about-orb-small-size: clamp(88px, 12vw, 108px);
+  }
+}
+
+@media (max-width: 700px) {
+  .about-hero-art {
+    --about-orb-large-size: 240px;
+    --about-logo-size: 118px;
+    --about-orb-small-size: 92px;
+  }
+
+  .about-art-orb-mid {
+    gap: 20px !important;
+  }
+}
+
+
+/* =========================================================
+   ABOUT HERO CIRCLES BOUNCE UPDATE
+   - Makes the three upper-right hero circles move up and down.
+   - Each circle uses a different speed so the motion does not look synchronized.
+   - The logo moves with the large circle so it stays centered inside it.
+========================================================= */
+.about-redesign-page .about-art-orb-large,
+.about-redesign-page .about-art-logo {
+  animation: aboutLargeCircleFloat 4.2s ease-in-out infinite !important;
+  will-change: transform;
+}
+
+.about-redesign-page .about-art-orb-mid {
+  animation: aboutMidCircleFloat 3.55s ease-in-out infinite !important;
+  will-change: transform;
+}
+
+.about-redesign-page .about-art-orb-small {
+  animation: aboutSmallCircleFloat 4.85s ease-in-out infinite !important;
+  will-change: transform;
+}
+
+@keyframes aboutLargeCircleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes aboutMidCircleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(14px);
+  }
+}
+
+@keyframes aboutSmallCircleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (max-width: 700px) {
+  .about-redesign-page .about-art-orb-large,
+  .about-redesign-page .about-art-logo {
+    animation-duration: 4.65s !important;
+  }
+
+  .about-redesign-page .about-art-orb-mid {
+    animation-duration: 3.95s !important;
+  }
+
+  .about-redesign-page .about-art-orb-small {
+    animation-duration: 5.2s !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-redesign-page .about-art-orb-large,
+  .about-redesign-page .about-art-logo,
+  .about-redesign-page .about-art-orb-mid,
+  .about-redesign-page .about-art-orb-small {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   HOMEPAGE HERO BACKGROUND LOGO UPWARD POSITION FIX
+   - Moves the large background logo upward so it is more visible on desktop.
+   - Keeps the logo behind the bouncing photo and responsive on smaller screens.
+========================================================= */
+body.home-redesign .lrs-hero-mark {
+  top: 42% !important;
+}
+
+@media (max-width: 1366px) {
+  body.home-redesign .lrs-hero-mark {
+    top: 41% !important;
+  }
+}
+
+@media (max-width: 1240px) {
+  body.home-redesign .lrs-hero-mark {
+    top: 40% !important;
+  }
+}
+
+@media (max-width: 1120px) {
+  body.home-redesign .lrs-hero-mark {
+    top: 38% !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.home-redesign .lrs-hero-mark {
+    top: 31% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.home-redesign .lrs-hero-mark {
+    top: 30% !important;
+  }
+}
+
+
+/* =========================================================
+   PORTFOLIO FULL REDESIGN
+   - Redesigns portfolio content only.
+   - Header and footer remain untouched.
+========================================================= */
+.portfolio-redesign {
+  background:
+    radial-gradient(circle at 86% 10%, rgba(82, 169, 185, 0.12), transparent 32%),
+    radial-gradient(circle at 12% 42%, rgba(82, 169, 185, 0.08), transparent 30%),
+    linear-gradient(180deg, #f8fcfd 0%, #eef6f8 48%, #f8fbfc 100%);
+  overflow: hidden;
+}
+
+.portfolio-hero-redesign {
+  position: relative;
+  padding: 138px 0 78px;
+  overflow: hidden;
+}
+
+.portfolio-hero-redesign::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(130deg, transparent 0 42%, rgba(82,169,185,0.09) 42% 54%, transparent 54%),
+    radial-gradient(circle at 84% 28%, rgba(82, 169, 185, 0.11), transparent 24%);
+  pointer-events: none;
+}
+
+.portfolio-bg-mark {
+  position: absolute;
+  right: -7%;
+  top: 70px;
+  width: min(620px, 55vw);
+  opacity: 0.035;
+  pointer-events: none;
+  filter: grayscale(1) contrast(1.1);
+}
+
+.portfolio-container {
+  width: min(1160px, calc(100% - 64px));
+}
+
+.portfolio-intro {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.portfolio-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
+  color: #237f8e;
+  background: rgba(255,255,255,0.76);
+  border: 1px solid rgba(82,169,185,0.18);
+  box-shadow: 0 14px 28px rgba(34,43,60,0.06);
+  margin-bottom: 22px;
+}
+
+.portfolio-intro h1 {
+  max-width: 760px;
+  margin: 0 0 14px;
+  font-size: clamp(42px, 5.2vw, 72px);
+  line-height: 1.03;
+  letter-spacing: -2.4px;
+  color: #111827;
+}
+
+.portfolio-intro h1 span {
+  display: block;
+  color: #52a9b9;
+  font-weight: 500;
+}
+
+.portfolio-intro p {
+  max-width: 680px;
+  color: #5f6b76;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.portfolio-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 30px 0 36px;
+}
+
+.portfolio-tab {
+  min-height: 44px;
+  padding: 0 22px;
+  border: 1px solid rgba(34,43,60,0.12);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.66);
+  color: #222b3c;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(34,43,60,0.05);
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.portfolio-tab:hover,
+.portfolio-tab.active {
+  transform: translateY(-2px);
+  color: #ffffff;
+  background: #52a9b9;
+  border-color: #52a9b9;
+}
+
+.portfolio-featured-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.32fr) minmax(310px, 0.82fr);
+  gap: 22px;
+  margin-bottom: 46px;
+}
+
+.portfolio-featured-main,
+.portfolio-side-card,
+.portfolio-work-row,
+.portfolio-cta-panel,
+.portfolio-modal-panel {
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(34,43,60,0.10);
+  box-shadow: 0 18px 42px rgba(34,43,60,0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.portfolio-featured-main {
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.portfolio-featured-image {
+  position: relative;
+  height: clamp(320px, 34vw, 470px);
+  background:
+    linear-gradient(135deg, rgba(34,43,60,0.92), rgba(82,169,185,0.40)),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 16px);
+  overflow: hidden;
+}
+
+.portfolio-featured-image img,
+.portfolio-side-image img,
+.portfolio-preview-tile img,
+.portfolio-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.portfolio-featured-image::after,
+.portfolio-side-image::after,
+.portfolio-preview-tile::after,
+.portfolio-modal-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(34,43,60,0.04), rgba(82,169,185,0.05));
+  pointer-events: none;
+}
+
+.portfolio-chip {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: #52a9b9;
+  color: #ffffff;
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  font-weight: 800;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.portfolio-featured-caption {
+  padding: 22px 24px 24px;
+}
+
+.portfolio-featured-caption span,
+.portfolio-side-card span,
+.portfolio-cta-panel span,
+.portfolio-modal-kicker {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 8px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(82,169,185,0.10);
+  color: #237f8e;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.portfolio-featured-caption h2 {
+  font-size: 21px;
+  line-height: 1.25;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.portfolio-featured-caption p,
+.portfolio-side-card p,
+.portfolio-work-info p,
+.portfolio-section-title p,
+.portfolio-cta-panel p,
+.portfolio-modal-copy p {
+  color: #5f6b76;
+  line-height: 1.75;
+}
+
+.portfolio-featured-stack {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.portfolio-side-card {
+  display: grid;
+  grid-template-columns: 158px 1fr;
+  gap: 16px;
+  align-items: center;
+  border-radius: 0;
+  padding: 12px;
+}
+
+.portfolio-side-image {
+  position: relative;
+  height: 122px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(34,43,60,0.16), rgba(82,169,185,0.16));
+}
+
+.portfolio-side-card h3 {
+  font-size: 15px;
+  line-height: 1.35;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.portfolio-side-card p {
+  font-size: 12px;
+}
+
+.portfolio-section-title {
+  text-align: center;
+  margin: 42px 0 28px;
+}
+
+.portfolio-section-title h2 {
+  font-size: clamp(28px, 3vw, 38px);
+  color: #111827;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.portfolio-work-list {
+  display: grid;
+  gap: 18px;
+}
+
+.portfolio-work-row {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: center;
+  border-radius: 0;
+  padding: 22px;
+  scroll-margin-top: 130px;
+}
+
+.portfolio-work-info h3 {
+  font-size: 24px;
+  color: #111827;
+  margin: 12px 0 10px;
+}
+
+.portfolio-work-info p {
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.portfolio-custom-mark {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(82,169,185,0.20);
+  background: rgba(82,169,185,0.09);
+  box-shadow: inset 0 0 0 8px rgba(255,255,255,0.38);
+}
+
+.portfolio-custom-mark span {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.portfolio-custom-mark span::before,
+.portfolio-custom-mark span::after {
+  content: "";
+  position: absolute;
+  border: 2px solid #222b3c;
+}
+
+.portfolio-mark-posters span::before { inset: 3px 6px 5px 4px; transform: rotate(-5deg); }
+.portfolio-mark-posters span::after { width: 14px; height: 8px; right: 2px; bottom: 2px; background: #52a9b9; border-color: #52a9b9; }
+.portfolio-mark-product-branding span::before { inset: 4px; border-radius: 2px; transform: rotate(45deg); }
+.portfolio-mark-product-branding span::after { width: 12px; height: 12px; left: 8px; top: 8px; background: rgba(82,169,185,0.40); }
+.portfolio-mark-marketing-materials span::before { left: 4px; top: 3px; width: 18px; height: 22px; }
+.portfolio-mark-marketing-materials span::after { width: 14px; height: 2px; left: 8px; top: 10px; border: 0; background: #52a9b9; box-shadow: 0 6px 0 #52a9b9, 0 12px 0 #52a9b9; }
+.portfolio-mark-dashboard-creation span::before { inset: 5px 3px 4px; }
+.portfolio-mark-dashboard-creation span::after { left: 7px; bottom: 7px; width: 4px; height: 9px; border: 0; background: #52a9b9; box-shadow: 7px -5px 0 #52a9b9, 14px -1px 0 #52a9b9; }
+.portfolio-mark-social-media span::before { width: 10px; height: 10px; left: 2px; top: 4px; border-radius: 50%; box-shadow: 14px 3px 0 -2px #222b3c, 7px 16px 0 -2px #222b3c; }
+.portfolio-mark-social-media span::after { width: 18px; height: 2px; left: 6px; top: 14px; border: 0; background: #52a9b9; transform: rotate(22deg); }
+
+.portfolio-viewall {
+  border: 0;
+  background: transparent;
+  color: #237f8e;
+  font-size: 13px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.portfolio-arrow {
+  width: 24px;
+  height: 16px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.portfolio-arrow span {
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 18px;
+  height: 2px;
+  background: #52a9b9;
+}
+
+.portfolio-arrow::before,
+.portfolio-arrow::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  width: 8px;
+  height: 2px;
+  background: #52a9b9;
+  transform-origin: right center;
+}
+
+.portfolio-arrow::before { top: 7px; transform: rotate(38deg); }
+.portfolio-arrow::after { top: 7px; transform: rotate(-38deg); }
+.portfolio-viewall:hover .portfolio-arrow { transform: translateX(3px); }
+
+.portfolio-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.portfolio-preview-tile {
+  position: relative;
+  height: 152px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(34,43,60,0.16), rgba(82,169,185,0.14)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.22) 0 1px, transparent 1px 12px);
+  border: 1px solid rgba(34,43,60,0.08);
+}
+
+.portfolio-preview-tile figcaption {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 2;
+  font-size: 10px;
+  font-family: monospace;
+  color: rgba(255,255,255,0.88);
+  padding: 5px 8px;
+  background: rgba(34,43,60,0.48);
+  border-radius: 999px;
+}
+
+.portfolio-cta-panel {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: center;
+  margin-top: 44px;
+  padding: 38px 42px;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 12% 45%, rgba(82,169,185,0.14), transparent 30%),
+    linear-gradient(135deg, rgba(255,255,255,0.84), rgba(239,248,250,0.74));
+}
+
+.portfolio-cta-panel h2 {
+  font-size: clamp(28px, 3vw, 38px);
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.portfolio-cta-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.portfolio-solid-btn,
+.portfolio-soft-btn {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.portfolio-solid-btn {
+  background: #52a9b9;
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(82,169,185,0.22);
+}
+
+.portfolio-soft-btn {
+  color: #237f8e;
+  border: 1px solid rgba(82,169,185,0.34);
+  background: rgba(255,255,255,0.56);
+}
+
+.portfolio-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(12, 18, 28, 0.42);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.portfolio-modal.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+body.portfolio-modal-open {
+  overflow: hidden;
+}
+
+.portfolio-modal-panel {
+  position: relative;
+  width: min(1060px, 100%);
+  max-height: min(88vh, 900px);
+  overflow: auto;
+  border-radius: 0;
+  padding: clamp(22px, 3vw, 36px);
+  background: rgba(248,252,253,0.92);
+}
+
+.portfolio-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(34,43,60,0.12);
+  background: #ffffff;
+  color: #222b3c;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.portfolio-modal-header h2 {
+  color: #111827;
+  font-size: clamp(28px, 3vw, 42px);
+  margin-bottom: 16px;
+}
+
+.portfolio-modal-copy {
+  display: grid;
+  gap: 12px;
+  padding: 18px 0 24px;
+  max-width: 900px;
+}
+
+.portfolio-modal-copy strong {
+  color: #111827;
+}
+
+.portfolio-modal-carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.portfolio-modal-track {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 4px 2px 14px;
+}
+
+.portfolio-modal-track::-webkit-scrollbar { display: none; }
+
+.portfolio-modal-slide {
+  flex: 0 0 min(640px, 82vw);
+  scroll-snap-align: center;
+  opacity: 0.52;
+  transform: scale(0.96);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.portfolio-modal-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.portfolio-modal-image {
+  position: relative;
+  height: clamp(300px, 40vw, 520px);
+  overflow: hidden;
+  border: 1px solid rgba(34,43,60,0.10);
+  background:
+    linear-gradient(135deg, rgba(34,43,60,0.16), rgba(82,169,185,0.14)),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.20) 0 1px, transparent 1px 14px);
+}
+
+.portfolio-modal-image span {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 2;
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(34,43,60,0.58);
+  font: 11px/1 monospace;
+}
+
+.portfolio-modal-slide h3 {
+  margin-top: 12px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.portfolio-modal-nav {
+  width: 44px;
+  height: 52px;
+  border: 1px solid rgba(34,43,60,0.12);
+  background: #ffffff;
+  color: #222b3c;
+  font-size: 34px;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(34,43,60,0.08);
+}
+
+.portfolio-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 12px;
+  color: #5f6b76;
+  font-size: 13px;
+}
+
+#portfolioModalFile {
+  font-family: monospace;
+}
+
+@media (max-width: 1024px) {
+  .portfolio-container { width: min(1160px, calc(100% - 48px)); }
+  .portfolio-featured-showcase,
+  .portfolio-work-row {
+    grid-template-columns: 1fr;
+  }
+  .portfolio-work-info {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 820px) {
+  .portfolio-hero-redesign { padding-top: 118px; }
+  .portfolio-side-card { grid-template-columns: 132px 1fr; }
+  .portfolio-preview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio-cta-panel { flex-direction: column; align-items: flex-start; padding: 30px 24px; }
+  .portfolio-modal-carousel { grid-template-columns: 1fr; }
+  .portfolio-modal-nav { display: none; }
+}
+
+@media (max-width: 560px) {
+  .portfolio-container { width: calc(100% - 32px); }
+  .portfolio-intro h1 { font-size: clamp(34px, 10vw, 48px); }
+  .portfolio-tabs { gap: 10px; }
+  .portfolio-tab { width: 100%; }
+  .portfolio-featured-image { height: 300px; }
+  .portfolio-side-card { grid-template-columns: 1fr; }
+  .portfolio-side-image { height: 180px; }
+  .portfolio-work-row { padding: 18px; }
+  .portfolio-preview-grid { grid-template-columns: 1fr; }
+  .portfolio-preview-tile { height: 210px; }
+  .portfolio-cta-actions,
+  .portfolio-solid-btn,
+  .portfolio-soft-btn { width: 100%; }
+  .portfolio-modal { padding: 16px; }
+  .portfolio-modal-slide { flex-basis: 86vw; }
+  .portfolio-modal-image { height: 300px; }
+}
+
+/* =========================================================
+   PORTFOLIO BORDER CONSISTENCY + CTA UPDATE
+   - Matches portfolio cards, images, and modals with the homepage card border style.
+   - Keeps the portfolio redesign layout and modal behavior unchanged.
+========================================================= */
+.portfolio-featured-main,
+.portfolio-side-card,
+.portfolio-work-row,
+.portfolio-cta-panel,
+.portfolio-modal-panel,
+.portfolio-modal-slide {
+  border-radius: 12px !important;
+  border: 1px solid rgba(14, 41, 58, 0.10) !important;
+  box-shadow: 0 16px 34px rgba(15, 37, 55, 0.07) !important;
+}
+
+.portfolio-featured-image,
+.portfolio-side-image,
+.portfolio-preview-tile,
+.portfolio-modal-image {
+  border-radius: 10px !important;
+  border: 1px solid rgba(14, 41, 58, 0.10) !important;
+  overflow: hidden !important;
+}
+
+.portfolio-featured-main {
+  padding: 12px !important;
+}
+
+.portfolio-featured-caption {
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+
+.portfolio-side-card,
+.portfolio-work-row,
+.portfolio-cta-panel,
+.portfolio-modal-panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.66)) !important;
+}
+
+.portfolio-modal-close,
+.portfolio-modal-nav,
+.portfolio-tab,
+.portfolio-viewall,
+.portfolio-soft-btn {
+  border-radius: 12px !important;
+}
+
+.portfolio-cta-actions {
+  justify-content: flex-end !important;
+}
+
+/* =========================================================
+   PORTFOLIO REFINEMENTS
+   - Reverts button styles/designs.
+   - Makes modal panel white.
+   - Matches portfolio CTA to About CTA band styling.
+   - Uses full content width similar to other inner pages.
+   - Keeps category icons aligned with homepage icon language.
+========================================================= */
+
+/* Use the fuller inner-page content width */
+.portfolio-container {
+  width: min(var(--container), calc(100% - 64px)) !important;
+}
+
+@media (max-width: 1024px) {
+  .portfolio-container {
+    width: min(var(--container), calc(100% - 48px)) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolio-container {
+    width: calc(100% - 32px) !important;
+  }
+}
+
+/* Revert button shapes/styles from the last broad button override */
+.portfolio-tab {
+  border-radius: 999px !important;
+}
+
+.portfolio-soft-btn {
+  border-radius: 999px !important;
+  color: #222b3c !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.30) !important;
+  box-shadow: 0 14px 30px rgba(10, 20, 32, 0.12) !important;
+  white-space: nowrap !important;
+  min-width: 224px !important;
+}
+
+.portfolio-soft-btn:hover {
+  background: #edf8fa !important;
+  color: #222b3c !important;
+}
+
+.portfolio-viewall {
+  border-radius: 0 !important;
+}
+
+.portfolio-modal-close,
+.portfolio-modal-nav {
+  border-radius: 0 !important;
+}
+
+/* Modal panel must be white */
+.portfolio-modal-panel {
+  background: #ffffff !important;
+}
+
+/* Keep modal images/cards aligned to homepage card border style */
+.portfolio-modal-panel,
+.portfolio-work-row,
+.portfolio-featured-main,
+.portfolio-side-card,
+.portfolio-cta-panel,
+.portfolio-modal-slide {
+  border: 1px solid rgba(14, 41, 58, 0.10) !important;
+  box-shadow: 0 16px 34px rgba(15, 37, 55, 0.07) !important;
+}
+
+/* Category icons closer to the homepage icon language */
+.portfolio-custom-mark.lrs-card-icon {
+  width: 62px !important;
+  height: 62px !important;
+  min-width: 62px !important;
+  border-radius: 16px 4px 16px 4px !important;
+  display: grid !important;
+  place-items: center !important;
+  background: linear-gradient(145deg, rgba(34, 43, 60, 0.98), rgba(34, 43, 60, 0.84)) !important;
+  border: 1px solid rgba(82, 169, 185, 0.38) !important;
+  box-shadow: 10px 10px 0 rgba(82, 169, 185, 0.10), 0 18px 34px rgba(34, 43, 60, 0.16) !important;
+  overflow: visible !important;
+}
+
+.portfolio-custom-mark.lrs-card-icon i {
+  position: relative !important;
+  z-index: 2 !important;
+  color: #f6fdff !important;
+  font-size: 22px !important;
+}
+
+.portfolio-custom-mark.lrs-card-icon span,
+.portfolio-custom-mark.lrs-card-icon span::before,
+.portfolio-custom-mark.lrs-card-icon span::after {
+  display: none !important;
+}
+
+.portfolio-work-row:nth-child(5n + 1) .portfolio-custom-mark.lrs-card-icon {
+  border-radius: 4px 16px 4px 16px !important;
+}
+
+.portfolio-work-row:nth-child(5n + 2) .portfolio-custom-mark.lrs-card-icon,
+.portfolio-work-row:nth-child(5n + 4) .portfolio-custom-mark.lrs-card-icon {
+  background: linear-gradient(145deg, rgba(82, 169, 185, 0.95), rgba(34, 43, 60, 0.94)) !important;
+}
+
+/* Make the CTA section match the About page CTA band more closely */
+.portfolio-cta-panel {
+  position: relative !important;
+  color: #ffffff !important;
+  background:
+    radial-gradient(circle at 12% 48%, rgba(82, 169, 185, 0.24), transparent 28%),
+    radial-gradient(circle at 92% 18%, rgba(82, 169, 185, 0.14), transparent 26%),
+    linear-gradient(135deg, #222b3c 0%, #1a2333 48%, #111827 100%) !important;
+  border: 1px solid rgba(82, 169, 185, 0.20) !important;
+  box-shadow: 0 22px 46px rgba(34, 43, 60, 0.20) !important;
+  overflow: hidden !important;
+  padding-left: 136px !important;
+}
+
+.portfolio-cta-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 5% 18%, rgba(82, 169, 185, 0.20) 0 2px, transparent 3px);
+  background-size: 20px 20px;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.portfolio-cta-panel::after {
+  content: "";
+  position: absolute;
+  left: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
+  background: rgba(82, 169, 185, 0.14);
+  border: 1px solid rgba(82, 169, 185, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.portfolio-cta-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-cta-panel h2,
+.portfolio-cta-panel p,
+.portfolio-cta-panel span {
+  color: #ffffff !important;
+}
+
+.portfolio-cta-panel span {
+  background: transparent !important;
+  padding: 0 !important;
+  margin-bottom: 10px !important;
+  letter-spacing: 2px !important;
+  font-size: 11px !important;
+  opacity: 0.78 !important;
+}
+
+/* little user/group motif inside the left icon block */
+.portfolio-cta-actions {
+  justify-content: flex-end !important;
+}
+
+.portfolio-cta-panel .portfolio-cta-actions::before {
+  content: "";
+  position: absolute;
+  left: -9999px;
+}
+
+.portfolio-cta-panel .portfolio-cta-actions {
+  position: relative;
+}
+
+.portfolio-cta-panel::marker { content: ""; }
+
+/* draw the icon details */
+.portfolio-cta-panel .portfolio-cta-actions,
+.portfolio-cta-panel .portfolio-cta-actions::after,
+.portfolio-cta-panel .portfolio-cta-actions::before {
+  pointer-events: auto;
+}
+
+.portfolio-cta-panel .portfolio-cta-actions::after {
+  content: "";
+  position: absolute;
+  left: calc(-100vw);
+}
+
+/* icon details over the pseudo icon block */
+.portfolio-cta-panel {
+  --portfolio-cta-icon-left: 36px;
+}
+
+.portfolio-cta-panel .portfolio-cta-actions {
+  z-index: 2;
+}
+
+.portfolio-cta-panel .portfolio-cta-actions::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--portfolio-cta-icon-left) - 3px);
+  top: calc(50% + 7px);
+  transform: translateY(-50%);
+  width: 38px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.84);
+  box-shadow: 0 0 0 9999px transparent;
+  pointer-events: none;
+}
+
+.portfolio-cta-panel .portfolio-cta-actions::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--portfolio-cta-icon-left) - 5px);
+  top: calc(50% - 13px);
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 21px -11px 0 0 rgba(255,255,255,0.88), 42px 8px 0 0 rgba(255,255,255,0.70);
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .portfolio-cta-panel {
+    padding-left: 112px !important;
+  }
+
+  .portfolio-cta-panel::after {
+    left: 26px;
+    width: 64px;
+    height: 64px;
+  }
+
+  .portfolio-cta-panel {
+    --portfolio-cta-icon-left: 29px;
+  }
+}
+
+@media (max-width: 820px) {
+  .portfolio-cta-panel {
+    padding-left: 24px !important;
+  }
+
+  .portfolio-cta-panel::after,
+  .portfolio-cta-panel .portfolio-cta-actions::before,
+  .portfolio-cta-panel .portfolio-cta-actions::after {
+    display: none !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolio-soft-btn {
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  .portfolio-cta-actions {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+}
+
+/* =========================================================
+   PORTFOLIO CTA FINAL FIX
+   - Removes random pseudo dots near the Book a Consultation button.
+   - Matches the CTA background to the homepage dark sections.
+   - Fixes the CTA icon into a clean branded mark.
+========================================================= */
+.portfolio-cta-panel {
+  position: relative !important;
+  color: #ffffff !important;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(82, 169, 185, 0.24), transparent 31%),
+    radial-gradient(circle at 78% 70%, rgba(82, 169, 185, 0.16), transparent 34%),
+    linear-gradient(135deg, #222b3c 0%, #182334 50%, #101827 100%) !important;
+  border: 1px solid rgba(82, 169, 185, 0.20) !important;
+  box-shadow: 0 22px 46px rgba(34, 43, 60, 0.20) !important;
+  overflow: hidden !important;
+  padding-left: 136px !important;
+}
+
+.portfolio-cta-panel > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.portfolio-cta-panel h2,
+.portfolio-cta-panel p {
+  color: #ffffff !important;
+}
+
+.portfolio-cta-panel > div:first-child::before {
+  content: "" !important;
+  position: absolute !important;
+  left: -100px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 72px !important;
+  height: 72px !important;
+  border-radius: 24px !important;
+  background: rgba(82, 169, 185, 0.14) !important;
+  border: 1px solid rgba(82, 169, 185, 0.28) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06) !important;
+}
+
+.portfolio-cta-panel > div:first-child::after {
+  content: "" !important;
+  position: absolute !important;
+  left: -82px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 36px !important;
+  height: 28px !important;
+  border: 3px solid rgba(255,255,255,0.86) !important;
+  border-top: 0 !important;
+  border-radius: 0 0 18px 18px !important;
+  background: transparent !important;
+  box-shadow: 18px -16px 0 -8px #ffffff, -2px -16px 0 -8px rgba(255,255,255,0.75) !important;
+}
+
+.portfolio-cta-panel .portfolio-cta-actions::before,
+.portfolio-cta-panel .portfolio-cta-actions::after {
+  display: none !important;
+  content: none !important;
+}
+
+.portfolio-soft-btn {
+  white-space: nowrap !important;
+  min-width: max-content !important;
+}
+
+@media (max-width: 820px) {
+  .portfolio-cta-panel {
+    padding-left: 24px !important;
+  }
+
+  .portfolio-cta-panel > div:first-child::before,
+  .portfolio-cta-panel > div:first-child::after {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   PORTFOLIO + ABOUT CTA AND ICON FINAL POLISH
+   - Removes CTA icons beside both CTA headings.
+   - Makes Portfolio CTA background exactly match About CTA background.
+   - Removes stray pseudo-elements near Book a Consultation.
+   - Updates About stat icons to match homepage icon styling.
+========================================================= */
+
+/* About stat icons: use the same custom icon block language as the homepage */
+.about-stat-mark.about-stat-icon.lrs-card-icon {
+  position: relative !important;
+  width: 62px !important;
+  height: 62px !important;
+  min-width: 62px !important;
+  border-radius: 16px 4px 16px 4px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #f6fdff !important;
+  background: linear-gradient(145deg, rgba(34, 43, 60, 0.98), rgba(34, 43, 60, 0.84)) !important;
+  border: 1px solid rgba(82, 169, 185, 0.38) !important;
+  box-shadow: 10px 10px 0 rgba(82, 169, 185, 0.10), 0 18px 34px rgba(34, 43, 60, 0.16) !important;
+  overflow: visible !important;
+}
+
+.about-stat-card:nth-child(2) .about-stat-mark.about-stat-icon.lrs-card-icon {
+  background: linear-gradient(145deg, rgba(82, 169, 185, 0.95), rgba(34, 43, 60, 0.94)) !important;
+  border-radius: 4px 16px 4px 16px !important;
+}
+
+.about-stat-mark.about-stat-icon.lrs-card-icon i {
+  position: relative !important;
+  z-index: 2 !important;
+  color: #f6fdff !important;
+  font-size: 23px !important;
+}
+
+/* Remove any previous custom stat icon drawings */
+.about-stat-mark.about-stat-icon::before,
+.about-stat-mark.about-stat-icon::after {
+  content: "" !important;
+}
+
+/* Remove the visible icon beside the About CTA heading and rebalance the layout */
+.about-cta-icon {
+  display: none !important;
+}
+
+.about-cta-band {
+  grid-template-columns: 1fr auto !important;
+  color: #ffffff !important;
+  background:
+    radial-gradient(circle at 12% 48%, rgba(82, 169, 185, 0.24), transparent 28%),
+    radial-gradient(circle at 92% 18%, rgba(82, 169, 185, 0.14), transparent 26%),
+    linear-gradient(135deg, #222b3c 0%, #1a2333 48%, #111827 100%) !important;
+  border: 1px solid rgba(82, 169, 185, 0.20) !important;
+  box-shadow: 0 22px 46px rgba(34, 43, 60, 0.20) !important;
+}
+
+.about-cta-band::before {
+  background: radial-gradient(circle at 5% 18%, rgba(82, 169, 185, 0.20) 0 2px, transparent 3px) !important;
+  background-size: 20px 20px !important;
+  opacity: 0.32 !important;
+}
+
+/* Remove Portfolio CTA icon and make its background exactly match the About CTA */
+.portfolio-cta-panel {
+  padding-left: 38px !important;
+  color: #ffffff !important;
+  background:
+    radial-gradient(circle at 12% 48%, rgba(82, 169, 185, 0.24), transparent 28%),
+    radial-gradient(circle at 92% 18%, rgba(82, 169, 185, 0.14), transparent 26%),
+    linear-gradient(135deg, #222b3c 0%, #1a2333 48%, #111827 100%) !important;
+  border: 1px solid rgba(82, 169, 185, 0.20) !important;
+  box-shadow: 0 22px 46px rgba(34, 43, 60, 0.20) !important;
+}
+
+.portfolio-cta-panel::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(circle at 5% 18%, rgba(82, 169, 185, 0.20) 0 2px, transparent 3px) !important;
+  background-size: 20px 20px !important;
+  opacity: 0.32 !important;
+  pointer-events: none !important;
+}
+
+.portfolio-cta-panel::after,
+.portfolio-cta-panel > div:first-child::before,
+.portfolio-cta-panel > div:first-child::after,
+.portfolio-cta-panel .portfolio-cta-actions::before,
+.portfolio-cta-panel .portfolio-cta-actions::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.portfolio-cta-panel > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.portfolio-cta-panel h2,
+.portfolio-cta-panel p {
+  color: #ffffff !important;
+}
+
+.portfolio-soft-btn {
+  position: relative !important;
+  z-index: 3 !important;
+  white-space: nowrap !important;
+  min-width: max-content !important;
+  background: #ffffff !important;
+  color: #222b3c !important;
+  border: 1px solid rgba(255,255,255,0.30) !important;
+  box-shadow: 0 14px 30px rgba(10, 20, 32, 0.12) !important;
+}
+
+.portfolio-soft-btn::before,
+.portfolio-soft-btn::after {
+  display: none !important;
+  content: none !important;
+}
+
+@media (max-width: 820px) {
+  .about-cta-band {
+    grid-template-columns: 1fr !important;
+  }
+
+  .portfolio-cta-panel {
+    padding-left: 24px !important;
+  }
+}
+
+/* =========================================================
+   CLEAN CTA BACKGROUNDS UPDATE
+   - Removes the tiny dot texture from the About and Portfolio CTA sections.
+   - Keeps the dark gradient backgrounds clean and unchanged otherwise.
+========================================================= */
+.about-cta-band::before,
+.portfolio-cta-panel::before {
+  background: none !important;
+  background-image: none !important;
+  background-size: auto !important;
+  opacity: 0 !important;
+}
+
+/* =========================================================
+   SERVICES PAGE REDESIGN
+   - Services page content only.
+   - Header and footer remain unchanged.
+========================================================= */
+.services-redesign {
+  background:
+    radial-gradient(circle at 86% 8%, rgba(82, 169, 185, 0.12), transparent 28%),
+    radial-gradient(circle at 10% 45%, rgba(82, 169, 185, 0.08), transparent 30%),
+    linear-gradient(180deg, #f8fcfd 0%, #eef6f8 48%, #f9fcfd 100%);
+  overflow: hidden;
+}
+
+.services-container {
+  width: min(var(--container), calc(100% - 64px));
+}
+
+.services-hero-section {
+  position: relative;
+  padding: 138px 0 74px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(34, 43, 60, 0.08);
+}
+
+.services-hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.18)),
+    radial-gradient(circle at 83% 50%, rgba(82, 169, 185, 0.18), transparent 30%);
+  pointer-events: none;
+}
+
+.services-hero-section::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  top: 64px;
+  width: min(610px, 58vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(circle at center, rgba(82, 169, 185, 0.16) 0 1px, transparent 1px 9px),
+    radial-gradient(circle, rgba(82, 169, 185, 0.16), rgba(82, 169, 185, 0.02) 62%, transparent 63%);
+  opacity: 0.48;
+  pointer-events: none;
+}
+
+.services-hero-mark {
+  position: absolute;
+  right: 12%;
+  bottom: -34px;
+  width: min(360px, 32vw);
+  opacity: 0.035;
+  filter: grayscale(1) contrast(1.1);
+  pointer-events: none;
+}
+
+.services-hero-mark img {
+  width: 100%;
+  height: auto;
+}
+
+.services-hero-content,
+.services-hero-points,
+.services-section-heading,
+.services-grid-redesign,
+.services-value-strip,
+.services-cta-band {
+  position: relative;
+  z-index: 1;
+}
+
+.services-hero-content {
+  max-width: 740px;
+}
+
+.services-eyebrow,
+.services-section-heading span {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 34px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
+  color: #237f8e;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(82,169,185,0.20);
+  box-shadow: 0 14px 28px rgba(34,43,60,0.06);
+  margin-bottom: 22px;
+}
+
+.services-hero-content h1 {
+  max-width: 790px;
+  margin: 0 0 14px;
+  color: #111827;
+  font-size: clamp(42px, 5.3vw, 74px);
+  line-height: 1.03;
+  letter-spacing: -2.6px;
+}
+
+.services-hero-content h1 span {
+  display: block;
+  color: #237f8e;
+  font-weight: 600;
+}
+
+.services-hero-content p {
+  max-width: 660px;
+  color: #5f6b76;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.services-hero-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  max-width: 760px;
+  margin-top: 42px;
+}
+
+.services-hero-point,
+.services-value-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.services-mini-icon,
+.services-card-redesign .service-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: #f6fdff;
+  background: linear-gradient(145deg, rgba(34, 43, 60, 0.98), rgba(34, 43, 60, 0.84));
+  border: 1px solid rgba(82, 169, 185, 0.38);
+  box-shadow:
+    8px 8px 0 rgba(82, 169, 185, 0.10),
+    0 16px 30px rgba(34, 43, 60, 0.14);
+  overflow: visible;
+}
+
+.services-mini-icon {
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  border-radius: 15px 4px 15px 4px;
+}
+
+.services-mini-icon::before,
+.services-card-redesign .service-icon::before {
+  content: "";
+  position: absolute;
+  inset: -6px auto auto -6px;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #52a9b9;
+  border-left: 2px solid #52a9b9;
+  opacity: 0.85;
+}
+
+.services-mini-icon::after,
+.services-card-redesign .service-icon::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, rgba(82, 169, 185, 0.96), rgba(82, 169, 185, 0.42));
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  opacity: 0.95;
+}
+
+.services-mini-icon i,
+.services-card-redesign .service-icon i {
+  position: relative;
+  z-index: 2;
+  color: #f6fdff;
+  font-size: 21px;
+}
+
+.services-hero-point h3,
+.services-value-item h3 {
+  margin-bottom: 3px;
+  color: #111827;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.services-hero-point p,
+.services-value-item p {
+  color: #5f6b76;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.services-main-section {
+  padding: 42px 0 28px;
+}
+
+.services-section-heading {
+  max-width: 720px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.services-section-heading span {
+  margin-inline: auto;
+  margin-bottom: 14px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: #237f8e;
+}
+
+.services-section-heading h2 {
+  margin-bottom: 12px;
+  color: #111827;
+  font-size: clamp(30px, 3.3vw, 42px);
+  line-height: 1.16;
+  letter-spacing: -1.4px;
+}
+
+.services-section-heading p {
+  color: #5f6b76;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.services-grid-redesign {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.services-card-redesign {
+  position: relative;
+  min-height: 276px;
+  padding: 26px 24px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(14, 41, 58, 0.10);
+  box-shadow: 0 16px 34px rgba(15, 37, 55, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.services-card-redesign:hover {
+  transform: translateY(-4px);
+  border-color: rgba(82, 169, 185, 0.24);
+  box-shadow: 0 22px 44px rgba(15, 37, 55, 0.10);
+}
+
+.services-card-redesign .service-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 16px 4px 16px 4px;
+  margin-bottom: 22px;
+}
+
+.services-card-redesign:nth-child(3n + 2) .service-icon,
+.services-card-redesign:nth-child(3n + 5) .service-icon {
+  background: linear-gradient(145deg, rgba(82, 169, 185, 0.95), rgba(34, 43, 60, 0.94));
+  border-radius: 4px 16px 4px 16px;
+}
+
+.services-card-redesign h3 {
+  margin-bottom: 12px;
+  color: #152033;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: -0.4px;
+}
+
+.services-card-redesign p {
+  color: #5f6b76;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.services-card-featured {
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 86% 18%, rgba(82, 169, 185, 0.22), transparent 28%),
+    linear-gradient(135deg, #222b3c 0%, #172033 54%, #101827 100%);
+  border-color: rgba(82, 169, 185, 0.24);
+  box-shadow: 0 26px 54px rgba(34, 43, 60, 0.24);
+}
+
+.services-card-featured h3,
+.services-card-featured p {
+  color: #ffffff;
+}
+
+.services-card-featured p {
+  color: rgba(255,255,255,0.82);
+}
+
+.services-featured-label {
+  position: absolute;
+  left: 22px;
+  bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #52a9b9;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+.services-value-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 24px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(14, 41, 58, 0.10);
+  box-shadow: 0 16px 34px rgba(15, 37, 55, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.services-value-item {
+  padding: 0 18px;
+  border-right: 1px solid rgba(34,43,60,0.12);
+}
+
+.services-value-item:last-child {
+  border-right: 0;
+}
+
+.services-value-item .services-mini-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 14px 4px 14px 4px;
+}
+
+.services-value-item .services-mini-icon i {
+  font-size: 19px;
+}
+
+.services-cta-band {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 42px;
+  margin-top: 28px;
+  padding: 46px 54px;
+  border-radius: 12px;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 12% 48%, rgba(82, 169, 185, 0.24), transparent 28%),
+    radial-gradient(circle at 92% 18%, rgba(82, 169, 185, 0.14), transparent 26%),
+    linear-gradient(135deg, #222b3c 0%, #1a2333 48%, #111827 100%);
+  border: 1px solid rgba(82, 169, 185, 0.20);
+  box-shadow: 0 22px 46px rgba(34, 43, 60, 0.20);
+  overflow: hidden;
+}
+
+.services-cta-band h2 {
+  max-width: 680px;
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -1.7px;
+}
+
+.services-cta-band h2 span {
+  color: #52a9b9;
+}
+
+.services-cta-band p {
+  max-width: 610px;
+  color: rgba(255,255,255,0.80);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.services-cta-actions {
+  min-width: 260px;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.services-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 30px;
+  border-radius: 999px;
+  color: #222b3c;
+  background: #ffffff;
+  border: 1px solid rgba(255,255,255,0.30);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.16);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.services-cta-btn:hover {
+  transform: translateY(-2px);
+  background: #edf8fa;
+}
+
+.services-cta-actions p {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.72);
+}
+
+@media (max-width: 1180px) {
+  .services-grid-redesign {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .services-value-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 0;
+  }
+
+  .services-value-item:nth-child(2n) {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .services-container {
+    width: min(var(--container), calc(100% - 48px));
+  }
+
+  .services-hero-section {
+    padding-top: 118px;
+  }
+
+  .services-hero-points,
+  .services-grid-redesign {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .services-cta-band {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 34px 28px;
+  }
+
+  .services-cta-actions {
+    min-width: 0;
+    justify-items: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-container {
+    width: calc(100% - 32px);
+  }
+
+  .services-hero-section {
+    padding-top: 112px;
+    padding-bottom: 52px;
+  }
+
+  .services-hero-content h1 {
+    font-size: clamp(36px, 10vw, 48px);
+  }
+
+  .services-hero-points,
+  .services-grid-redesign,
+  .services-value-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .services-value-item {
+    border-right: 0;
+    padding: 0;
+  }
+
+  .services-card-redesign {
+    min-height: auto;
+  }
+
+  .services-cta-band h2 {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+}
+
+/* =========================================================
+   SERVICES + ABOUT REQUESTED UPDATES
+   - Removes default featured service dark state.
+   - Dark service card appears only after the user clicks a card.
+   - Removes featured label display if any older markup remains.
+   - Keeps CTA clean without extra supporting text.
+========================================================= */
+.services-featured-label {
+  display: none !important;
+}
+
+.services-card-redesign {
+  cursor: pointer;
+}
+
+.services-card-redesign:focus-visible {
+  outline: 3px solid rgba(82, 169, 185, 0.34);
+  outline-offset: 4px;
+}
+
+.services-card-redesign.is-active {
+  color: #ffffff !important;
+  background:
+    radial-gradient(circle at 86% 18%, rgba(82, 169, 185, 0.22), transparent 28%),
+    linear-gradient(135deg, #222b3c 0%, #172033 54%, #101827 100%) !important;
+  border-color: rgba(82, 169, 185, 0.24) !important;
+  box-shadow: 0 26px 54px rgba(34, 43, 60, 0.24) !important;
+}
+
+.services-card-redesign.is-active h3,
+.services-card-redesign.is-active p {
+  color: #ffffff !important;
+}
+
+.services-card-redesign.is-active p {
+  color: rgba(255,255,255,0.82) !important;
+}
+
+.services-card-redesign.is-active .service-icon {
+  background: linear-gradient(145deg, rgba(82, 169, 185, 0.95), rgba(34, 43, 60, 0.94)) !important;
+  border-color: rgba(255,255,255,0.18) !important;
+}
+
+.services-cta-actions p {
+  display: none !important;
+}
+
+
+/* =========================================================
+   SERVICES HEADING REMOVAL SPACING FIX
+   - Removes extra division between hero and services grid.
+   - Makes the services list connect seamlessly with the top heading.
+========================================================= */
+.services-main-section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.services-main-section .services-container {
+  margin-top: 0 !important;
+}
+
+.services-grid-redesign {
+  margin-top: 0 !important;
+}
+
+.services-section-heading {
+  display: none !important;
+}
+
+/* =========================================================
+   SERVICES HERO-TO-LIST SEAMLESS BACKGROUND FIX
+   - Removes the visible division line between the top heading and services list.
+   - Keeps the hero and services list visually connected as one continuous section.
+========================================================= */
+.services-hero-section {
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  padding-bottom: 34px !important;
+}
+
+.services-main-section {
+  margin-top: -1px !important;
+  padding-top: 0 !important;
+  background: transparent !important;
+  border-top: 0 !important;
+  box-shadow: none !important;
+}
+
+.services-main-section::before,
+.services-main-section::after,
+.services-grid-redesign::before,
+.services-grid-redesign::after {
+  display: none !important;
+}
+
+.services-main-section .services-container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.services-grid-redesign {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+
+/* =========================================================
+   SERVICES SINGLE BACKGROUND UPDATE
+   - Uses one continuous background across the whole Services page.
+   - Removes section-specific overlays/lines that made the hero and service list look cut apart.
+   - Keeps the header, footer, service cards, interactions, and CTA unchanged.
+========================================================= */
+.services-redesign {
+  background:
+    radial-gradient(circle at 86% 10%, rgba(82, 169, 185, 0.13), transparent 31%),
+    radial-gradient(circle at 10% 42%, rgba(82, 169, 185, 0.08), transparent 30%),
+    radial-gradient(circle at 78% 78%, rgba(82, 169, 185, 0.07), transparent 34%),
+    linear-gradient(180deg, #f8fcfd 0%, #eef6f8 52%, #f9fcfd 100%) !important;
+}
+
+.services-hero-section,
+.services-main-section {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.services-hero-section::before,
+.services-hero-section::after,
+.services-main-section::before,
+.services-main-section::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.services-hero-section {
+  padding-bottom: 30px !important;
+}
+
+.services-main-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.services-grid-redesign {
+  margin-top: 0 !important;
+}
+
+/* =========================================================
+   CONTACT PAGE HEADING + ICON STYLE UPDATE
+   - Aligns the Contact heading with the scale, position, and color language
+     used on Portfolio, About, and Services.
+   - Updates Contact information icons to match the homepage icon style.
+   - Header, footer, form behavior, map, and scripts remain unchanged.
+========================================================= */
+.contact-redesign {
+  background:
+    radial-gradient(circle at 86% 10%, rgba(82, 169, 185, 0.12), transparent 32%),
+    radial-gradient(circle at 12% 42%, rgba(82, 169, 185, 0.08), transparent 30%),
+    linear-gradient(180deg, #f8fcfd 0%, #eef6f8 48%, #f8fbfc 100%) !important;
+  overflow: hidden;
+}
+
+.contact-hero-section {
+  position: relative;
+  padding: 138px 0 82px !important;
+  overflow: hidden;
+}
+
+.contact-hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(130deg, transparent 0 42%, rgba(82,169,185,0.09) 42% 54%, transparent 54%),
+    radial-gradient(circle at 84% 28%, rgba(82, 169, 185, 0.11), transparent 24%);
+  pointer-events: none;
+}
+
+.contact-redesign .container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-redesign .page-intro {
+  text-align: left !important;
+  max-width: 760px !important;
+  margin: 0 0 42px !important;
+}
+
+.contact-redesign .page-intro .eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 34px !important;
+  padding: 0 18px !important;
+  margin-bottom: 22px !important;
+  border-radius: 999px !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 2.3px !important;
+  text-transform: uppercase !important;
+  color: #237f8e !important;
+  background: rgba(255,255,255,0.76) !important;
+  border: 1px solid rgba(82,169,185,0.18) !important;
+  box-shadow: 0 14px 28px rgba(34,43,60,0.06) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.contact-redesign .page-intro h1 {
+  max-width: 760px !important;
+  margin: 0 0 14px !important;
+  font-size: clamp(42px, 5.2vw, 72px) !important;
+  line-height: 1.03 !important;
+  letter-spacing: -2.4px !important;
+  color: #111827 !important;
+  font-weight: 600 !important;
+}
+
+.contact-redesign .page-intro h1 span {
+  display: block !important;
+  color: #52a9b9 !important;
+  font-weight: 500 !important;
+}
+
+.contact-redesign .page-intro p {
+  max-width: 680px !important;
+  margin: 0 !important;
+  color: #5f6b76 !important;
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+}
+
+/* Contact icons matched with homepage custom icon language */
+.contact-redesign .info-icon {
+  position: relative !important;
+  width: 62px !important;
+  height: 62px !important;
+  min-width: 62px !important;
+  border-radius: 16px 4px 16px 4px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #f6fdff !important;
+  background: linear-gradient(145deg, rgba(34, 43, 60, 0.98), rgba(34, 43, 60, 0.84)) !important;
+  border: 1px solid rgba(82, 169, 185, 0.38) !important;
+  border-left: 1px solid rgba(82, 169, 185, 0.38) !important;
+  box-shadow:
+    10px 10px 0 rgba(82, 169, 185, 0.10),
+    0 18px 34px rgba(34, 43, 60, 0.16) !important;
+  overflow: visible !important;
+  flex-shrink: 0 !important;
+}
+
+.contact-redesign .info-icon::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -7px auto auto -7px !important;
+  width: 23px !important;
+  height: 23px !important;
+  border-top: 2px solid #52a9b9 !important;
+  border-left: 2px solid #52a9b9 !important;
+  opacity: 0.95 !important;
+}
+
+.contact-redesign .info-icon::after {
+  content: "" !important;
+  position: absolute !important;
+  right: -6px !important;
+  bottom: -6px !important;
+  width: 20px !important;
+  height: 20px !important;
+  background: linear-gradient(135deg, rgba(82, 169, 185, 0.96), rgba(82, 169, 185, 0.42)) !important;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%) !important;
+  opacity: 0.95 !important;
+}
+
+.contact-redesign .info-icon i {
+  position: relative !important;
+  z-index: 2 !important;
+  color: #f6fdff !important;
+  font-size: 23px !important;
+  text-shadow: none !important;
+}
+
+.contact-redesign .info-item:nth-child(even) .info-icon {
+  border-radius: 4px 16px 4px 16px !important;
+  background: linear-gradient(145deg, rgba(82, 169, 185, 0.95), rgba(34, 43, 60, 0.94)) !important;
+  box-shadow:
+    -10px 10px 0 rgba(34, 43, 60, 0.08),
+    0 18px 34px rgba(34, 43, 60, 0.14) !important;
+}
+
+.contact-redesign .contact-info-card,
+.contact-redesign .contact-form-card,
+.contact-redesign .map-card {
+  border: 1px solid rgba(14, 41, 58, 0.10) !important;
+  box-shadow: 0 16px 34px rgba(15, 37, 55, 0.07) !important;
+}
+
+@media (max-width: 900px) {
+  .contact-hero-section {
+    padding-top: 118px !important;
+  }
+
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(38px, 7vw, 58px) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-hero-section {
+    padding: 112px 0 64px !important;
+  }
+
+  .contact-redesign .page-intro {
+    margin-bottom: 32px !important;
+  }
+
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(34px, 10vw, 48px) !important;
+    letter-spacing: -1.4px !important;
+  }
+
+  .contact-redesign .page-intro p {
+    font-size: 14px !important;
+  }
+
+  .contact-redesign .info-icon {
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+  }
+}
+
+
+/* =========================================================
+   CONTACT PAGE SEND BUTTON MATCH UPDATE
+   - Makes the Send Message button match the navigation Contact Us button.
+========================================================= */
+.contact-redesign .submit-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  min-width: 160px !important;
+  min-height: 50px !important;
+  padding: 13px 22px !important;
+  border-radius: var(--radius-pill) !important;
+  background: #52a9b9 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 14px 30px rgba(82, 169, 185, 0.24) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition) !important;
+}
+
+.contact-redesign .submit-btn:hover {
+  transform: translateY(-2px) !important;
+  background: #63b7c5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 18px 36px rgba(82, 169, 185, 0.30) !important;
+}
+
+/* =========================================================
+   INNER PAGE HEADING CONSISTENCY UPDATE
+   - Makes About, Portfolio, and Services headings match the Contact page heading style.
+   - Removes the small eyebrow labels above all inner-page headings.
+========================================================= */
+.about-pill,
+.portfolio-eyebrow,
+.services-eyebrow,
+.contact-redesign .page-intro .eyebrow {
+  display: none !important;
+}
+
+.about-hero-copy h1,
+.portfolio-intro h1,
+.services-hero-content h1,
+.contact-redesign .page-intro h1 {
+  max-width: 760px !important;
+  margin: 0 0 14px !important;
+  font-size: clamp(42px, 5.2vw, 72px) !important;
+  line-height: 1.03 !important;
+  letter-spacing: -2.4px !important;
+  color: #111827 !important;
+  font-weight: 600 !important;
+}
+
+.about-hero-copy h1 span,
+.portfolio-intro h1 span,
+.services-hero-content h1 span,
+.contact-redesign .page-intro h1 span {
+  display: block !important;
+  color: #52a9b9 !important;
+  font-weight: 500 !important;
+}
+
+.about-hero-copy p,
+.portfolio-intro p,
+.services-hero-content p,
+.contact-redesign .page-intro p {
+  max-width: 680px !important;
+  color: #5f6b76 !important;
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+}
+
+/* Keep the page-heading blocks aligned after the labels are removed */
+.about-hero-copy,
+.portfolio-intro,
+.services-hero-content,
+.contact-redesign .page-intro {
+  padding-top: 0 !important;
+}
+
+@media (max-width: 820px) {
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(34px, 10vw, 48px) !important;
+    letter-spacing: -1.5px !important;
+  }
+}
+
+
+/* =========================================================
+   INNER PAGE HEADING TWO-LINE UPDATE
+   - Forces inner page main headings to stay as two clean lines.
+   - Reduces heading height so they occupy less vertical space.
+   - Slightly reduces About page bouncing circles so the hero art fits the new heading scale.
+========================================================= */
+.about-hero-copy h1,
+.portfolio-intro h1,
+.services-hero-content h1,
+.contact-redesign .page-intro h1 {
+  max-width: min(920px, 100%) !important;
+  width: fit-content !important;
+  font-size: clamp(38px, 4.6vw, 62px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: clamp(-2.1px, -0.12vw, -1.1px) !important;
+  margin-bottom: 12px !important;
+  color: #111827 !important;
+}
+
+.about-hero-copy h1 span,
+.portfolio-intro h1 span,
+.services-hero-content h1 span,
+.contact-redesign .page-intro h1 span {
+  display: block !important;
+  width: fit-content !important;
+  white-space: nowrap !important;
+  color: #52a9b9 !important;
+}
+
+.about-hero-copy h1,
+.portfolio-intro h1,
+.services-hero-content h1,
+.contact-redesign .page-intro h1 {
+  white-space: nowrap !important;
+}
+
+/* Keep paragraph spacing tighter under the two-line heading */
+.about-hero-copy p,
+.portfolio-intro p,
+.services-hero-content p,
+.contact-redesign .page-intro p {
+  margin-top: 0 !important;
+}
+
+/* About page art size adjustment for the shorter heading block */
+.about-redesign-page {
+  --about-orb-large-size: clamp(210px, 21vw, 270px) !important;
+  --about-logo-size: clamp(100px, 10vw, 136px) !important;
+  --about-orb-small-size: clamp(78px, 7.2vw, 94px) !important;
+}
+
+.about-redesign-page .about-hero-art {
+  min-height: clamp(240px, 28vw, 310px) !important;
+}
+
+.about-redesign-page .about-art-orb-mid {
+  width: clamp(112px, 11vw, 140px) !important;
+  height: clamp(112px, 11vw, 140px) !important;
+}
+
+@media (max-width: 1100px) {
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(34px, 6.2vw, 54px) !important;
+  }
+
+  .about-redesign-page {
+    --about-orb-large-size: clamp(198px, 30vw, 250px) !important;
+    --about-logo-size: clamp(92px, 14vw, 124px) !important;
+    --about-orb-small-size: clamp(74px, 10vw, 88px) !important;
+  }
+
+  .about-redesign-page .about-art-orb-mid {
+    width: clamp(104px, 16vw, 128px) !important;
+    height: clamp(104px, 16vw, 128px) !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(30px, 8.2vw, 44px) !important;
+    letter-spacing: -1.2px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(23px, 7.1vw, 32px) !important;
+    letter-spacing: -0.8px !important;
+    line-height: 1.04 !important;
+  }
+
+  .about-redesign-page {
+    --about-orb-large-size: 190px !important;
+    --about-logo-size: 92px !important;
+    --about-orb-small-size: 72px !important;
+  }
+
+  .about-redesign-page .about-hero-art {
+    min-height: 230px !important;
+  }
+
+  .about-redesign-page .about-art-orb-mid {
+    width: 104px !important;
+    height: 104px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(21px, 6.7vw, 27px) !important;
+  }
+}
+
+/* =========================================================
+   SERVICES CTA TEXT FORMAT UPDATE
+   - Matches CTA text sizing with the portfolio CTA.
+   - Keeps the CTA heading to a maximum of two lines.
+   - Makes all CTA text white.
+========================================================= */
+.services-cta-band {
+  align-items: center !important;
+  gap: 34px !important;
+}
+
+.services-cta-band h2 {
+  max-width: 620px !important;
+  margin-bottom: 8px !important;
+  color: #ffffff !important;
+  font-size: clamp(28px, 3vw, 38px) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -1.2px !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.services-cta-band h2 span {
+  color: #ffffff !important;
+}
+
+.services-cta-band p {
+  max-width: 610px !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+}
+
+.services-cta-actions {
+  min-width: max-content !important;
+}
+
+@media (max-width: 900px) {
+  .services-cta-band h2 {
+    max-width: 100% !important;
+  }
+
+  .services-cta-actions {
+    min-width: 0 !important;
+    justify-items: start !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .services-cta-band h2 {
+    font-size: clamp(26px, 8vw, 34px) !important;
+  }
+}
+
+
+/* =========================================================
+   INNER PAGE MOVING BRAND ELEMENTS
+   - Adds page-specific moving elements to Services, Portfolio, and Contact pages.
+   - Uses the company favicon/logo and custom CSS-built symbols.
+   - Each page has a different layout and each orb moves at its own speed.
+========================================================= */
+.services-hero-section,
+.portfolio-hero-redesign,
+.contact-hero-section {
+  position: relative !important;
+}
+
+.services-hero-content,
+.portfolio-intro,
+.contact-redesign .page-intro,
+.portfolio-tabs,
+.services-grid-redesign,
+.contact-grid {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+.inner-page-motion-art {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  width: clamp(260px, 28vw, 420px);
+  height: clamp(230px, 24vw, 340px);
+  right: max(28px, calc((100vw - var(--container)) / 2 + 12px));
+  top: clamp(112px, 13vw, 168px);
+}
+
+.inner-page-motion-art .motion-orb {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.82), rgba(225,245,249,0.54));
+  border: 1px solid rgba(82, 169, 185, 0.22);
+  box-shadow:
+    0 22px 48px rgba(34, 43, 60, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.76);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  will-change: transform;
+}
+
+.inner-page-motion-art .motion-logo-orb img {
+  display: block;
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  opacity: 0.44;
+  filter: drop-shadow(0 14px 26px rgba(34, 43, 60, 0.14));
+}
+
+/* Services: flow/network symbol */
+.services-motion-art .motion-logo-orb {
+  width: clamp(160px, 15vw, 220px);
+  height: clamp(160px, 15vw, 220px);
+  right: 2%;
+  top: 0;
+  animation: innerOrbBounceA 5.1s ease-in-out infinite;
+}
+
+.services-motion-art .motion-icon-orb {
+  width: clamp(112px, 10vw, 144px);
+  height: clamp(112px, 10vw, 144px);
+  right: 43%;
+  top: 42%;
+  background: #52a9b9;
+  border-color: rgba(255,255,255,0.30);
+  animation: innerOrbBounceB 4.35s ease-in-out infinite;
+}
+
+.services-motion-art .motion-small-orb {
+  width: clamp(68px, 7vw, 96px);
+  height: clamp(68px, 7vw, 96px);
+  right: 8%;
+  bottom: 4%;
+  background: linear-gradient(135deg, rgba(34,43,60,0.96), rgba(34,43,60,0.78));
+  border-color: rgba(82,169,185,0.34);
+  animation: innerOrbBounceC 4.8s ease-in-out infinite;
+}
+
+.motion-service-symbol {
+  position: relative;
+  width: 54px;
+  height: 40px;
+}
+
+.motion-service-symbol::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  top: 18px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.90);
+  box-shadow: 0 -14px 0 -1px rgba(255,255,255,0.54), 0 14px 0 -1px rgba(255,255,255,0.54);
+}
+
+.motion-service-symbol::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 8px 20px, #ffffff 0 6px, transparent 7px),
+    radial-gradient(circle at 46px 6px, rgba(255,255,255,0.88) 0 6px, transparent 7px),
+    radial-gradient(circle at 46px 34px, rgba(255,255,255,0.74) 0 6px, transparent 7px);
+}
+
+/* Portfolio: layered frame symbol */
+.portfolio-motion-art {
+  top: clamp(120px, 12vw, 164px);
+  height: clamp(230px, 23vw, 326px);
+}
+
+.portfolio-motion-art .motion-logo-orb {
+  width: clamp(148px, 13.5vw, 198px);
+  height: clamp(148px, 13.5vw, 198px);
+  right: 15%;
+  top: 0;
+  animation: innerOrbBounceB 4.7s ease-in-out infinite;
+}
+
+.portfolio-motion-art .motion-icon-orb {
+  width: clamp(124px, 11vw, 158px);
+  height: clamp(124px, 11vw, 158px);
+  right: 0;
+  top: 48%;
+  background: linear-gradient(145deg, rgba(34,43,60,0.98), rgba(34,43,60,0.84));
+  border-color: rgba(82,169,185,0.38);
+  animation: innerOrbBounceD 5.25s ease-in-out infinite;
+}
+
+.portfolio-motion-art .motion-small-orb {
+  width: clamp(74px, 6.5vw, 98px);
+  height: clamp(74px, 6.5vw, 98px);
+  right: 58%;
+  bottom: 6%;
+  background: #52a9b9;
+  animation: innerOrbBounceA 4.25s ease-in-out infinite;
+}
+
+.motion-portfolio-symbol {
+  position: relative;
+  width: 54px;
+  height: 44px;
+}
+
+.motion-portfolio-symbol::before,
+.motion-portfolio-symbol::after {
+  content: "";
+  position: absolute;
+  border: 3px solid rgba(255,255,255,0.90);
+  border-radius: 8px 2px 8px 2px;
+}
+
+.motion-portfolio-symbol::before {
+  width: 38px;
+  height: 28px;
+  left: 2px;
+  top: 11px;
+  transform: rotate(-7deg);
+}
+
+.motion-portfolio-symbol::after {
+  width: 32px;
+  height: 24px;
+  right: 0;
+  top: 4px;
+  background:
+    linear-gradient(135deg, transparent 0 55%, rgba(82,169,185,0.62) 56% 100%);
+}
+
+/* Contact: message/envelope symbol */
+.contact-motion-art {
+  top: clamp(108px, 11vw, 150px);
+  height: clamp(220px, 22vw, 318px);
+}
+
+.contact-motion-art .motion-logo-orb {
+  width: clamp(150px, 13vw, 196px);
+  height: clamp(150px, 13vw, 196px);
+  right: 34%;
+  top: 0;
+  animation: innerOrbBounceC 4.55s ease-in-out infinite;
+}
+
+.contact-motion-art .motion-icon-orb {
+  width: clamp(118px, 10vw, 148px);
+  height: clamp(118px, 10vw, 148px);
+  right: 4%;
+  top: 42%;
+  background: #52a9b9;
+  animation: innerOrbBounceA 4.05s ease-in-out infinite;
+}
+
+.contact-motion-art .motion-small-orb {
+  width: clamp(70px, 6vw, 92px);
+  height: clamp(70px, 6vw, 92px);
+  right: 6%;
+  top: 2%;
+  background: linear-gradient(135deg, rgba(34,43,60,0.94), rgba(34,43,60,0.72));
+  border-color: rgba(82,169,185,0.36);
+  animation: innerOrbBounceD 5.05s ease-in-out infinite;
+}
+
+.motion-contact-symbol {
+  position: relative;
+  width: 58px;
+  height: 42px;
+  border: 3px solid rgba(255,255,255,0.92);
+  border-radius: 10px 3px 10px 3px;
+}
+
+.motion-contact-symbol::before,
+.motion-contact-symbol::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  background: rgba(255,255,255,0.92);
+  transform-origin: left center;
+}
+
+.motion-contact-symbol::before {
+  left: 5px;
+  top: 8px;
+  width: 28px;
+  transform: rotate(34deg);
+}
+
+.motion-contact-symbol::after {
+  right: 5px;
+  top: 8px;
+  width: 28px;
+  transform-origin: right center;
+  transform: rotate(-34deg);
+}
+
+@keyframes innerOrbBounceA {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+@keyframes innerOrbBounceB {
+  0%, 100% { transform: translateY(0); }
+  45% { transform: translateY(14px); }
+}
+
+@keyframes innerOrbBounceC {
+  0%, 100% { transform: translateY(0); }
+  52% { transform: translateY(-12px); }
+}
+
+@keyframes innerOrbBounceD {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(16px); }
+}
+
+@media (max-width: 1180px) {
+  .inner-page-motion-art {
+    width: clamp(220px, 25vw, 320px);
+    height: 250px;
+    opacity: 0.72;
+  }
+}
+
+@media (max-width: 900px) {
+  .inner-page-motion-art {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: min(360px, 100%);
+    height: 220px;
+    margin: 20px auto 0;
+    opacity: 1;
+  }
+
+  .services-hero-content,
+  .portfolio-intro,
+  .contact-redesign .page-intro {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .inner-page-motion-art {
+    height: 185px;
+    width: min(300px, 100%);
+    margin-top: 14px;
+  }
+
+  .services-motion-art .motion-logo-orb,
+  .portfolio-motion-art .motion-logo-orb,
+  .contact-motion-art .motion-logo-orb {
+    width: 132px;
+    height: 132px;
+  }
+
+  .services-motion-art .motion-icon-orb,
+  .portfolio-motion-art .motion-icon-orb,
+  .contact-motion-art .motion-icon-orb {
+    width: 104px;
+    height: 104px;
+  }
+
+  .services-motion-art .motion-small-orb,
+  .portfolio-motion-art .motion-small-orb,
+  .contact-motion-art .motion-small-orb {
+    width: 62px;
+    height: 62px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner-page-motion-art .motion-orb {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   INNER PAGE MOTION ELEMENT POSITION FIX
+   - Places the moving brand elements properly on the right side of each page heading.
+   - Ensures the Services page moving element is visible.
+   - Keeps each page's moving element layout different while still aligned and controlled.
+========================================================= */
+
+/* Shared heading + artwork layout */
+.services-hero-section .services-container,
+.portfolio-hero-redesign .portfolio-container,
+.contact-hero-section > .container {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 390px) !important;
+  column-gap: clamp(32px, 5vw, 72px) !important;
+  align-items: center !important;
+}
+
+.services-hero-content,
+.portfolio-intro,
+.contact-redesign .page-intro {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  max-width: 760px !important;
+}
+
+.services-motion-art,
+.portfolio-motion-art,
+.contact-motion-art {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  position: relative !important;
+  right: auto !important;
+  top: auto !important;
+  justify-self: end !important;
+  align-self: center !important;
+  width: min(390px, 100%) !important;
+  height: clamp(250px, 24vw, 330px) !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+  z-index: 2 !important;
+  transform: none !important;
+}
+
+.portfolio-tabs,
+.portfolio-featured-showcase,
+.portfolio-work-section,
+.portfolio-cta-panel,
+.contact-grid {
+  grid-column: 1 / -1 !important;
+}
+
+/* Services has the top hero only, so keep the artwork safely visible */
+.services-hero-section {
+  overflow: hidden !important;
+}
+
+.services-hero-section .services-container {
+  min-height: 360px !important;
+}
+
+/* Services: logo higher-right, service/network symbol lower-left, small orb touching lower-right */
+.services-motion-art .motion-logo-orb {
+  width: clamp(150px, 13vw, 200px) !important;
+  height: clamp(150px, 13vw, 200px) !important;
+  right: 4% !important;
+  top: 2% !important;
+}
+
+.services-motion-art .motion-icon-orb {
+  width: clamp(108px, 9vw, 138px) !important;
+  height: clamp(108px, 9vw, 138px) !important;
+  right: 50% !important;
+  top: 48% !important;
+}
+
+.services-motion-art .motion-small-orb {
+  width: clamp(64px, 6vw, 88px) !important;
+  height: clamp(64px, 6vw, 88px) !important;
+  right: 12% !important;
+  bottom: 8% !important;
+}
+
+/* Portfolio: frame symbol placed forward, logo behind it, small orb offset on the left */
+.portfolio-motion-art .motion-logo-orb {
+  width: clamp(150px, 13vw, 198px) !important;
+  height: clamp(150px, 13vw, 198px) !important;
+  right: 32% !important;
+  top: 0 !important;
+}
+
+.portfolio-motion-art .motion-icon-orb {
+  width: clamp(118px, 10vw, 152px) !important;
+  height: clamp(118px, 10vw, 152px) !important;
+  right: 4% !important;
+  top: 42% !important;
+}
+
+.portfolio-motion-art .motion-small-orb {
+  width: clamp(66px, 6vw, 90px) !important;
+  height: clamp(66px, 6vw, 90px) !important;
+  right: 64% !important;
+  bottom: 8% !important;
+}
+
+/* Contact: message symbol sits lower-right, logo sits higher-left, small orb above */
+.contact-motion-art .motion-logo-orb {
+  width: clamp(150px, 13vw, 194px) !important;
+  height: clamp(150px, 13vw, 194px) !important;
+  right: 42% !important;
+  top: 4% !important;
+}
+
+.contact-motion-art .motion-icon-orb {
+  width: clamp(112px, 9vw, 144px) !important;
+  height: clamp(112px, 9vw, 144px) !important;
+  right: 6% !important;
+  top: 46% !important;
+}
+
+.contact-motion-art .motion-small-orb {
+  width: clamp(62px, 5.5vw, 86px) !important;
+  height: clamp(62px, 5.5vw, 86px) !important;
+  right: 8% !important;
+  top: 6% !important;
+}
+
+/* Keep the decorative art behind text but in front of background marks */
+.services-hero-content,
+.portfolio-intro,
+.contact-redesign .page-intro,
+.portfolio-tabs,
+.contact-grid,
+.services-grid-redesign {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+.inner-page-motion-art .motion-orb {
+  z-index: 1 !important;
+}
+
+.inner-page-motion-art .motion-icon-orb {
+  z-index: 2 !important;
+}
+
+@media (max-width: 1120px) {
+  .services-hero-section .services-container,
+  .portfolio-hero-redesign .portfolio-container,
+  .contact-hero-section > .container {
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 320px) !important;
+    column-gap: 30px !important;
+  }
+
+  .services-motion-art,
+  .portfolio-motion-art,
+  .contact-motion-art {
+    width: min(320px, 100%) !important;
+    height: 260px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .services-hero-section .services-container,
+  .portfolio-hero-redesign .portfolio-container,
+  .contact-hero-section > .container {
+    grid-template-columns: 1fr !important;
+    row-gap: 22px !important;
+  }
+
+  .services-hero-content,
+  .portfolio-intro,
+  .contact-redesign .page-intro,
+  .services-motion-art,
+  .portfolio-motion-art,
+  .contact-motion-art {
+    grid-column: 1 !important;
+  }
+
+  .services-motion-art,
+  .portfolio-motion-art,
+  .contact-motion-art {
+    grid-row: 2 !important;
+    justify-self: center !important;
+    width: min(350px, 100%) !important;
+    height: 220px !important;
+    margin-top: 0 !important;
+  }
+
+  .portfolio-tabs,
+  .contact-grid {
+    grid-row: auto !important;
+  }
+
+  .services-hero-section .services-container {
+    min-height: auto !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .services-motion-art,
+  .portfolio-motion-art,
+  .contact-motion-art {
+    width: min(300px, 100%) !important;
+    height: 190px !important;
+  }
+
+  .services-motion-art .motion-logo-orb,
+  .portfolio-motion-art .motion-logo-orb,
+  .contact-motion-art .motion-logo-orb {
+    width: 124px !important;
+    height: 124px !important;
+  }
+
+  .services-motion-art .motion-icon-orb,
+  .portfolio-motion-art .motion-icon-orb,
+  .contact-motion-art .motion-icon-orb {
+    width: 96px !important;
+    height: 96px !important;
+  }
+
+  .services-motion-art .motion-small-orb,
+  .portfolio-motion-art .motion-small-orb,
+  .contact-motion-art .motion-small-orb {
+    width: 58px !important;
+    height: 58px !important;
+  }
+}
+
+/* =========================================================
+   ABOUT PAGE MOTION ELEMENT MATCH UPDATE
+   - Replaces the older about-page circles with the same motion-art language
+     used on the other inner pages.
+   - Keeps the logo and content icon positioned properly on the right side
+     of the heading, with consistent sizing and clean bounce motion.
+========================================================= */
+
+.about-motion-art {
+  position: relative !important;
+  right: auto !important;
+  top: auto !important;
+  justify-self: end !important;
+  align-self: center !important;
+  width: min(390px, 100%) !important;
+  height: clamp(250px, 24vw, 330px) !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+  z-index: 2 !important;
+  transform: none !important;
+}
+
+.about-motion-art .motion-logo-orb {
+  width: clamp(150px, 13vw, 196px) !important;
+  height: clamp(150px, 13vw, 196px) !important;
+  right: 30% !important;
+  top: 0 !important;
+  animation: innerOrbBounceA 4.55s ease-in-out infinite !important;
+}
+
+.about-motion-art .motion-icon-orb {
+  width: clamp(118px, 10vw, 148px) !important;
+  height: clamp(118px, 10vw, 148px) !important;
+  right: 4% !important;
+  top: 42% !important;
+  background: linear-gradient(145deg, rgba(34,43,60,0.98), rgba(34,43,60,0.84)) !important;
+  border-color: rgba(82,169,185,0.38) !important;
+  animation: innerOrbBounceD 5.05s ease-in-out infinite !important;
+}
+
+.about-motion-art .motion-small-orb {
+  width: clamp(66px, 6vw, 90px) !important;
+  height: clamp(66px, 6vw, 90px) !important;
+  right: 10% !important;
+  top: 6% !important;
+  background: #52a9b9 !important;
+  border-color: rgba(255,255,255,0.30) !important;
+  animation: innerOrbBounceC 4.05s ease-in-out infinite !important;
+}
+
+.motion-about-symbol {
+  position: relative;
+  display: block;
+  width: 58px;
+  height: 44px;
+}
+
+.motion-about-symbol::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 17px 13px, #ffffff 0 6px, transparent 6.5px),
+    radial-gradient(circle at 41px 13px, rgba(255,255,255,0.90) 0 6px, transparent 6.5px),
+    linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)) 11px 27px / 14px 3px no-repeat,
+    linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)) 33px 27px / 14px 3px no-repeat,
+    linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)) 17px 35px / 24px 3px no-repeat;
+}
+
+.motion-about-symbol::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 22px;
+  width: 28px;
+  height: 10px;
+  border: 3px solid rgba(255,255,255,0.86);
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+}
+
+@media (max-width: 1100px) {
+  .about-motion-art {
+    justify-self: center !important;
+    width: min(350px, 100%) !important;
+    height: 220px !important;
+    margin-top: 12px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-motion-art {
+    width: min(300px, 100%) !important;
+    height: 190px !important;
+  }
+
+  .about-motion-art .motion-logo-orb {
+    width: 124px !important;
+    height: 124px !important;
+  }
+
+  .about-motion-art .motion-icon-orb {
+    width: 96px !important;
+    height: 96px !important;
+  }
+
+  .about-motion-art .motion-small-orb {
+    width: 58px !important;
+    height: 58px !important;
+  }
+}
+
+/* =========================================================
+   ABOUT MOTION TEAM ICON FIX
+   - Replaces the scattered line symbol with the original-style two-person team icon.
+   - Keeps the icon centered inside the moving circle.
+========================================================= */
+.motion-about-symbol {
+  position: relative !important;
+  display: block !important;
+  width: 60px !important;
+  height: 48px !important;
+}
+
+.motion-about-symbol::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 10px !important;
+  top: 5px !important;
+  width: 17px !important;
+  height: 17px !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.96) !important;
+  box-shadow: 24px 0 0 rgba(255,255,255,0.86) !important;
+}
+
+.motion-about-symbol::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 4px !important;
+  top: 27px !important;
+  width: 28px !important;
+  height: 17px !important;
+  border: 0 !important;
+  border-radius: 18px 18px 6px 6px !important;
+  background: rgba(255,255,255,0.88) !important;
+  box-shadow: 24px 0 0 rgba(255,255,255,0.68) !important;
+  transform: none !important;
+}
+
+@media (max-width: 560px) {
+  .motion-about-symbol {
+    transform: scale(0.86) !important;
+    transform-origin: center !important;
+  }
+}
+
+/* =========================================================
+   INNER PAGE COMPACT HEADING + SMALLER MOTION ELEMENTS
+   - Reduces hero/heading vertical padding on all inner pages.
+   - Makes moving brand elements smaller so they do not occupy too much space.
+   - Keeps the right-side placement and responsive behavior.
+========================================================= */
+
+/* Compact heading sections */
+.about-hero-redesign {
+  padding: 108px 0 48px !important;
+}
+
+.portfolio-hero-redesign {
+  padding: 108px 0 46px !important;
+}
+
+.services-hero-section {
+  padding: 108px 0 46px !important;
+  border-bottom: 0 !important;
+}
+
+.contact-hero-section {
+  padding: 108px 0 50px !important;
+}
+
+.about-hero-layout {
+  min-height: 220px !important;
+  gap: clamp(24px, 4vw, 50px) !important;
+  margin-bottom: 24px !important;
+}
+
+.services-hero-section .services-container {
+  min-height: 260px !important;
+}
+
+/* Shared smaller motion art sizing */
+.inner-page-motion-art,
+.about-motion-art,
+.services-motion-art,
+.portfolio-motion-art,
+.contact-motion-art {
+  width: min(300px, 100%) !important;
+  height: clamp(180px, 18vw, 238px) !important;
+  align-self: center !important;
+}
+
+/* About */
+.about-motion-art .motion-logo-orb {
+  width: clamp(108px, 10vw, 148px) !important;
+  height: clamp(108px, 10vw, 148px) !important;
+  right: 34% !important;
+  top: 0 !important;
+}
+
+.about-motion-art .motion-icon-orb {
+  width: clamp(82px, 8vw, 112px) !important;
+  height: clamp(82px, 8vw, 112px) !important;
+  right: 7% !important;
+  top: 42% !important;
+}
+
+.about-motion-art .motion-small-orb {
+  width: clamp(46px, 4.8vw, 64px) !important;
+  height: clamp(46px, 4.8vw, 64px) !important;
+  right: 13% !important;
+  top: 7% !important;
+}
+
+.motion-about-symbol {
+  transform: scale(0.76) !important;
+}
+
+/* Services */
+.services-motion-art .motion-logo-orb {
+  width: clamp(108px, 10vw, 148px) !important;
+  height: clamp(108px, 10vw, 148px) !important;
+  right: 8% !important;
+  top: 0 !important;
+}
+
+.services-motion-art .motion-icon-orb {
+  width: clamp(82px, 8vw, 112px) !important;
+  height: clamp(82px, 8vw, 112px) !important;
+  right: 52% !important;
+  top: 45% !important;
+}
+
+.services-motion-art .motion-small-orb {
+  width: clamp(46px, 4.8vw, 64px) !important;
+  height: clamp(46px, 4.8vw, 64px) !important;
+  right: 13% !important;
+  bottom: 7% !important;
+}
+
+.motion-service-symbol {
+  transform: scale(0.76) !important;
+}
+
+/* Portfolio */
+.portfolio-motion-art .motion-logo-orb {
+  width: clamp(108px, 10vw, 148px) !important;
+  height: clamp(108px, 10vw, 148px) !important;
+  right: 35% !important;
+  top: 0 !important;
+}
+
+.portfolio-motion-art .motion-icon-orb {
+  width: clamp(86px, 8vw, 116px) !important;
+  height: clamp(86px, 8vw, 116px) !important;
+  right: 6% !important;
+  top: 42% !important;
+}
+
+.portfolio-motion-art .motion-small-orb {
+  width: clamp(48px, 4.8vw, 66px) !important;
+  height: clamp(48px, 4.8vw, 66px) !important;
+  right: 66% !important;
+  bottom: 8% !important;
+}
+
+.motion-portfolio-symbol {
+  transform: scale(0.78) !important;
+}
+
+/* Contact */
+.contact-motion-art .motion-logo-orb {
+  width: clamp(108px, 10vw, 148px) !important;
+  height: clamp(108px, 10vw, 148px) !important;
+  right: 44% !important;
+  top: 0 !important;
+}
+
+.contact-motion-art .motion-icon-orb {
+  width: clamp(82px, 8vw, 112px) !important;
+  height: clamp(82px, 8vw, 112px) !important;
+  right: 7% !important;
+  top: 43% !important;
+}
+
+.contact-motion-art .motion-small-orb {
+  width: clamp(46px, 4.6vw, 62px) !important;
+  height: clamp(46px, 4.6vw, 62px) !important;
+  right: 10% !important;
+  top: 7% !important;
+}
+
+.motion-contact-symbol {
+  transform: scale(0.76) !important;
+}
+
+/* Keep logos centered and visually balanced at smaller sizes */
+.inner-page-motion-art .motion-logo-orb img,
+.about-motion-art .motion-logo-orb img {
+  width: 68% !important;
+  height: 68% !important;
+}
+
+@media (max-width: 1120px) {
+  .about-hero-redesign,
+  .portfolio-hero-redesign,
+  .services-hero-section,
+  .contact-hero-section {
+    padding-top: 98px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .inner-page-motion-art,
+  .about-motion-art,
+  .services-motion-art,
+  .portfolio-motion-art,
+  .contact-motion-art {
+    width: min(270px, 100%) !important;
+    height: 190px !important;
+  }
+
+  .services-hero-section .services-container {
+    min-height: 230px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-hero-redesign,
+  .portfolio-hero-redesign,
+  .services-hero-section,
+  .contact-hero-section {
+    padding-top: 92px !important;
+    padding-bottom: 38px !important;
+  }
+
+  .about-hero-layout {
+    min-height: 0 !important;
+    gap: 18px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .inner-page-motion-art,
+  .about-motion-art,
+  .services-motion-art,
+  .portfolio-motion-art,
+  .contact-motion-art {
+    width: min(260px, 100%) !important;
+    height: 165px !important;
+    margin-top: 2px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-hero-redesign,
+  .portfolio-hero-redesign,
+  .services-hero-section,
+  .contact-hero-section {
+    padding-top: 86px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .inner-page-motion-art,
+  .about-motion-art,
+  .services-motion-art,
+  .portfolio-motion-art,
+  .contact-motion-art {
+    width: min(220px, 100%) !important;
+    height: 145px !important;
+  }
+
+  .about-motion-art .motion-logo-orb,
+  .services-motion-art .motion-logo-orb,
+  .portfolio-motion-art .motion-logo-orb,
+  .contact-motion-art .motion-logo-orb {
+    width: 98px !important;
+    height: 98px !important;
+  }
+
+  .about-motion-art .motion-icon-orb,
+  .services-motion-art .motion-icon-orb,
+  .portfolio-motion-art .motion-icon-orb,
+  .contact-motion-art .motion-icon-orb {
+    width: 76px !important;
+    height: 76px !important;
+  }
+
+  .about-motion-art .motion-small-orb,
+  .services-motion-art .motion-small-orb,
+  .portfolio-motion-art .motion-small-orb,
+  .contact-motion-art .motion-small-orb {
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
+
+
+/* =========================================================
+   FULL WEBSITE RESPONSIVE STABILITY UPDATE
+   - Improves smaller desktop, tablet, and mobile layouts.
+   - Prevents content overlap/scattering.
+   - Hides inner-page moving elements on mobile phones.
+========================================================= */
+
+/* Global sizing safeguards */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+.container,
+.portfolio-container,
+.services-container {
+  width: min(var(--container), calc(100% - 64px)) !important;
+  max-width: var(--container) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Smaller desktop navigation and global spacing */
+@media (max-width: 1280px) {
+  :root {
+    --container: 1120px;
+  }
+
+  .header .container {
+    width: min(var(--container), calc(100% - 48px)) !important;
+  }
+
+  .navbar {
+    gap: 16px !important;
+  }
+
+  .logo img,
+  .footer-logo img {
+    max-height: 56px !important;
+  }
+
+  .nav-links {
+    gap: 6px !important;
+    padding: 8px 10px !important;
+  }
+
+  .nav-links a {
+    padding: 9px 11px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+
+  .contact-btn {
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+
+  .container,
+  .portfolio-container,
+  .services-container {
+    width: min(var(--container), calc(100% - 48px)) !important;
+  }
+}
+
+@media (max-width: 1120px) {
+  :root {
+    --container: 980px;
+  }
+
+  .header .container {
+    width: calc(100% - 40px) !important;
+  }
+
+  .logo img,
+  .footer-logo img {
+    max-height: 52px !important;
+  }
+
+  .nav-links a {
+    padding: 8px 9px !important;
+    font-size: 12.5px !important;
+  }
+
+  .contact-btn {
+    padding: 9px 13px !important;
+    font-size: 12.5px !important;
+  }
+}
+
+/* Mobile navigation fallback */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 100002 !important;
+  }
+
+  .contact-btn {
+    display: none !important;
+  }
+
+  .nav-container {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: min(84vw, 360px) !important;
+    height: 100dvh !important;
+    padding: 96px 22px 28px !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-left: 1px solid rgba(34, 43, 60, 0.10) !important;
+    box-shadow: -24px 0 60px rgba(34, 43, 60, 0.18) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    transform: translateX(105%) !important;
+    transition: transform 0.28s ease !important;
+    z-index: 100001 !important;
+    display: block !important;
+  }
+
+  .nav-container.show {
+    transform: translateX(0) !important;
+  }
+
+  .nav-links {
+    display: grid !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .nav-links li,
+  .nav-links a {
+    width: 100% !important;
+  }
+
+  .nav-links a,
+  .mobile-contact-btn {
+    justify-content: flex-start !important;
+    padding: 14px 16px !important;
+    font-size: 14px !important;
+    border-radius: 12px !important;
+  }
+
+  .mobile-contact-item {
+    display: block !important;
+  }
+}
+
+/* Homepage responsiveness */
+@media (max-width: 1280px) {
+  body.home-redesign .lrs-hero {
+    min-height: auto !important;
+    padding-top: clamp(150px, 18vh, 210px) !important;
+    padding-bottom: 74px !important;
+  }
+
+  body.home-redesign .lrs-hero-layout {
+    grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.9fr) !important;
+    gap: clamp(32px, 4vw, 50px) !important;
+  }
+
+  body.home-redesign .lrs-gradient-title {
+    font-size: clamp(46px, 5vw, 64px) !important;
+    white-space: nowrap !important;
+  }
+
+  body.home-redesign .lrs-hero-copy {
+    padding-top: 0 !important;
+  }
+
+  body.home-redesign .lrs-hero-visual {
+    min-height: 600px !important;
+  }
+
+  body.home-redesign .lrs-hero-photo-card {
+    width: min(390px, 72%) !important;
+    top: 48px !important;
+    left: 18% !important;
+  }
+
+  body.home-redesign .lrs-metric-card {
+    top: 380px !important;
+    right: 0 !important;
+  }
+
+  body.home-redesign .lrs-check-card {
+    top: 120px !important;
+    left: 0 !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  body.home-redesign .lrs-hero {
+    padding-top: 128px !important;
+    padding-bottom: 64px !important;
+  }
+
+  body.home-redesign .lrs-hero-layout {
+    grid-template-columns: 1fr !important;
+    gap: 34px !important;
+    align-items: start !important;
+  }
+
+  body.home-redesign .lrs-hero-copy {
+    max-width: 760px !important;
+    text-align: left !important;
+  }
+
+  body.home-redesign .lrs-hero-copy p {
+    max-width: 640px !important;
+  }
+
+  body.home-redesign .lrs-hero-visual {
+    width: min(620px, 100%) !important;
+    min-height: 590px !important;
+    justify-self: center !important;
+    margin: 0 auto !important;
+  }
+
+  body.home-redesign .lrs-hero-photo-card {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: min(390px, 78%) !important;
+  }
+
+  body.home-redesign .lrs-check-card {
+    left: 0 !important;
+    top: 112px !important;
+  }
+
+  body.home-redesign .lrs-metric-card {
+    right: 0 !important;
+    top: 378px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.home-redesign .lrs-hero {
+    padding-top: 112px !important;
+    padding-bottom: 48px !important;
+  }
+
+  body.home-redesign .lrs-gradient-title {
+    white-space: normal !important;
+    font-size: clamp(38px, 13vw, 54px) !important;
+    line-height: 0.98 !important;
+  }
+
+  body.home-redesign .lrs-hero-copy p {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+  }
+
+  body.home-redesign .lrs-hero-actions {
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  body.home-redesign .lrs-primary-btn,
+  body.home-redesign .lrs-outline-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 48px !important;
+  }
+
+  body.home-redesign .lrs-hero-trust-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  body.home-redesign .lrs-hero-visual {
+    min-height: 630px !important;
+    max-width: 420px !important;
+  }
+
+  body.home-redesign .lrs-hero-photo-card {
+    width: min(330px, 88vw) !important;
+    top: 28px !important;
+  }
+
+  body.home-redesign .lrs-floating-card {
+    max-width: calc(100% - 24px) !important;
+  }
+
+  body.home-redesign .lrs-check-card {
+    left: 12px !important;
+    right: auto !important;
+    top: 404px !important;
+  }
+
+  body.home-redesign .lrs-metric-card {
+    right: 12px !important;
+    left: auto !important;
+    top: 520px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  body.home-redesign .lrs-hero-visual {
+    min-height: 600px !important;
+  }
+
+  body.home-redesign .lrs-hero-photo-card {
+    width: min(300px, 86vw) !important;
+  }
+
+  body.home-redesign .lrs-check-card {
+    top: 372px !important;
+  }
+
+  body.home-redesign .lrs-metric-card {
+    top: 492px !important;
+  }
+}
+
+/* Inner pages: shared hero/heading responsiveness */
+@media (max-width: 1280px) {
+  .about-hero-redesign,
+  .portfolio-hero-redesign,
+  .services-hero-section,
+  .contact-hero-section {
+    padding-top: 112px !important;
+  }
+
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(38px, 4.7vw, 58px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -1.6px !important;
+  }
+
+  .about-hero-copy p,
+  .portfolio-intro p,
+  .services-hero-content p,
+  .contact-redesign .page-intro p {
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+  }
+
+  .inner-page-motion-art,
+  .about-motion-art {
+    width: min(300px, 100%) !important;
+    height: 210px !important;
+  }
+
+  .inner-page-motion-art .motion-logo-orb,
+  .about-motion-art .motion-logo-orb {
+    width: 128px !important;
+    height: 128px !important;
+  }
+
+  .inner-page-motion-art .motion-icon-orb,
+  .about-motion-art .motion-icon-orb {
+    width: 94px !important;
+    height: 94px !important;
+  }
+
+  .inner-page-motion-art .motion-small-orb,
+  .about-motion-art .motion-small-orb {
+    width: 52px !important;
+    height: 52px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-hero-redesign,
+  .portfolio-hero-redesign,
+  .services-hero-section,
+  .contact-hero-section {
+    padding-top: 102px !important;
+    padding-bottom: 42px !important;
+  }
+
+  .about-hero-layout,
+  .services-hero-section .services-container,
+  .portfolio-hero-redesign .portfolio-container,
+  .contact-hero-section > .container {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 280px) !important;
+    gap: 24px !important;
+    align-items: center !important;
+  }
+
+  .inner-page-motion-art,
+  .about-motion-art {
+    width: min(260px, 100%) !important;
+    height: 185px !important;
+    justify-self: end !important;
+    margin: 0 !important;
+  }
+
+  .inner-page-motion-art .motion-logo-orb,
+  .about-motion-art .motion-logo-orb {
+    width: 112px !important;
+    height: 112px !important;
+  }
+
+  .inner-page-motion-art .motion-icon-orb,
+  .about-motion-art .motion-icon-orb {
+    width: 82px !important;
+    height: 82px !important;
+  }
+
+  .inner-page-motion-art .motion-small-orb,
+  .about-motion-art .motion-small-orb {
+    width: 46px !important;
+    height: 46px !important;
+  }
+}
+
+/* Tablets: stack safely, keep motion art visible but compact */
+@media (max-width: 820px) {
+  .container,
+  .portfolio-container,
+  .services-container {
+    width: calc(100% - 36px) !important;
+  }
+
+  .about-hero-layout,
+  .services-hero-section .services-container,
+  .portfolio-hero-redesign .portfolio-container,
+  .contact-hero-section > .container {
+    grid-template-columns: 1fr !important;
+    row-gap: 20px !important;
+  }
+
+  .about-hero-copy,
+  .services-hero-content,
+  .portfolio-intro,
+  .contact-redesign .page-intro {
+    max-width: 100% !important;
+  }
+
+  .inner-page-motion-art,
+  .about-motion-art {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    justify-self: center !important;
+    width: min(250px, 100%) !important;
+    height: 170px !important;
+    margin: 0 auto 8px !important;
+  }
+
+  .portfolio-tabs,
+  .portfolio-featured-showcase,
+  .portfolio-work-section,
+  .portfolio-cta-panel,
+  .services-grid-redesign,
+  .services-cta-panel,
+  .contact-grid {
+    grid-column: 1 !important;
+  }
+
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(32px, 7vw, 48px) !important;
+    max-width: 720px !important;
+  }
+}
+
+/* Mobile phones: hide inner-page moving elements as requested */
+@media (max-width: 700px) {
+  .about-hero-redesign,
+  .portfolio-hero-redesign,
+  .services-hero-section,
+  .contact-hero-section {
+    padding-top: 96px !important;
+    padding-bottom: 34px !important;
+  }
+
+  .inner-page-motion-art,
+  .about-motion-art {
+    display: none !important;
+  }
+
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(28px, 9.5vw, 40px) !important;
+    line-height: 1.06 !important;
+    letter-spacing: -1px !important;
+    max-width: 100% !important;
+  }
+
+  .about-hero-copy p,
+  .portfolio-intro p,
+  .services-hero-content p,
+  .contact-redesign .page-intro p {
+    font-size: 14px !important;
+    line-height: 1.68 !important;
+    max-width: 100% !important;
+  }
+}
+
+/* About page content responsiveness */
+@media (max-width: 1100px) {
+  .about-overview-grid,
+  .about-founders-row,
+  .about-hipaa-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-side-stack {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+
+  .about-stats-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .about-team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .about-side-stack,
+  .about-stats-row,
+  .about-founders-row,
+  .about-team-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-glass-panel,
+  .about-founder-card,
+  .about-team-card,
+  .about-cta-band {
+    padding: 22px !important;
+  }
+
+  .about-cta-band,
+  .portfolio-cta-panel,
+  .services-cta-panel {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    text-align: left !important;
+  }
+
+  .about-cta-btn,
+  .portfolio-soft-btn,
+  .services-cta-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* Services page responsiveness */
+@media (max-width: 1180px) {
+  .services-grid-redesign {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+
+  .services-card-redesign {
+    min-height: auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .services-grid-redesign {
+    grid-template-columns: 1fr !important;
+  }
+
+  .services-main-section {
+    padding-top: 20px !important;
+  }
+
+  .services-card-redesign {
+    padding: 22px !important;
+  }
+
+  .services-card-redesign h3 {
+    font-size: 20px !important;
+  }
+
+  .services-cta-panel h2 {
+    font-size: clamp(28px, 8.5vw, 38px) !important;
+    line-height: 1.1 !important;
+  }
+
+  .services-cta-panel p {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+  }
+}
+
+/* Portfolio page responsiveness */
+@media (max-width: 1180px) {
+  .portfolio-featured-showcase {
+    grid-template-columns: 1fr !important;
+  }
+
+  .portfolio-featured-stack {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: none !important;
+  }
+
+  .portfolio-side-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .portfolio-side-image {
+    height: 180px !important;
+  }
+
+  .portfolio-work-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .portfolio-work-info {
+    max-width: 760px !important;
+  }
+
+  .portfolio-preview-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .portfolio-featured-stack {
+    grid-template-columns: 1fr !important;
+  }
+
+  .portfolio-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .portfolio-tabs {
+    gap: 10px !important;
+  }
+
+  .portfolio-tab {
+    flex: 1 1 calc(50% - 10px) !important;
+    min-width: 160px !important;
+  }
+
+  .portfolio-modal {
+    padding: 16px !important;
+  }
+
+  .portfolio-modal-panel {
+    max-height: 88dvh !important;
+    padding: 22px !important;
+  }
+
+  .portfolio-modal-slide {
+    flex-basis: min(82vw, 560px) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolio-tab {
+    flex-basis: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .portfolio-preview-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .portfolio-preview-tile {
+    height: 220px !important;
+  }
+
+  .portfolio-featured-image {
+    height: 280px !important;
+  }
+
+  .portfolio-work-row {
+    padding: 18px !important;
+  }
+
+  .portfolio-modal-image {
+    height: 280px !important;
+  }
+}
+
+/* Contact page responsiveness */
+@media (max-width: 1080px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+  }
+
+  .right-stack {
+    display: grid !important;
+    gap: 22px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-info-card,
+  .contact-form-card,
+  .map-card {
+    padding: 22px !important;
+  }
+
+  .info-item {
+    align-items: flex-start !important;
+  }
+
+  .contact-form .form-row,
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .send-btn,
+  .contact-form button[type="submit"] {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .map-card iframe,
+  .map-card .map-frame {
+    min-height: 260px !important;
+  }
+}
+
+/* Footer responsiveness */
+@media (max-width: 860px) {
+  .footer-content {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 22px !important;
+  }
+
+  .footer-contact p,
+  .footer-contact a {
+    overflow-wrap: anywhere !important;
+  }
+
+  .footer-social {
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .container,
+  .portfolio-container,
+  .services-container,
+  .header .container {
+    width: calc(100% - 28px) !important;
+  }
+
+  .logo img {
+    max-height: 48px !important;
+  }
+
+  .about-glass-panel,
+  .services-card-redesign,
+  .portfolio-work-row,
+  .contact-info-card,
+  .contact-form-card,
+  .map-card {
+    padding: 18px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE NAVIGATION STYLE REVERT
+   - Restores the earlier compact glass dropdown style on mobile phones.
+   - Keeps the responsive layout fixes for the rest of the website.
+========================================================= */
+@media (max-width: 900px) {
+  .menu-toggle,
+  body.home-redesign .menu-toggle,
+  .header.home-header .menu-toggle,
+  .header.inner-header .menu-toggle {
+    display: block !important;
+    color: #ffffff !important;
+    font-size: 29px !important;
+    line-height: 1 !important;
+    background: transparent !important;
+    border: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    z-index: 1301 !important;
+  }
+
+  .contact-btn,
+  body.home-redesign .contact-btn,
+  .header.home-header .contact-btn,
+  .header.inner-header .contact-btn {
+    display: none !important;
+  }
+
+  .nav-overlay {
+    display: block !important;
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(12, 18, 24, 0.26) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity var(--transition), visibility var(--transition) !important;
+    z-index: 1190 !important;
+  }
+
+  .nav-overlay.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .nav-container,
+  body.home-redesign .nav-container,
+  .home-header-light .nav-container,
+  .home-header-light .nav-container.show,
+  body.home-redesign .home-header-light .nav-container,
+  body.home-redesign .home-header-light .nav-container.show {
+    position: fixed !important;
+    top: 78px !important;
+    right: 24px !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: min(280px, calc(100vw - 48px)) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: none !important;
+    padding: 0 !important;
+    border-radius: 10px !important;
+    background:
+      radial-gradient(circle at top left, rgba(82, 169, 185, 0.16), transparent 36%),
+      rgba(13, 23, 32, 0.96) !important;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28) !important;
+    backdrop-filter: blur(18px) saturate(145%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(145%) !important;
+    transition: max-height 0.35s ease, opacity 0.25s ease, visibility 0.25s ease, padding 0.25s ease !important;
+    z-index: 1250 !important;
+    display: block !important;
+  }
+
+  .nav-container.show,
+  body.home-redesign .nav-container.show,
+  .home-header-light .nav-container.show,
+  body.home-redesign .home-header-light .nav-container.show {
+    max-height: 520px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding: 10px 0 12px !important;
+    transform: none !important;
+  }
+
+  .nav-links,
+  .home-header-light .nav-links,
+  body.home-redesign .nav-links,
+  body.home-redesign .home-header-light .nav-links,
+  .nav-container.show .nav-links,
+  body.home-redesign .nav-container.show .nav-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    width: 100% !important;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .nav-links li,
+  body.home-redesign .nav-links li {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  .nav-links a,
+  .home-header-light .nav-links a,
+  body.home-redesign .nav-links a,
+  body.home-redesign .home-header-light .nav-links a,
+  .nav-container.show .nav-links a,
+  body.home-redesign .nav-container.show .nav-links a {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 14px 18px !important;
+    margin: 0 !important;
+    color: rgba(255, 255, 255, 0.90) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    white-space: normal !important;
+  }
+
+  .nav-links a::after,
+  .home-header-light .nav-links a::after,
+  body.home-redesign .nav-links a::after,
+  body.home-redesign .home-header-light .nav-links a::after {
+    display: none !important;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active,
+  .home-header-light .nav-links a:hover,
+  .home-header-light .nav-links a.active,
+  body.home-redesign .nav-links a:hover,
+  body.home-redesign .nav-links a.active,
+  body.home-redesign .home-header-light .nav-links a:hover,
+  body.home-redesign .home-header-light .nav-links a.active {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: none !important;
+  }
+
+  .mobile-contact-item,
+  body.home-redesign .mobile-contact-item {
+    display: block !important;
+    padding: 10px 18px 0 !important;
+    width: 100% !important;
+  }
+
+  .mobile-contact-btn,
+  .home-header-light .nav-container.show .mobile-contact-btn,
+  body.home-redesign .mobile-contact-btn,
+  body.home-redesign .home-header-light .nav-container.show .mobile-contact-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 50px !important;
+    padding: 0 18px !important;
+    border-radius: var(--radius-pill) !important;
+    background: linear-gradient(135deg, var(--brand-teal), var(--brand-green)) !important;
+    color: #ffffff !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav-container,
+  body.home-redesign .nav-container,
+  .home-header-light .nav-container,
+  .home-header-light .nav-container.show,
+  body.home-redesign .home-header-light .nav-container,
+  body.home-redesign .home-header-light .nav-container.show {
+    right: 16px !important;
+    width: calc(100vw - 32px) !important;
+  }
+}
+
+/* =========================================================
+   MOBILE CONTENT OVERFLOW FIX
+   - Keeps the current mobile navigation exactly as-is.
+   - Adjusts page content only so sections, cards, grids, and modals
+     do not get cut on the right side on mobile devices.
+========================================================= */
+html,
+body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+main,
+.lrs-home-main,
+.page-shell {
+  max-width: 100vw !important;
+  overflow-x: clip !important;
+}
+
+main *,
+.page-shell * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+main img,
+.page-shell img,
+main video,
+.page-shell video,
+main svg,
+.page-shell svg {
+  max-width: 100%;
+}
+
+@media (max-width: 980px) {
+  .lrs-home-main > section > .container,
+  .page-shell section > .container,
+  .page-shell .container,
+  .portfolio-container,
+  .services-container,
+  .contact-hero-section > .container {
+    width: min(var(--container), calc(100% - 40px)) !important;
+    max-width: calc(100vw - 40px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .lrs-split-section,
+  .lrs-hero-layout,
+  .about-hero-layout,
+  .about-overview-grid,
+  .about-founders-row,
+  .about-hipaa-card,
+  .portfolio-featured-showcase,
+  .portfolio-work-row,
+  .services-grid-redesign,
+  .contact-grid {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    width: 100% !important;
+  }
+
+  .lrs-home-main > section,
+  .page-shell > section,
+  .portfolio-hero-redesign,
+  .services-hero-section,
+  .services-main-section,
+  .contact-hero-section,
+  .about-hero-redesign {
+    max-width: 100vw !important;
+    overflow-x: clip !important;
+  }
+
+  .lrs-home-main > section > .container,
+  .page-shell section > .container,
+  .page-shell .container,
+  .portfolio-container,
+  .services-container,
+  .contact-hero-section > .container {
+    width: calc(100% - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .lrs-hero-layout,
+  .lrs-split-section,
+  .lrs-solution-grid,
+  .lrs-work-grid,
+  .lrs-process-grid,
+  .about-hero-layout,
+  .about-overview-grid,
+  .about-side-stack,
+  .about-stats-row,
+  .about-founders-row,
+  .about-team-grid,
+  .about-hipaa-card,
+  .portfolio-featured-showcase,
+  .portfolio-featured-stack,
+  .portfolio-work-row,
+  .portfolio-preview-grid,
+  .services-grid-redesign,
+  .contact-grid,
+  .right-stack {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .lrs-section-copy,
+  .lrs-solution-card,
+  .lrs-work-card,
+  .lrs-testimonial-card,
+  .lrs-process-card,
+  .about-glass-panel,
+  .about-founder-card,
+  .about-team-card,
+  .about-cta-band,
+  .portfolio-featured-main,
+  .portfolio-side-card,
+  .portfolio-work-row,
+  .portfolio-preview-tile,
+  .portfolio-cta-panel,
+  .services-card-redesign,
+  .services-cta-panel,
+  .contact-info-card,
+  .contact-form-card,
+  .map-card,
+  .info-item {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .lrs-gradient-title,
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1,
+  .lrs-section-copy h2,
+  .portfolio-section-title h2,
+  .services-cta-panel h2,
+  .portfolio-cta-panel h2,
+  .about-cta-band h2 {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  .lrs-hero-copy,
+  .about-hero-copy,
+  .portfolio-intro,
+  .services-hero-content,
+  .contact-redesign .page-intro {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .lrs-hero-actions,
+  .lrs-hero-trust-row,
+  .portfolio-tabs,
+  .portfolio-cta-actions,
+  .services-cta-actions,
+  .contact-form,
+  .form-row {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .portfolio-tabs {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .portfolio-tab,
+  .lrs-primary-btn,
+  .lrs-outline-btn,
+  .portfolio-soft-btn,
+  .services-cta-btn,
+  .about-cta-btn,
+  .submit-btn,
+  .contact-form button,
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .lrs-client-logos {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .lrs-client-logos span {
+    min-width: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  body.home-redesign .lrs-hero-visual {
+    width: min(100%, 360px) !important;
+    max-width: calc(100vw - 32px) !important;
+    justify-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    overflow: visible !important;
+  }
+
+  body.home-redesign .lrs-hero-photo-card {
+    left: 50% !important;
+    right: auto !important;
+    width: min(300px, 82vw) !important;
+    max-width: calc(100vw - 64px) !important;
+  }
+
+  body.home-redesign .lrs-floating-card {
+    max-width: calc(100vw - 48px) !important;
+  }
+
+  body.home-redesign .lrs-check-card {
+    left: 0 !important;
+    right: auto !important;
+    width: min(330px, calc(100vw - 48px)) !important;
+  }
+
+  body.home-redesign .lrs-metric-card {
+    right: 0 !important;
+    left: auto !important;
+    width: min(210px, calc(100vw - 56px)) !important;
+  }
+
+  .inner-page-motion-art,
+  .about-motion-art,
+  .services-motion-art,
+  .portfolio-motion-art,
+  .contact-motion-art {
+    display: none !important;
+  }
+
+  .portfolio-modal {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding: 14px !important;
+    overflow-x: hidden !important;
+  }
+
+  .portfolio-modal-panel {
+    width: calc(100vw - 28px) !important;
+    max-width: calc(100vw - 28px) !important;
+    overflow-x: hidden !important;
+  }
+
+  .portfolio-modal-track {
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .portfolio-modal-slide {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .portfolio-modal-image,
+  .portfolio-featured-image,
+  .portfolio-side-image,
+  .portfolio-preview-tile,
+  .lrs-work-image {
+    max-width: 100% !important;
+  }
+
+  .info-item {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+  }
+
+  .footer-content,
+  .home-footer-original .footer-content {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .lrs-home-main > section > .container,
+  .page-shell section > .container,
+  .page-shell .container,
+  .portfolio-container,
+  .services-container,
+  .contact-hero-section > .container {
+    width: calc(100% - 28px) !important;
+    max-width: calc(100vw - 28px) !important;
+  }
+
+  body.home-redesign .lrs-hero-visual {
+    max-width: calc(100vw - 28px) !important;
+  }
+
+  body.home-redesign .lrs-check-card {
+    width: min(318px, calc(100vw - 44px)) !important;
+  }
+
+  body.home-redesign .lrs-metric-card {
+    width: min(198px, calc(100vw - 50px)) !important;
+  }
+
+  .portfolio-modal-panel {
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    padding: 18px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE HOME NAV POSITION + INNER HEADING CUT FIX
+   - Keeps the current mobile navigation dropdown/button styling.
+   - Moves the homepage hamburger button to the right side like inner pages.
+   - Prevents inner page headings from being cut on mobile devices.
+========================================================= */
+@media (max-width: 900px) {
+  body.home-redesign .header.home-header .navbar,
+  body.home-redesign .navbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: 14px !important;
+  }
+
+  body.home-redesign .header.home-header .logo,
+  body.home-redesign .logo {
+    flex: 0 0 auto !important;
+    margin-right: auto !important;
+  }
+
+  body.home-redesign .header.home-header .menu-toggle,
+  body.home-redesign .menu-toggle {
+    margin-left: auto !important;
+    flex: 0 0 auto !important;
+    order: 3 !important;
+  }
+
+  body.home-redesign .header.home-header .nav-container,
+  body.home-redesign .nav-container {
+    order: 4 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    font-size: clamp(25px, 8.2vw, 36px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.8px !important;
+  }
+
+  .about-hero-copy h1 span,
+  .portfolio-intro h1 span,
+  .services-hero-content h1 span,
+  .contact-redesign .page-intro h1 span {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  .about-hero-copy,
+  .portfolio-intro,
+  .services-hero-content,
+  .contact-redesign .page-intro {
+    overflow: visible !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(22px, 7.3vw, 30px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.45px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: 21px !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.25px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE INNER NAV PANEL MATCH UPDATE
+   - Makes the mobile navigation panel on inner pages match the homepage panel.
+   - Keeps the already-fixed mobile hamburger button placement.
+   - Matches the mobile Contact Us button color to the desktop Contact Us button.
+========================================================= */
+@media (max-width: 900px) {
+  .header.inner-header .nav-container,
+  .header.inner-header .nav-container.show,
+  .header.home-header .nav-container,
+  .header.home-header .nav-container.show,
+  body.home-redesign .header.home-header .nav-container,
+  body.home-redesign .header.home-header .nav-container.show {
+    position: fixed !important;
+    top: 78px !important;
+    right: 24px !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: min(280px, calc(100vw - 48px)) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    border-radius: 10px !important;
+    background:
+      radial-gradient(circle at top left, rgba(82, 169, 185, 0.16), transparent 36%),
+      rgba(13, 23, 32, 0.96) !important;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28) !important;
+    backdrop-filter: blur(18px) saturate(145%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(145%) !important;
+    z-index: 1250 !important;
+  }
+
+  .header.inner-header .nav-container,
+  .header.home-header .nav-container,
+  body.home-redesign .header.home-header .nav-container {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    padding: 0 !important;
+    transform: none !important;
+    transition: max-height 0.35s ease, opacity 0.25s ease, visibility 0.25s ease, padding 0.25s ease !important;
+  }
+
+  .header.inner-header .nav-container.show,
+  .header.home-header .nav-container.show,
+  body.home-redesign .header.home-header .nav-container.show {
+    max-height: 520px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding: 10px 0 12px !important;
+    transform: none !important;
+  }
+
+  .header.inner-header .nav-container.show .nav-links,
+  .header.home-header .nav-container.show .nav-links,
+  body.home-redesign .header.home-header .nav-container.show .nav-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    width: 100% !important;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .header.inner-header .nav-container.show .nav-links li,
+  .header.home-header .nav-container.show .nav-links li,
+  body.home-redesign .header.home-header .nav-container.show .nav-links li {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .header.inner-header .nav-container.show .nav-links a,
+  .header.home-header .nav-container.show .nav-links a,
+  body.home-redesign .header.home-header .nav-container.show .nav-links a {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 14px 18px !important;
+    margin: 0 !important;
+    color: rgba(255, 255, 255, 0.90) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    white-space: normal !important;
+  }
+
+  .header.inner-header .nav-container.show .nav-links a::after,
+  .header.home-header .nav-container.show .nav-links a::after,
+  body.home-redesign .header.home-header .nav-container.show .nav-links a::after {
+    display: none !important;
+  }
+
+  .header.inner-header .nav-container.show .nav-links a:hover,
+  .header.inner-header .nav-container.show .nav-links a.active,
+  .header.home-header .nav-container.show .nav-links a:hover,
+  .header.home-header .nav-container.show .nav-links a.active,
+  body.home-redesign .header.home-header .nav-container.show .nav-links a:hover,
+  body.home-redesign .header.home-header .nav-container.show .nav-links a.active {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: none !important;
+  }
+
+  .header.inner-header .mobile-contact-item,
+  .header.home-header .mobile-contact-item,
+  body.home-redesign .header.home-header .mobile-contact-item {
+    display: block !important;
+    width: 100% !important;
+    padding: 10px 18px 0 !important;
+  }
+
+  .header.inner-header .mobile-contact-btn,
+  .header.home-header .mobile-contact-btn,
+  body.home-redesign .header.home-header .mobile-contact-btn,
+  .header.inner-header .nav-container.show .mobile-contact-btn,
+  .header.home-header .nav-container.show .mobile-contact-btn,
+  body.home-redesign .header.home-header .nav-container.show .mobile-contact-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 50px !important;
+    padding: 0 18px !important;
+    border-radius: var(--radius-pill) !important;
+    background: #52a9b9 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 14px 30px rgba(82, 169, 185, 0.24) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+  }
+
+  .header.inner-header .mobile-contact-btn:hover,
+  .header.home-header .mobile-contact-btn:hover,
+  body.home-redesign .header.home-header .mobile-contact-btn:hover,
+  .header.inner-header .nav-container.show .mobile-contact-btn:hover,
+  .header.home-header .nav-container.show .mobile-contact-btn:hover,
+  body.home-redesign .header.home-header .nav-container.show .mobile-contact-btn:hover {
+    background: #63b7c5 !important;
+    color: #ffffff !important;
+    box-shadow: 0 18px 36px rgba(82, 169, 185, 0.30) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .header.inner-header .nav-container,
+  .header.inner-header .nav-container.show,
+  .header.home-header .nav-container,
+  .header.home-header .nav-container.show,
+  body.home-redesign .header.home-header .nav-container,
+  body.home-redesign .header.home-header .nav-container.show {
+    right: 16px !important;
+    width: calc(100vw - 32px) !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE NAV CONTACT BUTTON PILL FIX
+   - Keeps the Contact Us item pill-shaped at all times on mobile.
+   - Prevents the temporary rectangular state during tap/click/active changes.
+   - Does not change the rest of the mobile navigation panel design.
+========================================================= */
+@media (max-width: 900px) {
+  .header .nav-container .mobile-contact-item,
+  .header .nav-container.show .mobile-contact-item,
+  .header.inner-header .nav-container .mobile-contact-item,
+  .header.inner-header .nav-container.show .mobile-contact-item,
+  .header.home-header .nav-container .mobile-contact-item,
+  .header.home-header .nav-container.show .mobile-contact-item,
+  body.home-redesign .header.home-header .nav-container .mobile-contact-item,
+  body.home-redesign .header.home-header .nav-container.show .mobile-contact-item {
+    display: block !important;
+    width: 100% !important;
+    padding: 10px 18px 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .header .nav-container .mobile-contact-btn,
+  .header .nav-container.show .mobile-contact-btn,
+  .header.inner-header .nav-container .mobile-contact-btn,
+  .header.inner-header .nav-container.show .mobile-contact-btn,
+  .header.home-header .nav-container .mobile-contact-btn,
+  .header.home-header .nav-container.show .mobile-contact-btn,
+  body.home-redesign .header.home-header .nav-container .mobile-contact-btn,
+  body.home-redesign .header.home-header .nav-container.show .mobile-contact-btn,
+  .header .nav-container .mobile-contact-btn:link,
+  .header .nav-container .mobile-contact-btn:visited,
+  .header .nav-container .mobile-contact-btn:hover,
+  .header .nav-container .mobile-contact-btn:focus,
+  .header .nav-container .mobile-contact-btn:focus-visible,
+  .header .nav-container .mobile-contact-btn:active,
+  .header .nav-container.show .mobile-contact-btn:link,
+  .header .nav-container.show .mobile-contact-btn:visited,
+  .header .nav-container.show .mobile-contact-btn:hover,
+  .header .nav-container.show .mobile-contact-btn:focus,
+  .header .nav-container.show .mobile-contact-btn:focus-visible,
+  .header .nav-container.show .mobile-contact-btn:active {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 50px !important;
+    padding: 0 18px !important;
+    border-radius: 999px !important;
+    background: #52a9b9 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 14px 30px rgba(82, 169, 185, 0.24) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    line-height: 1 !important;
+    transform: none !important;
+    overflow: hidden !important;
+    -webkit-tap-highlight-color: transparent !important;
+    outline-offset: 4px !important;
+  }
+
+  .header .nav-container .mobile-contact-btn:hover,
+  .header .nav-container .mobile-contact-btn:focus,
+  .header .nav-container .mobile-contact-btn:focus-visible,
+  .header .nav-container .mobile-contact-btn:active,
+  .header .nav-container.show .mobile-contact-btn:hover,
+  .header .nav-container.show .mobile-contact-btn:focus,
+  .header .nav-container.show .mobile-contact-btn:focus-visible,
+  .header .nav-container.show .mobile-contact-btn:active {
+    border-radius: 999px !important;
+    background: #63b7c5 !important;
+    color: #ffffff !important;
+    box-shadow: 0 18px 36px rgba(82, 169, 185, 0.30) !important;
+  }
+}
+
+/* =========================================================
+   FINAL MOBILE CONTACT BUTTON PILL STATE FIX
+   - Uses higher-specificity selectors than the general mobile nav links.
+   - Keeps Contact Us pill-shaped before, during, and after tapping.
+   - Applies to homepage and all inner pages without changing the nav panel design.
+========================================================= */
+@media (max-width: 900px) {
+  .header .nav-container.show ul.nav-links li.mobile-contact-item,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item {
+    display: block !important;
+    width: 100% !important;
+    padding: 10px 18px 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn,
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:link,
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:visited,
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:hover,
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus,
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus-visible,
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:active,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:link,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:visited,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:hover,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus-visible,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:active,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:link,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:visited,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:hover,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus-visible,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:active,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:link,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:visited,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:hover,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus-visible,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:active {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 50px !important;
+    padding: 0 18px !important;
+    margin: 0 !important;
+    border-radius: 999px !important;
+    background: #52a9b9 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 14px 30px rgba(82, 169, 185, 0.24) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    overflow: hidden !important;
+    clip-path: inset(0 round 999px) !important;
+    transform: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:hover,
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus,
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus-visible,
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:active,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:hover,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus-visible,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:active,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:hover,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus-visible,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:active,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:hover,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:focus-visible,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn:active {
+    border-radius: 999px !important;
+    background: #63b7c5 !important;
+    color: #ffffff !important;
+    box-shadow: 0 18px 36px rgba(82, 169, 185, 0.30) !important;
+    clip-path: inset(0 round 999px) !important;
+  }
+
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn::before,
+  .header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn::after,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn::before,
+  .header.inner-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn::after,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn::before,
+  .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn::after,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn::before,
+  body.home-redesign .header.home-header .nav-container.show ul.nav-links li.mobile-contact-item > a.mobile-contact-btn::after {
+    display: none !important;
+    content: none !important;
+  }
+}
+
+/* =========================================================
+   INNER PAGE HEADING COLOR UPDATE
+   - Makes all inner-page main heading text use the dark blue navigation color.
+   - Removes the teal/accent color from the two-line colored heading spans.
+========================================================= */
+.about-hero-copy h1,
+.about-hero-copy h1 span,
+.portfolio-intro h1,
+.portfolio-intro h1 span,
+.services-hero-content h1,
+.services-hero-content h1 span,
+.contact-redesign .page-intro h1,
+.contact-redesign .page-intro h1 span {
+  color: #222b3c !important;
+  -webkit-text-fill-color: #222b3c !important;
+  background: none !important;
+  background-image: none !important;
+}
+
+/* =========================================================
+   ABOUT PAGE FOUNDER NAME ALIGNMENT UPDATE
+   - Aligns the co-founder name blocks with each other.
+   - Keeps the existing founder card layout, photos, labels, and content intact.
+========================================================= */
+.about-founders-row {
+  align-items: stretch !important;
+}
+
+.about-founder-card {
+  align-items: start !important;
+}
+
+.about-founder-copy {
+  align-self: start !important;
+}
+
+/* =========================================================
+   INNER PAGE HEADING SAME FONT SIZE UPDATE
+   - Makes the top and bottom lines of the main headings use one consistent size.
+   - Applies only to the inner-page hero headings.
+   - Keeps the existing two-line structure, color, spacing, and page functions intact.
+========================================================= */
+.about-hero-copy h1,
+.portfolio-intro h1,
+.services-hero-content h1,
+.contact-redesign .page-intro h1 {
+  font-size: clamp(38px, 4.6vw, 62px) !important;
+  line-height: 1.04 !important;
+  letter-spacing: clamp(-2.1px, -0.12vw, -1.1px) !important;
+  font-weight: 600 !important;
+}
+
+.about-hero-copy h1 span,
+.portfolio-intro h1 span,
+.services-hero-content h1 span,
+.contact-redesign .page-intro h1 span {
+  display: block !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  font-weight: inherit !important;
+}
+
+@media (max-width: 1100px) {
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(34px, 6.2vw, 54px) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(25px, 8.2vw, 36px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.8px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-hero-copy h1,
+  .portfolio-intro h1,
+  .services-hero-content h1,
+  .contact-redesign .page-intro h1 {
+    font-size: clamp(22px, 7.3vw, 30px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.45px !important;
+  }
+}
+
+/* =========================================================
+   PORTFOLIO ARROW HEAD ONLY UPDATE
+   - Removes the horizontal line from the category View All arrows.
+   - Keeps only the arrow head and aligns it cleanly with the button text.
+   - Portfolio-only visual update.
+========================================================= */
+.portfolio-viewall {
+  align-items: center !important;
+}
+
+.portfolio-arrow {
+  width: 12px !important;
+  height: 14px !important;
+  position: relative !important;
+  display: inline-block !important;
+  overflow: visible !important;
+  flex: 0 0 12px !important;
+  margin-left: 2px !important;
+  transform: translateY(1px);
+  transition: transform 0.28s ease !important;
+}
+
+.portfolio-arrow span {
+  display: none !important;
+}
+
+.portfolio-arrow::before,
+.portfolio-arrow::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 50% !important;
+  width: 9px !important;
+  height: 2px !important;
+  border-radius: 999px !important;
+  background: #52a9b9 !important;
+  transform-origin: right center !important;
+}
+
+.portfolio-arrow::before {
+  transform: translateY(-50%) rotate(42deg) !important;
+}
+
+.portfolio-arrow::after {
+  transform: translateY(-50%) rotate(-42deg) !important;
+}
+
+.portfolio-viewall:hover .portfolio-arrow {
+  transform: translate(3px, 1px) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE LINK + KICKER + PORTFOLIO ARROW CLEANUP UPDATE
+   - Removes the highlighted background from homepage section kickers.
+   - Updates homepage text links to match the Portfolio page view-all color.
+   - Makes featured work pills match the navigation Contact Us button color.
+   - Removes portfolio category arrows completely.
+========================================================= */
+body.home-redesign .lrs-section-copy .lrs-kicker {
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 16px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  color: #237f8e !important;
+}
+
+body.home-redesign .lrs-solution-card a,
+body.home-redesign .lrs-text-link {
+  color: #237f8e !important;
+  text-decoration: none !important;
+}
+
+body.home-redesign .lrs-solution-card a:hover,
+body.home-redesign .lrs-text-link:hover {
+  color: #1f7180 !important;
+}
+
+body.home-redesign .lrs-work-body span {
+  background: #52a9b9 !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 22px rgba(82, 169, 185, 0.22) !important;
+}
+
+.portfolio-viewall {
+  color: #237f8e !important;
+  gap: 0 !important;
+}
+
+.portfolio-arrow,
+.portfolio-arrow::before,
+.portfolio-arrow::after,
+.portfolio-arrow span {
+  display: none !important;
+  content: none !important;
 }

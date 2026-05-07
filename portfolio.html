@@ -12,7 +12,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
@@ -73,533 +76,302 @@
 
 <div class="nav-overlay" id="navOverlay"></div>
 
-<main class="page-shell">
-  <section class="section-space">
-    <div class="container">
 
-      <div class="section-intro fade-up">
-        <span class="eyebrow">our work</span>
-        <h2>Creative excellence <span>across every medium</span></h2>
+<main class="page-shell portfolio-redesign">
+  <section class="portfolio-hero-redesign">
+    <div class="portfolio-bg-mark" aria-hidden="true"><img src="images/favicon.png" alt=""></div>
+    <div class="container portfolio-container">
+      <div class="portfolio-intro fade-up">
+        <h1>Creative excellence <span>across every medium</span></h1>
+        <p>We craft design and digital experiences that help brands communicate clearly, stand out, and grow. Explore a selection of our work across different mediums.</p>
       </div>
 
-      <div class="portfolio-jump fade-up">
-        <a href="#posters" class="jump-btn">Posters</a>
-        <a href="#product-branding" class="jump-btn">Product Branding</a>
-        <a href="#marketing-materials" class="jump-btn">Marketing Materials</a>
-        <a href="#dashboard-creation" class="jump-btn">Dashboard Creation</a>
-        <a href="#social-media" class="jump-btn">Social Media Creatives</a>
+      <div class="inner-page-motion-art portfolio-motion-art fade-up" aria-hidden="true">
+        <div class="motion-orb motion-logo-orb">
+          <img src="images/favicon.png" alt="">
+        </div>
+        <div class="motion-orb motion-icon-orb">
+          <span class="motion-portfolio-symbol"></span>
+        </div>
+        <div class="motion-orb motion-small-orb"></div>
       </div>
 
-      <!-- Posters -->
-      <section class="portfolio-section">
-        <div id="posters" class="category-heading fade-up">
-          <i class="fas fa-object-group"></i> Posters
-        </div>
+      <div class="portfolio-tabs fade-up" aria-label="Portfolio categories">
+        <button type="button" class="portfolio-tab active" data-scroll-target="featured-work">All Work</button>
+        <button type="button" class="portfolio-tab" data-scroll-target="posters">Posters</button>
+        <button type="button" class="portfolio-tab" data-scroll-target="product-branding">Product Branding</button>
+        <button type="button" class="portfolio-tab" data-scroll-target="marketing-materials">Marketing Materials</button>
+        <button type="button" class="portfolio-tab" data-scroll-target="dashboard-creation">Dashboard Creation</button>
+        <button type="button" class="portfolio-tab" data-scroll-target="social-media">Social Media Creatives</button>
+      </div>
 
-        <div class="category-description glass-card fade-up">
-          <p><strong>What it is:</strong> A curated collection of poster designs created for promotions, announcements, campaigns, and branded visual storytelling.</p>
-          <p><strong>What we showcase:</strong> Layout composition, typography, color balance, visual hierarchy, and creative direction tailored to different audiences and goals.</p>
-          <p><strong>Why it matters:</strong> Strong poster design helps brands capture attention instantly and communicate messages clearly across digital and print platforms.</p>
-        </div>
-
-        <div class="portfolio-carousel glass-card fade-up" data-carousel>
-          <button class="carousel-nav carousel-prev" type="button" aria-label="Previous slide">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-
-          <div class="portfolio-carousel-track" data-carousel-track>
-            <article class="portfolio-slide active" data-caption="Poster 01" data-file="poster_01.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/poster_01.jpg" alt="Poster 01">
-                <span class="filename">poster_01.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Poster 01</h3>
-                <p>Promotional design with strong visual hierarchy and clean brand presentation.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Poster 02" data-file="poster_02.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/poster_02.jpg" alt="Poster 02">
-                <span class="filename">poster_02.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Poster 02</h3>
-                <p>Creative poster layout crafted to capture attention quickly and communicate clearly.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Poster 03" data-file="poster_03.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/poster_03.jpg" alt="Poster 03">
-                <span class="filename">poster_03.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Poster 03</h3>
-                <p>Balanced typography, spacing, and imagery for an elevated branded look.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Poster 04" data-file="poster_04.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/poster_04.jpg" alt="Poster 04">
-                <span class="filename">poster_04.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Poster 04</h3>
-                <p>Campaign-ready poster composition designed for clarity and visual impact.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Poster 05" data-file="poster_05.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/poster_05.jpg" alt="Poster 05">
-                <span class="filename">poster_05.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Poster 05</h3>
-                <p>Attention-grabbing design approach suited for both digital and print viewing.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Poster 06" data-file="poster_06.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/poster_06.jpg" alt="Poster 06">
-                <span class="filename">poster_06.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Poster 06</h3>
-                <p>Modern layout showcasing strong contrast, readability, and polished presentation.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Poster 07" data-file="poster_07.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/poster_07.jpg" alt="Poster 07">
-                <span class="filename">poster_07.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Poster 07</h3>
-                <p>Designed to support brand storytelling with impactful composition and tone.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Poster 08" data-file="poster_08.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/poster_08.jpg" alt="Poster 08">
-                <span class="filename">poster_08.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Poster 08</h3>
-                <p>Professional poster concept built for strong message delivery and visibility.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Poster 09" data-file="poster_09.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/poster_09.jpg" alt="Poster 09">
-                <span class="filename">poster_09.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Poster 09</h3>
-                <p>Visually refined poster treatment with branded consistency and clean formatting.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Poster 10" data-file="poster_10.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/poster_10.jpg" alt="Poster 10">
-                <span class="filename">poster_10.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Poster 10</h3>
-                <p>Premium-style promotional visual designed to stand out across multiple formats.</p>
-              </div>
-            </article>
+      <section class="portfolio-featured-showcase fade-up" id="featured-work" aria-label="Featured work preview">
+        <article class="portfolio-featured-main">
+          <div class="portfolio-featured-image">
+            <img class="" src="images/poster_01.jpg" alt="Featured portfolio placeholder" onerror="this.style.opacity='0';">
+            <span class="portfolio-chip">featured project</span>
           </div>
+          <div class="portfolio-featured-caption">
+            <span>Poster Design</span>
+            <h2>Greenway Residences Campaign</h2>
+            <p>Promotional poster series designed to highlight modern living and premium real estate.</p>
+          </div>
+        </article>
 
-          <button class="carousel-nav carousel-next" type="button" aria-label="Next slide">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-
-          <div class="portfolio-carousel-footer">
-            <div class="portfolio-carousel-meta">
-              <span class="portfolio-carousel-current" data-carousel-current>Poster 01</span>
-              <span class="portfolio-carousel-file" data-carousel-file>poster_01.jpg</span>
+        <div class="portfolio-featured-stack">
+          <article class="portfolio-side-card">
+            <div class="portfolio-side-image"><img class="" src="images/dashboard_01.jpg" alt="Dashboard placeholder" onerror="this.style.opacity='0';"></div>
+            <div>
+              <span>Dashboard Creation</span>
+              <h3>Sales Performance Dashboard</h3>
+              <p>Data visualization dashboard for real-time sales insights.</p>
             </div>
-            <div class="portfolio-carousel-counter" data-carousel-counter>1 / 10</div>
-          </div>
+          </article>
+          <article class="portfolio-side-card">
+            <div class="portfolio-side-image"><img class="" src="images/product_01.jpg" alt="Product branding placeholder" onerror="this.style.opacity='0';"></div>
+            <div>
+              <span>Product Branding</span>
+              <h3>AquaPure Packaging</h3>
+              <p>Clean, refreshing packaging design for a premium water brand.</p>
+            </div>
+          </article>
+          <article class="portfolio-side-card">
+            <div class="portfolio-side-image"><img class="" src="images/social_01.jpg" alt="Social media placeholder" onerror="this.style.opacity='0';"></div>
+            <div>
+              <span>Social Media</span>
+              <h3>Summer Sale Campaign</h3>
+              <p>Engaging social media creatives that drive visibility and sales.</p>
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- Product Branding -->
-      <section class="portfolio-section">
-        <div id="product-branding" class="category-heading fade-up">
-          <i class="fas fa-box-open"></i> Product Branding
+      <section class="portfolio-work-section" aria-label="Explore our work">
+        <div class="portfolio-section-title fade-up">
+          <h2>Explore Our Work</h2>
+          <p>Browse selected projects by category.</p>
         </div>
 
-        <div class="category-description glass-card fade-up">
-          <p><strong>What it is:</strong> Branding work focused on how products are visually presented to create a memorable and professional identity.</p>
-          <p><strong>What we showcase:</strong> Packaging concepts, label design, product presentation, brand consistency, and visual appeal that supports market positioning.</p>
-          <p><strong>Why it matters:</strong> Effective product branding builds recognition, improves perceived value, and helps products stand out in a competitive market.</p>
+        <div class="portfolio-work-list">
+          
+      <article class="portfolio-work-row fade-up" id="posters">
+        <div class="portfolio-work-info">
+          <div class="portfolio-custom-mark lrs-card-icon portfolio-mark-posters" aria-hidden="true"><i class="fas fa-image"></i></div>
+          <h3>Posters</h3>
+          <p>Impactful poster designs that capture attention and communicate messages across print and digital platforms.</p>
+          <button class="portfolio-viewall" type="button" data-modal="posters">
+            <span>View all Posters</span>
+          </button>
         </div>
+        <div class="portfolio-preview-grid">
+          <figure class="portfolio-preview-tile">
+      <img class="" src="images/poster_01.jpg" alt="Posters placeholder 1" onerror="this.style.opacity='0';">
+      <figcaption>poster_01.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/poster_02.jpg" alt="Posters placeholder 2" onerror="this.style.opacity='0';">
+      <figcaption>poster_02.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/poster_03.jpg" alt="Posters placeholder 3" onerror="this.style.opacity='0';">
+      <figcaption>poster_03.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/poster_04.jpg" alt="Posters placeholder 4" onerror="this.style.opacity='0';">
+      <figcaption>poster_04.jpg</figcaption>
+    </figure>
+        </div>
+      </article>
 
-        <div class="portfolio-carousel glass-card fade-up" data-carousel>
-          <button class="carousel-nav carousel-prev" type="button" aria-label="Previous slide">
-            <i class="fas fa-chevron-left"></i>
+      <article class="portfolio-work-row fade-up" id="product-branding">
+        <div class="portfolio-work-info">
+          <div class="portfolio-custom-mark lrs-card-icon portfolio-mark-product-branding" aria-hidden="true"><i class="fas fa-cube"></i></div>
+          <h3>Product Branding</h3>
+          <p>Packaging and brand identity that build recognition, trust, and stronger shelf appeal.</p>
+          <button class="portfolio-viewall" type="button" data-modal="product-branding">
+            <span>View all Product Branding</span>
           </button>
+        </div>
+        <div class="portfolio-preview-grid">
+          <figure class="portfolio-preview-tile">
+      <img class="" src="images/product_01.jpg" alt="Product Branding placeholder 1" onerror="this.style.opacity='0';">
+      <figcaption>product_01.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/product_02.jpg" alt="Product Branding placeholder 2" onerror="this.style.opacity='0';">
+      <figcaption>product_02.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/product_03.jpg" alt="Product Branding placeholder 3" onerror="this.style.opacity='0';">
+      <figcaption>product_03.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/product_04.jpg" alt="Product Branding placeholder 4" onerror="this.style.opacity='0';">
+      <figcaption>product_04.jpg</figcaption>
+    </figure>
+        </div>
+      </article>
 
-          <div class="portfolio-carousel-track" data-carousel-track>
-            <article class="portfolio-slide active" data-caption="Product 01" data-file="product_01.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/product_01.jpg" alt="Product 01">
-                <span class="filename">product_01.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Product 01</h3>
-                <p>Brand-focused product presentation designed to feel polished, memorable, and market-ready.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Product 02" data-file="product_02.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/product_02.jpg" alt="Product 02">
-                <span class="filename">product_02.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Product 02</h3>
-                <p>Visual branding concept that strengthens recognition and improves perceived product value.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Product 03" data-file="product_03.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/product_03.jpg" alt="Product 03">
-                <span class="filename">product_03.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Product 03</h3>
-                <p>Clean packaging and identity direction aligned for strong shelf and digital appeal.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Product 04" data-file="product_04.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/product_04.jpg" alt="Product 04">
-                <span class="filename">product_04.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Product 04</h3>
-                <p>Professional product branding layout developed for consistency and visual credibility.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Product 05" data-file="product_05.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/product_05.jpg" alt="Product 05">
-                <span class="filename">product_05.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Product 05</h3>
-                <p>Market-facing branding work that combines presentation clarity and strong brand recall.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Product 06" data-file="product_06.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/product_06.jpg" alt="Product 06">
-                <span class="filename">product_06.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Product 06</h3>
-                <p>Brand identity execution shaped to elevate product presence and visual confidence.</p>
-              </div>
-            </article>
-          </div>
-
-          <button class="carousel-nav carousel-next" type="button" aria-label="Next slide">
-            <i class="fas fa-chevron-right"></i>
+      <article class="portfolio-work-row fade-up" id="marketing-materials">
+        <div class="portfolio-work-info">
+          <div class="portfolio-custom-mark lrs-card-icon portfolio-mark-marketing-materials" aria-hidden="true"><i class="fas fa-file-lines"></i></div>
+          <h3>Marketing Materials</h3>
+          <p>Brochures, flyers, and presentations designed to inform, persuade, and leave a lasting impression.</p>
+          <button class="portfolio-viewall" type="button" data-modal="marketing-materials">
+            <span>View all Marketing Materials</span>
           </button>
+        </div>
+        <div class="portfolio-preview-grid">
+          <figure class="portfolio-preview-tile">
+      <img class="" src="images/marketing_01.jpg" alt="Marketing Materials placeholder 1" onerror="this.style.opacity='0';">
+      <figcaption>marketing_01.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/marketing_02.jpg" alt="Marketing Materials placeholder 2" onerror="this.style.opacity='0';">
+      <figcaption>marketing_02.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/marketing_03.jpg" alt="Marketing Materials placeholder 3" onerror="this.style.opacity='0';">
+      <figcaption>marketing_03.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/marketing_04.jpg" alt="Marketing Materials placeholder 4" onerror="this.style.opacity='0';">
+      <figcaption>marketing_04.jpg</figcaption>
+    </figure>
+        </div>
+      </article>
 
-          <div class="portfolio-carousel-footer">
-            <div class="portfolio-carousel-meta">
-              <span class="portfolio-carousel-current" data-carousel-current>Product 01</span>
-              <span class="portfolio-carousel-file" data-carousel-file>product_01.jpg</span>
-            </div>
-            <div class="portfolio-carousel-counter" data-carousel-counter>1 / 6</div>
-          </div>
+      <article class="portfolio-work-row fade-up" id="dashboard-creation">
+        <div class="portfolio-work-info">
+          <div class="portfolio-custom-mark lrs-card-icon portfolio-mark-dashboard-creation" aria-hidden="true"><i class="fas fa-chart-column"></i></div>
+          <h3>Dashboard Creation</h3>
+          <p>Custom dashboards that turn complex data into clear, actionable business insights.</p>
+          <button class="portfolio-viewall" type="button" data-modal="dashboard-creation">
+            <span>View all Dashboard Creation</span>
+          </button>
+        </div>
+        <div class="portfolio-preview-grid">
+          <figure class="portfolio-preview-tile">
+      <img class="" src="images/dashboard_01.jpg" alt="Dashboard Creation placeholder 1" onerror="this.style.opacity='0';">
+      <figcaption>dashboard_01.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/dashboard_02.jpg" alt="Dashboard Creation placeholder 2" onerror="this.style.opacity='0';">
+      <figcaption>dashboard_02.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/dashboard_03.jpg" alt="Dashboard Creation placeholder 3" onerror="this.style.opacity='0';">
+      <figcaption>dashboard_03.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/dashboard_04.jpg" alt="Dashboard Creation placeholder 4" onerror="this.style.opacity='0';">
+      <figcaption>dashboard_04.jpg</figcaption>
+    </figure>
+        </div>
+      </article>
+
+      <article class="portfolio-work-row fade-up" id="social-media">
+        <div class="portfolio-work-info">
+          <div class="portfolio-custom-mark lrs-card-icon portfolio-mark-social-media" aria-hidden="true"><i class="fas fa-hashtag"></i></div>
+          <h3>Social Media Creatives</h3>
+          <p>Scroll-stopping social media content that strengthens brand presence and drives engagement.</p>
+          <button class="portfolio-viewall" type="button" data-modal="social-media">
+            <span>View all Social Media</span>
+          </button>
+        </div>
+        <div class="portfolio-preview-grid">
+          <figure class="portfolio-preview-tile">
+      <img class="" src="images/social_01.jpg" alt="Social Media Creatives placeholder 1" onerror="this.style.opacity='0';">
+      <figcaption>social_01.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/social_02.jpg" alt="Social Media Creatives placeholder 2" onerror="this.style.opacity='0';">
+      <figcaption>social_02.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/social_03.jpg" alt="Social Media Creatives placeholder 3" onerror="this.style.opacity='0';">
+      <figcaption>social_03.jpg</figcaption>
+    </figure>
+<figure class="portfolio-preview-tile">
+      <img class="" src="images/social_04.jpg" alt="Social Media Creatives placeholder 4" onerror="this.style.opacity='0';">
+      <figcaption>social_04.jpg</figcaption>
+    </figure>
+        </div>
+      </article>
         </div>
       </section>
 
-      <!-- Marketing Materials -->
-      <section class="portfolio-section">
-        <div id="marketing-materials" class="category-heading fade-up">
-          <i class="fas fa-file-lines"></i> Marketing Materials
+      <section class="portfolio-cta-panel fade-up">
+        <div>
+          <h2>Ready to elevate your brand?</h2>
+          <p>Let’s create something exceptional together. Our team is ready to help you communicate, engage, and grow.</p>
         </div>
-
-        <div class="category-description glass-card fade-up">
-          <p><strong>What it is:</strong> A selection of business and promotional assets developed to support marketing campaigns and sales efforts.</p>
-          <p><strong>What we showcase:</strong> Brochures, presentation-ready materials, promotional layouts, and communication pieces designed for clarity and impact.</p>
-          <p><strong>Why it matters:</strong> Well-designed marketing materials strengthen credibility, improve communication, and help businesses present their offers more effectively.</p>
-        </div>
-
-        <div class="portfolio-carousel glass-card fade-up" data-carousel>
-          <button class="carousel-nav carousel-prev" type="button" aria-label="Previous slide">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-
-          <div class="portfolio-carousel-track" data-carousel-track>
-            <article class="portfolio-slide active" data-caption="Brochure set" data-file="marketing_01.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/marketing_01.jpg" alt="Brochure set">
-                <span class="filename">marketing_01.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Brochure Set</h3>
-                <p>Presentation-ready material designed to communicate clearly and reinforce brand professionalism.</p>
-              </div>
-            </article>
-          </div>
-
-          <button class="carousel-nav carousel-next" type="button" aria-label="Next slide">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-
-          <div class="portfolio-carousel-footer">
-            <div class="portfolio-carousel-meta">
-              <span class="portfolio-carousel-current" data-carousel-current>Brochure set</span>
-              <span class="portfolio-carousel-file" data-carousel-file>marketing_01.jpg</span>
-            </div>
-            <div class="portfolio-carousel-counter" data-carousel-counter>1 / 1</div>
-          </div>
+        <div class="portfolio-cta-actions">
+          <a href="contact.html" class="portfolio-soft-btn">Book a Consultation</a>
         </div>
       </section>
-
-      <!-- Dashboard Creation -->
-      <section class="portfolio-section">
-        <div id="dashboard-creation" class="category-heading fade-up">
-          <i class="fas fa-compass-drafting"></i> Dashboard Creation
-        </div>
-
-        <div class="category-description glass-card fade-up">
-          <p><strong>What it is:</strong> Custom dashboard solutions that organize business data into clear, usable, and decision-friendly visual formats.</p>
-          <p><strong>What we showcase:</strong> KPI tracking, analytics layouts, reporting structure, data visualization, and user-friendly dashboard presentation.</p>
-          <p><strong>Why it matters:</strong> Dashboards turn raw data into actionable insights, helping teams monitor performance and make faster, smarter decisions.</p>
-        </div>
-
-        <div class="portfolio-carousel glass-card fade-up" data-carousel>
-          <button class="carousel-nav carousel-prev" type="button" aria-label="Previous slide">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-
-          <div class="portfolio-carousel-track" data-carousel-track>
-            <article class="portfolio-slide active" data-caption="Sales dashboard" data-file="dashboard_01.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/dashboard_01.jpg" alt="Sales dashboard">
-                <span class="filename">dashboard_01.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Sales Dashboard</h3>
-                <p>Decision-ready dashboard design built to make metrics easier to scan, track, and use.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Analytics view" data-file="dashboard_02.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/dashboard_02.jpg" alt="Analytics view">
-                <span class="filename">dashboard_02.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Analytics View</h3>
-                <p>Clean reporting structure designed to turn raw information into usable visual insights.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="KPI dashboard" data-file="dashboard_03.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/dashboard_03.jpg" alt="KPI dashboard">
-                <span class="filename">dashboard_03.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>KPI Dashboard</h3>
-                <p>Focused dashboard presentation built for faster monitoring and smarter business decisions.</p>
-              </div>
-            </article>
-          </div>
-
-          <button class="carousel-nav carousel-next" type="button" aria-label="Next slide">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-
-          <div class="portfolio-carousel-footer">
-            <div class="portfolio-carousel-meta">
-              <span class="portfolio-carousel-current" data-carousel-current>Sales dashboard</span>
-              <span class="portfolio-carousel-file" data-carousel-file>dashboard_01.jpg</span>
-            </div>
-            <div class="portfolio-carousel-counter" data-carousel-counter>1 / 3</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Social Media Creatives -->
-      <section class="portfolio-section">
-        <div id="social-media" class="category-heading fade-up">
-          <i class="fas fa-bullseye"></i> Social Media Creatives
-        </div>
-
-        <div class="category-description glass-card fade-up">
-          <p><strong>What it is:</strong> Creative assets designed for social media platforms to support branding, engagement, and campaign visibility.</p>
-          <p><strong>What we showcase:</strong> Platform-specific post designs, ad creatives, story graphics, thumbnails, covers, and branded content visuals.</p>
-          <p><strong>Why it matters:</strong> High-quality social media creatives help brands stay relevant, capture audience interest, and maintain a strong digital presence.</p>
-        </div>
-
-        <div class="portfolio-carousel glass-card fade-up" data-carousel>
-          <button class="carousel-nav carousel-prev" type="button" aria-label="Previous slide">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-
-          <div class="portfolio-carousel-track" data-carousel-track>
-            <article class="portfolio-slide active" data-caption="IG post 01" data-file="social_01.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/social_01.jpg" alt="IG post 01">
-                <span class="filename">social_01.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>IG Post 01</h3>
-                <p>Platform-focused creative designed for high visual appeal and stronger audience engagement.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="IG post 02" data-file="social_02.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/social_02.jpg" alt="IG post 02">
-                <span class="filename">social_02.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>IG Post 02</h3>
-                <p>Branded social asset crafted to support consistency, recognition, and cleaner communication.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="FB ad 01" data-file="social_03.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/social_03.jpg" alt="FB ad 01">
-                <span class="filename">social_03.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>FB Ad 01</h3>
-                <p>Campaign visual built to capture attention quickly in fast-moving digital spaces.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="LinkedIn post" data-file="social_04.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/social_04.jpg" alt="LinkedIn post">
-                <span class="filename">social_04.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>LinkedIn Post</h3>
-                <p>Professional social content designed for trust, clarity, and strong brand presentation.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="TikTok cover" data-file="social_05.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/social_05.jpg" alt="TikTok cover">
-                <span class="filename">social_05.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>TikTok Cover</h3>
-                <p>Short-form content creative optimized for visibility, branding, and quick recognition.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Pin graphic" data-file="social_06.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/social_06.jpg" alt="Pin graphic">
-                <span class="filename">social_06.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Pin Graphic</h3>
-                <p>Visual creative developed for scroll-stopping appeal and polished branded communication.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Story 01" data-file="social_07.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/social_07.jpg" alt="Story 01">
-                <span class="filename">social_07.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Story 01</h3>
-                <p>Story-format asset created for quick engagement while maintaining a premium visual feel.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="Reel cover" data-file="social_08.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/social_08.jpg" alt="Reel cover">
-                <span class="filename">social_08.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>Reel Cover</h3>
-                <p>Branded cover design intended to improve content presentation and discoverability.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="X post" data-file="social_09.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/social_09.jpg" alt="X post">
-                <span class="filename">social_09.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>X Post</h3>
-                <p>Compact social visual designed for clarity, readability, and strong branded impact.</p>
-              </div>
-            </article>
-
-            <article class="portfolio-slide" data-caption="YT thumbnail" data-file="social_10.jpg">
-              <div class="portfolio-slide-media">
-                <img src="images/social_10.jpg" alt="YT thumbnail">
-                <span class="filename">social_10.jpg</span>
-              </div>
-              <div class="portfolio-slide-info">
-                <h3>YT Thumbnail</h3>
-                <p>Thumbnail creative built for stronger click appeal and a more polished content presence.</p>
-              </div>
-            </article>
-          </div>
-
-          <button class="carousel-nav carousel-next" type="button" aria-label="Next slide">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-
-          <div class="portfolio-carousel-footer">
-            <div class="portfolio-carousel-meta">
-              <span class="portfolio-carousel-current" data-carousel-current>IG post 01</span>
-              <span class="portfolio-carousel-file" data-carousel-file>social_01.jpg</span>
-            </div>
-            <div class="portfolio-carousel-counter" data-carousel-counter>1 / 10</div>
-          </div>
-        </div>
-      </section>
-
     </div>
   </section>
 
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-card glass-card fade-up">
-        <h2>Want to see how we can support your brand visually and operationally?</h2>
-        <p>Let’s discuss how our creative and business support solutions can help strengthen your presence, systems, and growth strategy.</p>
-        <div class="cta-actions">
-          <a href="contact.html" class="cta-btn">Start the Conversation</a>
-        </div>
+  <div class="portfolio-modal" id="portfolioModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="portfolioModalTitle">
+    <div class="portfolio-modal-panel" role="document">
+      <button class="portfolio-modal-close" type="button" aria-label="Close portfolio modal">×</button>
+      <div class="portfolio-modal-header">
+        <span class="portfolio-modal-kicker">portfolio details</span>
+        <h2 id="portfolioModalTitle">Category</h2>
+      </div>
+      <div class="portfolio-modal-body" id="portfolioModalBody"></div>
+      <div class="portfolio-modal-carousel" data-modal-carousel>
+        <button class="portfolio-modal-nav portfolio-modal-prev" type="button" aria-label="Previous image">‹</button>
+        <div class="portfolio-modal-track" id="portfolioModalTrack"></div>
+        <button class="portfolio-modal-nav portfolio-modal-next" type="button" aria-label="Next image">›</button>
+      </div>
+      <div class="portfolio-modal-footer">
+        <span id="portfolioModalCount">1 / 10</span>
+        <span id="portfolioModalFile">placeholder_01.jpg</span>
       </div>
     </div>
-  </section>
+  </div>
+
+  <div class="portfolio-templates" hidden>
+    <template id="portfolio-template-posters" data-title="Posters" data-prefix="poster" data-images="poster_01.jpg,poster_02.jpg,poster_03.jpg,poster_04.jpg,poster_05.jpg,poster_06.jpg,poster_07.jpg,poster_08.jpg,poster_09.jpg,poster_10.jpg">
+      <div class="portfolio-modal-copy">
+        <p><strong>What it is:</strong> A curated collection of poster designs created for promotions, announcements, campaigns, and branded visual storytelling.</p>
+        <p><strong>What we showcase:</strong> Layout composition, typography, color balance, visual hierarchy, and creative direction tailored to different audiences and goals.</p>
+        <p><strong>Why it matters:</strong> Strong poster design helps brands capture attention instantly and communicate messages clearly across digital and print platforms.</p>
+      </div>
+    </template>
+<template id="portfolio-template-product-branding" data-title="Product Branding" data-prefix="product" data-images="product_01.jpg,product_02.jpg,product_03.jpg,product_04.jpg,product_05.jpg,product_06.jpg,product_07.jpg,product_08.jpg,product_09.jpg,product_10.jpg">
+      <div class="portfolio-modal-copy">
+        <p><strong>What it is:</strong> Branding work focused on how products are visually presented to create a memorable and professional identity.</p>
+        <p><strong>What we showcase:</strong> Packaging concepts, label design, product presentation, brand consistency, and visual appeal that supports market positioning.</p>
+        <p><strong>Why it matters:</strong> Effective product branding builds recognition, improves perceived value, and helps products stand out in a competitive market.</p>
+      </div>
+    </template>
+<template id="portfolio-template-marketing-materials" data-title="Marketing Materials" data-prefix="marketing" data-images="marketing_01.jpg,marketing_02.jpg,marketing_03.jpg,marketing_04.jpg,marketing_05.jpg,marketing_06.jpg,marketing_07.jpg,marketing_08.jpg,marketing_09.jpg,marketing_10.jpg">
+      <div class="portfolio-modal-copy">
+        <p><strong>What it is:</strong> A selection of business and promotional assets developed to support marketing campaigns and sales efforts.</p>
+        <p><strong>What we showcase:</strong> Brochures, presentation-ready materials, promotional layouts, and communication pieces designed for clarity and impact.</p>
+        <p><strong>Why it matters:</strong> Well-designed marketing materials strengthen credibility, improve communication, and help businesses present their offers more effectively.</p>
+      </div>
+    </template>
+<template id="portfolio-template-dashboard-creation" data-title="Dashboard Creation" data-prefix="dashboard" data-images="dashboard_01.jpg,dashboard_02.jpg,dashboard_03.jpg,dashboard_04.jpg,dashboard_05.jpg,dashboard_06.jpg,dashboard_07.jpg,dashboard_08.jpg,dashboard_09.jpg,dashboard_10.jpg">
+      <div class="portfolio-modal-copy">
+        <p><strong>What it is:</strong> Custom dashboard solutions that organize business data into clear, usable, and decision-friendly visual formats.</p>
+        <p><strong>What we showcase:</strong> KPI tracking, analytics layouts, reporting structure, data visualization, and user-friendly dashboard presentation.</p>
+        <p><strong>Why it matters:</strong> Dashboards turn raw data into actionable insights, helping teams monitor performance and make faster, smarter decisions.</p>
+      </div>
+    </template>
+<template id="portfolio-template-social-media" data-title="Social Media Creatives" data-prefix="social" data-images="social_01.jpg,social_02.jpg,social_03.jpg,social_04.jpg,social_05.jpg,social_06.jpg,social_07.jpg,social_08.jpg,social_09.jpg,social_10.jpg">
+      <div class="portfolio-modal-copy">
+        <p><strong>What it is:</strong> Creative assets designed for social media platforms to support branding, engagement, and campaign visibility.</p>
+        <p><strong>What we showcase:</strong> Platform-specific post designs, ad creatives, story graphics, thumbnails, covers, and branded content visuals.</p>
+        <p><strong>Why it matters:</strong> High-quality social media creatives help brands stay relevant, capture audience interest, and maintain a strong digital presence.</p>
+      </div>
+    </template>
+  </div>
 </main>
+
 
 <footer class="footer">
   <div class="container">
@@ -626,6 +398,7 @@
   </div>
 </footer>
 
+
 <script>
 (function() {
   if ("scrollRestoration" in history) {
@@ -648,15 +421,19 @@
     document.body.style.overflow = "hidden";
   }
 
-  toggle.onclick = () => {
-    if (nav.classList.contains("show")) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  };
+  if (toggle) {
+    toggle.onclick = () => {
+      if (nav.classList.contains("show")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    };
+  }
 
-  overlay.onclick = closeMenu;
+  if (overlay) {
+    overlay.onclick = closeMenu;
+  }
 
   document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", closeMenu);
@@ -673,137 +450,95 @@
 
   faders.forEach(el => observer.observe(el));
 
-  const jumpLinks = document.querySelectorAll('.portfolio-jump a[href^="#"]');
   const header = document.getElementById("header");
+  document.querySelectorAll("[data-scroll-target]").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".portfolio-tab").forEach(tab => tab.classList.remove("active"));
+      button.classList.add("active");
 
-  jumpLinks.forEach(link => {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
+      const target = document.getElementById(button.dataset.scrollTarget);
       if (!target) return;
-
-      const headerHeight = header ? header.offsetHeight : 100;
-      const extraOffset = 24;
-      const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraOffset;
-
-      window.scrollTo({
-        top: targetY,
-        behavior: "smooth"
-      });
-
-      history.replaceState(null, "", "portfolio.html");
+      const headerHeight = header ? header.offsetHeight : 96;
+      const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 22;
+      window.scrollTo({ top: targetY, behavior: "smooth" });
     });
   });
 
-  const carousels = document.querySelectorAll("[data-carousel]");
+  const modal = document.getElementById("portfolioModal");
+  const modalTitle = document.getElementById("portfolioModalTitle");
+  const modalBody = document.getElementById("portfolioModalBody");
+  const modalTrack = document.getElementById("portfolioModalTrack");
+  const modalCount = document.getElementById("portfolioModalCount");
+  const modalFile = document.getElementById("portfolioModalFile");
+  const closeBtn = modal.querySelector(".portfolio-modal-close");
+  const prevBtn = modal.querySelector(".portfolio-modal-prev");
+  const nextBtn = modal.querySelector(".portfolio-modal-next");
+  let modalIndex = 0;
+  let modalSlides = [];
 
-  carousels.forEach((carousel) => {
-    const track = carousel.querySelector("[data-carousel-track]");
-    const slides = Array.from(track.querySelectorAll(".portfolio-slide"));
-    const prevBtn = carousel.querySelector(".carousel-prev");
-    const nextBtn = carousel.querySelector(".carousel-next");
-    const currentLabel = carousel.querySelector("[data-carousel-current]");
-    const fileLabel = carousel.querySelector("[data-carousel-file]");
-    const counterLabel = carousel.querySelector("[data-carousel-counter]");
+  function updateModalCarousel(index, smooth = true) {
+    if (!modalSlides.length) return;
+    modalIndex = (index + modalSlides.length) % modalSlides.length;
+    modalSlides.forEach((slide, i) => slide.classList.toggle("active", i === modalIndex));
+    const current = modalSlides[modalIndex];
+    modalCount.textContent = (modalIndex + 1) + " / " + modalSlides.length;
+    modalFile.textContent = current.dataset.file || "placeholder.jpg";
 
-    let currentIndex = 0;
+    const center = current.offsetLeft + current.clientWidth / 2 - modalTrack.clientWidth / 2;
+    modalTrack.scrollTo({ left: center, behavior: smooth ? "smooth" : "auto" });
+  }
 
-    function scrollTrackToSlide(index, smooth = true) {
-      const slide = slides[index];
-      if (!slide) return;
+  function openPortfolioModal(key) {
+    const template = document.getElementById("portfolio-template-" + key);
+    if (!template) return;
 
-      const trackCenter = track.clientWidth / 2;
-      const slideCenter = slide.offsetLeft + (slide.clientWidth / 2);
-      const targetLeft = slideCenter - trackCenter;
+    const title = template.dataset.title || "Portfolio";
+    const images = (template.dataset.images || "").split(",").filter(Boolean);
+    modalTitle.textContent = title;
+    modalBody.innerHTML = template.innerHTML;
+    modalTrack.innerHTML = images.map((file, index) => `
+      <article class="portfolio-modal-slide ${index === 0 ? "active" : ""}" data-file="${file}">
+        <div class="portfolio-modal-image">
+          <img src="images/${file}" alt="${title} placeholder ${index + 1}" onerror="this.style.opacity='0';">
+          <span>${file}</span>
+        </div>
+        <h3>${title} ${String(index + 1).padStart(2, "0")}</h3>
+      </article>
+    `).join("");
 
-      track.scrollTo({
-        left: targetLeft,
-        behavior: smooth ? "smooth" : "auto"
-      });
+    modalSlides = Array.from(modalTrack.querySelectorAll(".portfolio-modal-slide"));
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("portfolio-modal-open");
+    updateModalCarousel(0, false);
+    closeBtn.focus();
+  }
+
+  function closePortfolioModal() {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("portfolio-modal-open");
+  }
+
+  document.querySelectorAll("[data-modal]").forEach(button => {
+    button.addEventListener("click", () => openPortfolioModal(button.dataset.modal));
+  });
+
+  closeBtn.addEventListener("click", closePortfolioModal);
+  prevBtn.addEventListener("click", () => updateModalCarousel(modalIndex - 1));
+  nextBtn.addEventListener("click", () => updateModalCarousel(modalIndex + 1));
+
+  modal.addEventListener("click", event => {
+    if (event.target === modal) {
+      closePortfolioModal();
     }
+  });
 
-    function updateCarousel(index, smooth = true, skipHorizontalScroll = false) {
-      if (!slides.length) return;
-
-      currentIndex = index;
-      const slide = slides[currentIndex];
-
-      slides.forEach((item, i) => {
-        item.classList.toggle("active", i === currentIndex);
-      });
-
-      if (!skipHorizontalScroll) {
-        scrollTrackToSlide(currentIndex, smooth);
-      }
-
-      currentLabel.textContent = slide.getAttribute("data-caption") || "";
-      fileLabel.textContent = slide.getAttribute("data-file") || "";
-      counterLabel.textContent = (currentIndex + 1) + " / " + slides.length;
-
-      const singleSlide = slides.length <= 1;
-      prevBtn.disabled = singleSlide;
-      nextBtn.disabled = singleSlide;
-    }
-
-    prevBtn.addEventListener("click", () => {
-      const nextIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateCarousel(nextIndex, true, false);
-    });
-
-    nextBtn.addEventListener("click", () => {
-      const nextIndex = (currentIndex + 1) % slides.length;
-      updateCarousel(nextIndex, true, false);
-    });
-
-    slides.forEach((slide, index) => {
-      slide.addEventListener("click", () => updateCarousel(index, true, false));
-    });
-
-    let scrollTimer;
-    track.addEventListener("scroll", () => {
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        let closestIndex = 0;
-        let closestDistance = Infinity;
-        const trackCenter = track.scrollLeft + (track.clientWidth / 2);
-
-        slides.forEach((slide, index) => {
-          const slideCenter = slide.offsetLeft + (slide.clientWidth / 2);
-          const distance = Math.abs(trackCenter - slideCenter);
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            closestIndex = index;
-          }
-        });
-
-        updateCarousel(closestIndex, false, true);
-      }, 100);
-    }, { passive: true });
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    track.addEventListener("touchstart", (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    track.addEventListener("touchend", (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      const swipeDistance = touchEndX - touchStartX;
-      const minSwipeDistance = 50;
-
-      if (Math.abs(swipeDistance) > minSwipeDistance) {
-        if (swipeDistance > 0) {
-          const nextIndex = (currentIndex - 1 + slides.length) % slides.length;
-          updateCarousel(nextIndex, true, false);
-        } else {
-          const nextIndex = (currentIndex + 1) % slides.length;
-          updateCarousel(nextIndex, true, false);
-        }
-      }
-    }, { passive: true });
-
-    updateCarousel(0, false, true);
+  document.addEventListener("keydown", event => {
+    if (!modal.classList.contains("show")) return;
+    if (event.key === "Escape") closePortfolioModal();
+    if (event.key === "ArrowLeft") updateModalCarousel(modalIndex - 1);
+    if (event.key === "ArrowRight") updateModalCarousel(modalIndex + 1);
   });
 
   window.addEventListener("load", () => {
@@ -812,6 +547,7 @@
   });
 })();
 </script>
+
 
 </body>
 </html>
