@@ -13266,3 +13266,3480 @@ body.home-redesign .lrs-work-body span {
   display: none !important;
   content: none !important;
 }
+
+/* =========================================================
+   HOMEPAGE REVIEW SECTION SUBTLE MOTION UPDATE
+   - Adds a soft moving glow and faint floating quote behind the review section only.
+   - CSS-only update. No HTML, scripts, links, or functions changed.
+========================================================= */
+body.home-redesign .lrs-testimonial-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+body.home-redesign .lrs-testimonial-section::before {
+  content: "";
+  position: absolute;
+  width: min(520px, 72vw);
+  height: min(520px, 72vw);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(82, 169, 185, 0.18), transparent 34%),
+    radial-gradient(circle at 66% 62%, rgba(42, 149, 125, 0.14), transparent 42%),
+    radial-gradient(circle at center, rgba(22, 169, 180, 0.08), transparent 64%);
+  filter: blur(18px);
+  opacity: 0.72;
+  pointer-events: none;
+  z-index: 0;
+  animation: lrsReviewGlowDrift 8.5s ease-in-out infinite;
+}
+
+body.home-redesign .lrs-testimonial-section::after {
+  content: "\201C";
+  position: absolute;
+  right: clamp(20px, 9vw, 150px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Satoshi", "DM Sans", Arial, sans-serif;
+  font-size: clamp(150px, 18vw, 290px);
+  line-height: 0.8;
+  font-weight: 800;
+  color: rgba(82, 169, 185, 0.085);
+  text-shadow: 0 22px 60px rgba(42, 149, 125, 0.08);
+  pointer-events: none;
+  z-index: 0;
+  animation: lrsReviewQuoteFloat 7.5s ease-in-out infinite;
+}
+
+body.home-redesign .lrs-testimonial-card {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes lrsReviewGlowDrift {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(calc(-50% + 26px), calc(-50% - 18px)) scale(1.05);
+  }
+}
+
+@keyframes lrsReviewQuoteFloat {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(calc(-50% - 14px)) translateX(-10px) rotate(2deg);
+  }
+}
+
+@media (max-width: 700px) {
+  body.home-redesign .lrs-testimonial-section::before {
+    width: 360px;
+    height: 360px;
+    opacity: 0.62;
+  }
+
+  body.home-redesign .lrs-testimonial-section::after {
+    right: -8px;
+    top: 38%;
+    font-size: 160px;
+    opacity: 0.72;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home-redesign .lrs-testimonial-section::before,
+  body.home-redesign .lrs-testimonial-section::after {
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   NAVIGATION BAR UPDATE - MAY 9
+   - Adds services dropdown and Careers link styling.
+   - Increases navigation spacing and font size.
+   - Keeps the existing header layout, mobile menu, and page scripts intact.
+========================================================= */
+.nav-links {
+  gap: clamp(28px, 3.1vw, 48px) !important;
+}
+
+.nav-links a,
+.home-header-light .nav-links a,
+body.home-redesign .nav-links a,
+body.home-redesign .home-header-light .nav-links a {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.1px !important;
+}
+
+.contact-btn,
+body.home-redesign .contact-btn {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+
+.nav-service-item {
+  position: relative;
+}
+
+.nav-service-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.services-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-left: 1px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 11px;
+  cursor: pointer;
+  transition: color 0.28s ease, transform 0.28s ease;
+}
+
+.nav-service-item:hover .services-dropdown-toggle,
+.nav-service-item.dropdown-open .services-dropdown-toggle,
+.nav-service-item:focus-within .services-dropdown-toggle {
+  color: #ffffff;
+}
+
+.nav-service-item:hover .services-dropdown-toggle i,
+.nav-service-item.dropdown-open .services-dropdown-toggle i,
+.nav-service-item:focus-within .services-dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+.services-dropdown-toggle i {
+  transition: transform 0.28s ease;
+}
+
+.services-dropdown {
+  list-style: none;
+  margin: 0;
+}
+
+.services-dropdown li {
+  display: block !important;
+  width: 100%;
+}
+
+.services-dropdown a::after {
+  display: none !important;
+}
+
+@media (min-width: 901px) {
+  .navbar {
+    gap: clamp(28px, 3vw, 48px) !important;
+  }
+
+  .services-dropdown {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+    min-width: 310px;
+    padding: 12px;
+    border-radius: 16px;
+    background:
+      radial-gradient(circle at top left, rgba(82, 169, 185, 0.16), transparent 34%),
+      rgba(13, 23, 32, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.26);
+    backdrop-filter: blur(18px) saturate(145%);
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, 10px);
+    transition: opacity 0.24s ease, visibility 0.24s ease, transform 0.24s ease;
+  }
+
+  .nav-service-item:hover .services-dropdown,
+  .nav-service-item:focus-within .services-dropdown,
+  .nav-service-item.dropdown-open .services-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+
+  .services-dropdown a,
+  body.home-redesign .services-dropdown a,
+  .home-header-light .services-dropdown a {
+    display: block !important;
+    width: 100% !important;
+    padding: 11px 13px !important;
+    border-radius: 10px !important;
+    color: rgba(255, 255, 255, 0.82) !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.35;
+    text-decoration: none;
+    background: transparent !important;
+  }
+
+  .services-dropdown a:hover,
+  body.home-redesign .services-dropdown a:hover,
+  .home-header-light .services-dropdown a:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.09) !important;
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 901px) {
+  .nav-links,
+  body.home-redesign .nav-links,
+  body.home-redesign .home-header-light .nav-links {
+    gap: 22px !important;
+  }
+
+  .nav-links a,
+  .home-header-light .nav-links a,
+  body.home-redesign .nav-links a,
+  body.home-redesign .home-header-light .nav-links a,
+  .contact-btn,
+  body.home-redesign .contact-btn {
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-container,
+  .home-header-light .nav-container.show,
+  body.home-redesign .nav-container,
+  body.home-redesign .home-header-light .nav-container.show {
+    max-height: calc(100vh - 96px) !important;
+    overflow-y: auto !important;
+  }
+
+  .nav-links,
+  body.home-redesign .nav-links,
+  body.home-redesign .home-header-light .nav-links {
+    gap: 0 !important;
+  }
+
+  .nav-links a,
+  .home-header-light .nav-links a,
+  body.home-redesign .nav-links a,
+  body.home-redesign .home-header-light .nav-links a {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+  }
+
+  .nav-service-item {
+    display: block !important;
+    width: 100%;
+  }
+
+  .nav-service-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-service-top .service-nav-link {
+    flex: 1;
+    padding-left: 42px !important;
+  }
+
+  .services-dropdown-toggle {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 48px;
+    margin-left: 0;
+    color: rgba(255, 255, 255, 0.86);
+  }
+
+  .services-dropdown {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    padding: 0 14px;
+    transition: max-height 0.30s ease, opacity 0.25s ease, visibility 0.25s ease, padding 0.25s ease;
+  }
+
+  .nav-service-item.dropdown-open .services-dropdown {
+    max-height: 560px;
+    opacity: 1;
+    visibility: visible;
+    padding: 6px 14px 12px;
+  }
+
+  .services-dropdown a,
+  .home-header-light .nav-container.show .services-dropdown a,
+  body.home-redesign .nav-container.show .services-dropdown a {
+    display: block !important;
+    width: 100% !important;
+    padding: 10px 12px !important;
+    border-radius: 10px !important;
+    color: rgba(255, 255, 255, 0.78) !important;
+    background: rgba(255, 255, 255, 0.045) !important;
+    font-size: 13.5px !important;
+    line-height: 1.35;
+    text-align: left;
+  }
+
+  .services-dropdown a:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.09) !important;
+  }
+}
+
+.services-card-redesign[id] {
+  scroll-margin-top: 120px;
+}
+
+/* =========================================================
+   NAVIGATION SPACING REFINEMENT - MAY 9
+   - Increases spacing between navigation buttons.
+   - Adds more vertical breathing room inside the Services dropdown.
+   - Keeps existing navigation structure and page functions unchanged.
+========================================================= */
+@media (min-width: 901px) {
+  .nav-links,
+  .home-header-light .nav-links,
+  body.home-redesign .nav-links,
+  body.home-redesign .home-header-light .nav-links {
+    gap: clamp(32px, 3.2vw, 54px) !important;
+  }
+
+  .navbar,
+  body.home-redesign .navbar {
+    gap: clamp(30px, 3vw, 48px) !important;
+  }
+
+  .nav-service-top {
+    gap: 10px !important;
+  }
+
+  .services-dropdown {
+    top: calc(100% + 18px) !important;
+    min-width: 330px !important;
+    padding: 18px !important;
+  }
+
+  .services-dropdown li + li {
+    margin-top: 7px !important;
+  }
+
+  .services-dropdown a,
+  body.home-redesign .services-dropdown a,
+  .home-header-light .services-dropdown a {
+    padding: 15px 16px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 901px) {
+  .nav-links,
+  .home-header-light .nav-links,
+  body.home-redesign .nav-links,
+  body.home-redesign .home-header-light .nav-links {
+    gap: clamp(24px, 2.4vw, 32px) !important;
+  }
+
+  .services-dropdown {
+    min-width: 320px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-service-item.dropdown-open .services-dropdown {
+    padding: 10px 14px 16px !important;
+  }
+
+  .services-dropdown li + li {
+    margin-top: 8px !important;
+  }
+
+  .services-dropdown a,
+  .home-header-light .nav-container.show .services-dropdown a,
+  body.home-redesign .nav-container.show .services-dropdown a {
+    padding: 13px 14px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* =========================================================
+   NAVIGATION SPACING FIX - ALL PAGES
+   - Applies the same reduced navigation spacing to every page header.
+   - Keeps the Services dropdown vertical breathing room consistent.
+   - Added at the end so it overrides older homepage-only/inner-page rules.
+========================================================= */
+@media (min-width: 901px) {
+  .header .navbar,
+  .header.home-header .navbar,
+  .header.inner-header .navbar,
+  body.home-redesign .header .navbar {
+    gap: clamp(30px, 3vw, 48px) !important;
+  }
+
+  .header .nav-links,
+  .header.home-header .nav-links,
+  .header.inner-header .nav-links,
+  .home-header-light .nav-links,
+  body.home-redesign .header .nav-links,
+  body.home-redesign .home-header-light .nav-links {
+    gap: clamp(32px, 3.2vw, 54px) !important;
+    column-gap: clamp(32px, 3.2vw, 54px) !important;
+  }
+
+  .header .nav-links a,
+  .header.home-header .nav-links a,
+  .header.inner-header .nav-links a,
+  .home-header-light .nav-links a,
+  body.home-redesign .header .nav-links a,
+  body.home-redesign .home-header-light .nav-links a {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+  }
+
+  .header .nav-service-top,
+  .header.home-header .nav-service-top,
+  .header.inner-header .nav-service-top,
+  body.home-redesign .header .nav-service-top {
+    gap: 10px !important;
+  }
+
+  .header .services-dropdown,
+  .header.home-header .services-dropdown,
+  .header.inner-header .services-dropdown,
+  body.home-redesign .header .services-dropdown {
+    top: calc(100% + 18px) !important;
+    min-width: 330px !important;
+    padding: 18px !important;
+  }
+
+  .header .services-dropdown li + li,
+  .header.home-header .services-dropdown li + li,
+  .header.inner-header .services-dropdown li + li,
+  body.home-redesign .header .services-dropdown li + li {
+    margin-top: 7px !important;
+  }
+
+  .header .services-dropdown a,
+  .header.home-header .services-dropdown a,
+  .header.inner-header .services-dropdown a,
+  .home-header-light .services-dropdown a,
+  body.home-redesign .header .services-dropdown a,
+  body.home-redesign .home-header-light .services-dropdown a {
+    padding: 15px 16px !important;
+    line-height: 1.55 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 901px) {
+  .header .nav-links,
+  .header.home-header .nav-links,
+  .header.inner-header .nav-links,
+  .home-header-light .nav-links,
+  body.home-redesign .header .nav-links,
+  body.home-redesign .home-header-light .nav-links {
+    gap: clamp(24px, 2.4vw, 32px) !important;
+    column-gap: clamp(24px, 2.4vw, 32px) !important;
+  }
+
+  .header .services-dropdown,
+  .header.home-header .services-dropdown,
+  .header.inner-header .services-dropdown,
+  body.home-redesign .header .services-dropdown {
+    min-width: 320px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .header .nav-service-item.dropdown-open .services-dropdown,
+  .header.home-header .nav-service-item.dropdown-open .services-dropdown,
+  .header.inner-header .nav-service-item.dropdown-open .services-dropdown,
+  body.home-redesign .header .nav-service-item.dropdown-open .services-dropdown {
+    padding: 10px 14px 16px !important;
+  }
+
+  .header .services-dropdown li + li,
+  .header.home-header .services-dropdown li + li,
+  .header.inner-header .services-dropdown li + li,
+  body.home-redesign .header .services-dropdown li + li {
+    margin-top: 8px !important;
+  }
+
+  .header .services-dropdown a,
+  .header.home-header .services-dropdown a,
+  .header.inner-header .services-dropdown a,
+  .home-header-light .nav-container.show .services-dropdown a,
+  body.home-redesign .nav-container.show .services-dropdown a {
+    padding: 13px 14px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* =========================================================
+   HOMEPAGE NAVIGATION SPACING MATCH - MAY 9
+   - Forces the homepage navigation spacing to match the inner pages.
+   - Placed at the very end to override older homepage-specific compressed rules.
+========================================================= */
+@media (min-width: 901px) {
+  .header.inner-header .navbar,
+  .header.home-header .navbar,
+  body.home-redesign .header.home-header .navbar {
+    gap: clamp(30px, 3vw, 48px) !important;
+  }
+
+  .header.inner-header .nav-links,
+  .header.home-header .nav-links,
+  body.home-redesign .header.home-header .nav-links,
+  body.home-redesign .home-header-light .nav-links {
+    gap: clamp(32px, 3.2vw, 54px) !important;
+    column-gap: clamp(32px, 3.2vw, 54px) !important;
+  }
+
+  .header.inner-header .nav-service-top,
+  .header.home-header .nav-service-top,
+  body.home-redesign .header.home-header .nav-service-top {
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 901px) {
+  .header.inner-header .nav-links,
+  .header.home-header .nav-links,
+  body.home-redesign .header.home-header .nav-links,
+  body.home-redesign .home-header-light .nav-links {
+    gap: clamp(24px, 2.4vw, 32px) !important;
+    column-gap: clamp(24px, 2.4vw, 32px) !important;
+  }
+}
+
+/* =========================================================
+   SERVICES DROPDOWN LIGHT THEME - MAY 9
+   - Changes only the Services dropdown menu to a light theme.
+   - Keeps the main navigation bar, spacing, links, and scripts unchanged.
+========================================================= */
+@media (min-width: 901px) {
+  .header .services-dropdown,
+  .header.home-header .services-dropdown,
+  .header.inner-header .services-dropdown,
+  .home-header-light .services-dropdown,
+  body.home-redesign .header .services-dropdown,
+  body.home-redesign .header.home-header .services-dropdown,
+  body.home-redesign .home-header-light .services-dropdown {
+    background:
+      radial-gradient(circle at top left, rgba(82, 169, 185, 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 252, 252, 0.96)) !important;
+    border: 1px solid rgba(14, 41, 58, 0.12) !important;
+    box-shadow: 0 22px 48px rgba(9, 28, 43, 0.16) !important;
+    backdrop-filter: blur(18px) saturate(145%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(145%) !important;
+  }
+
+  .header .services-dropdown a,
+  .header.home-header .services-dropdown a,
+  .header.inner-header .services-dropdown a,
+  .home-header-light .services-dropdown a,
+  body.home-redesign .header .services-dropdown a,
+  body.home-redesign .header.home-header .services-dropdown a,
+  body.home-redesign .home-header-light .services-dropdown a {
+    color: #213247 !important;
+    background: transparent !important;
+  }
+
+  .header .services-dropdown a:hover,
+  .header.home-header .services-dropdown a:hover,
+  .header.inner-header .services-dropdown a:hover,
+  .home-header-light .services-dropdown a:hover,
+  body.home-redesign .header .services-dropdown a:hover,
+  body.home-redesign .header.home-header .services-dropdown a:hover,
+  body.home-redesign .home-header-light .services-dropdown a:hover {
+    color: #0e9d91 !important;
+    background: rgba(42, 149, 125, 0.09) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .header .nav-service-item.dropdown-open .services-dropdown,
+  .header.home-header .nav-service-item.dropdown-open .services-dropdown,
+  .header.inner-header .nav-service-item.dropdown-open .services-dropdown,
+  .home-header-light .nav-service-item.dropdown-open .services-dropdown,
+  body.home-redesign .header .nav-service-item.dropdown-open .services-dropdown,
+  body.home-redesign .home-header-light .nav-service-item.dropdown-open .services-dropdown {
+    margin: 6px 14px 4px !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+    background:
+      radial-gradient(circle at top left, rgba(82, 169, 185, 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 252, 252, 0.96)) !important;
+    border: 1px solid rgba(14, 41, 58, 0.12) !important;
+    box-shadow: 0 16px 34px rgba(4, 16, 29, 0.18) !important;
+  }
+
+  .header .services-dropdown a,
+  .header.home-header .services-dropdown a,
+  .header.inner-header .services-dropdown a,
+  .home-header-light .nav-container.show .services-dropdown a,
+  body.home-redesign .nav-container.show .services-dropdown a,
+  body.home-redesign .home-header-light .nav-container.show .services-dropdown a {
+    color: #213247 !important;
+    background: rgba(13, 35, 51, 0.045) !important;
+  }
+
+  .header .services-dropdown a:hover,
+  .header.home-header .services-dropdown a:hover,
+  .header.inner-header .services-dropdown a:hover,
+  .home-header-light .nav-container.show .services-dropdown a:hover,
+  body.home-redesign .nav-container.show .services-dropdown a:hover,
+  body.home-redesign .home-header-light .nav-container.show .services-dropdown a:hover {
+    color: #0e9d91 !important;
+    background: rgba(42, 149, 125, 0.10) !important;
+  }
+}
+
+/* =========================================================
+   HOMEPAGE HERO TEXT SIZE + TRUST ICON REMOVAL UPDATE
+   - Applies only to the homepage hero section.
+   - Increases the hero heading and description size.
+   - Removes the three trust icons below the CTA buttons.
+========================================================= */
+body.home-redesign .lrs-hero-copy h1.lrs-gradient-title {
+  font-size: clamp(52px, 5.45vw, 78px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: clamp(-2.6px, -0.15vw, -1.4px) !important;
+}
+
+body.home-redesign .lrs-hero-copy p {
+  max-width: 650px !important;
+  font-size: clamp(19px, 1.45vw, 23px) !important;
+  line-height: 1.72 !important;
+}
+
+body.home-redesign .lrs-hero-actions {
+  margin-bottom: 0 !important;
+}
+
+body.home-redesign .lrs-hero-trust-row {
+  display: none !important;
+}
+
+@media (max-width: 1240px) {
+  body.home-redesign .lrs-hero-copy h1.lrs-gradient-title {
+    font-size: clamp(46px, 5.05vw, 64px) !important;
+  }
+
+  body.home-redesign .lrs-hero-copy p {
+    font-size: clamp(18px, 1.35vw, 21px) !important;
+  }
+}
+
+@media (max-width: 1120px) {
+  body.home-redesign .lrs-hero-copy h1.lrs-gradient-title {
+    font-size: clamp(48px, 7.5vw, 74px) !important;
+  }
+
+  body.home-redesign .lrs-hero-copy p {
+    max-width: 720px !important;
+    font-size: clamp(18px, 2vw, 22px) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.home-redesign .lrs-hero-copy h1.lrs-gradient-title {
+    font-size: clamp(38px, 10vw, 56px) !important;
+    letter-spacing: -1.55px !important;
+  }
+
+  body.home-redesign .lrs-hero-copy p {
+    font-size: 17px !important;
+    line-height: 1.72 !important;
+  }
+}
+
+@media (max-width: 390px) {
+  body.home-redesign .lrs-hero-copy h1.lrs-gradient-title {
+    font-size: clamp(34px, 9.2vw, 42px) !important;
+    letter-spacing: -1.15px !important;
+  }
+}
+
+/* =========================================================
+   HOMEPAGE HERO CONTENT POSITION UPDATE
+   - Applies only to the homepage hero text group.
+   - Positions "Launch. Run. Scale.", its description, and the CTA buttons closer to 60% down the hero screen.
+   - Keeps all other homepage sections, navigation, dropdowns, and functions unchanged.
+========================================================= */
+@media (min-width: 1081px) {
+  body.home-redesign .lrs-hero-copy {
+    position: relative !important;
+    top: clamp(72px, 10vh, 112px) !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  body.home-redesign .lrs-hero-copy {
+    position: relative !important;
+    top: clamp(28px, 4vh, 48px) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.home-redesign .lrs-hero-copy {
+    top: 14px !important;
+  }
+}
+
+/* =========================================================
+   GLOBAL NAVIGATION BOTTOM LINE REMOVAL
+   - Removes the visible bottom border line from the navigation bar on all pages.
+   - Visual-only update. No layout, links, dropdowns, scripts, forms, or content functions changed.
+========================================================= */
+.header,
+.header.home-header,
+.header.home-header.shrink,
+.header.inner-header,
+body.home-redesign .header,
+body.home-redesign .header.home-header,
+body.home-redesign .header.home-header.shrink {
+  border-bottom: 0 !important;
+}
+
+.header::before,
+.header.home-header::before,
+.header.home-header.shrink::before,
+.header.inner-header::before,
+.home-header-light::before,
+.home-header-light.shrink::before,
+body.home-redesign .header::before,
+body.home-redesign .home-header-light::before,
+body.home-redesign .home-header-light.shrink::before {
+  border-bottom: 0 !important;
+}
+
+/* =========================================================
+   GLOBAL NAVIGATION BOTTOM SHADOW REMOVAL
+   - Removes the bottom shadow from the navigation bar on all pages.
+   - Visual-only update. No layout, links, dropdowns, scripts, forms, or content functions changed.
+========================================================= */
+.header,
+.header.home-header,
+.header.home-header.shrink,
+.header.inner-header,
+body.home-redesign .header,
+body.home-redesign .header.home-header,
+body.home-redesign .header.home-header.shrink {
+  box-shadow: none !important;
+}
+
+.header::before,
+.header.home-header::before,
+.header.home-header.shrink::before,
+.header.inner-header::before,
+.home-header-light::before,
+.home-header-light.shrink::before,
+body.home-redesign .header::before,
+body.home-redesign .home-header-light::before,
+body.home-redesign .home-header-light.shrink::before {
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   GLOBAL NAVIGATION CONTACT BUTTON UPDATE
+   - Applies to the Contact Us button in the navigation bar on all pages.
+   - Black background, white text, no border, and soft glow.
+   - Hover changes to white background with black text.
+   - Visual-only update. No links, dropdowns, scripts, forms, or content functions changed.
+========================================================= */
+.contact-btn,
+.mobile-contact-btn,
+.home-header-light .mobile-contact-btn,
+.home-header-light .nav-container.show .mobile-contact-btn,
+body.home-redesign .contact-btn,
+body.home-redesign .mobile-contact-btn,
+body.home-redesign .home-header-light .mobile-contact-btn,
+body.home-redesign .home-header-light .nav-container.show .mobile-contact-btn {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.22),
+    0 14px 34px rgba(0, 0, 0, 0.38) !important;
+}
+
+.contact-btn:hover,
+.mobile-contact-btn:hover,
+.home-header-light .mobile-contact-btn:hover,
+.home-header-light .nav-container.show .mobile-contact-btn:hover,
+body.home-redesign .contact-btn:hover,
+body.home-redesign .mobile-contact-btn:hover,
+body.home-redesign .home-header-light .mobile-contact-btn:hover,
+body.home-redesign .home-header-light .nav-container.show .mobile-contact-btn:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 0 !important;
+  box-shadow:
+    0 0 22px rgba(255, 255, 255, 0.36),
+    0 16px 38px rgba(0, 0, 0, 0.30) !important;
+}
+
+/* =========================================================
+   NAV CONTACT BUTTON FINAL FIX
+   - Strong final override for the navbar Contact Us button on all pages.
+   - Black background, white text, no border, and no glow/shadow.
+   - Hover changes to white background with black text.
+   - Visual-only update. No links, dropdowns, scripts, forms, or page functions changed.
+========================================================= */
+.navbar > a.contact-btn,
+a.contact-btn,
+.nav-container a.mobile-contact-btn,
+.mobile-contact-btn,
+.home-header-light .navbar > a.contact-btn,
+.home-header-light a.contact-btn,
+.home-header-light .nav-container a.mobile-contact-btn,
+.home-header-light .mobile-contact-btn,
+body.home-redesign .navbar > a.contact-btn,
+body.home-redesign a.contact-btn,
+body.home-redesign .nav-container a.mobile-contact-btn,
+body.home-redesign .mobile-contact-btn,
+body.home-redesign .home-header-light .navbar > a.contact-btn,
+body.home-redesign .home-header-light a.contact-btn,
+body.home-redesign .home-header-light .nav-container a.mobile-contact-btn,
+body.home-redesign .home-header-light .mobile-contact-btn {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+.navbar > a.contact-btn:hover,
+a.contact-btn:hover,
+.nav-container a.mobile-contact-btn:hover,
+.mobile-contact-btn:hover,
+.home-header-light .navbar > a.contact-btn:hover,
+.home-header-light a.contact-btn:hover,
+.home-header-light .nav-container a.mobile-contact-btn:hover,
+.home-header-light .mobile-contact-btn:hover,
+body.home-redesign .navbar > a.contact-btn:hover,
+body.home-redesign a.contact-btn:hover,
+body.home-redesign .nav-container a.mobile-contact-btn:hover,
+body.home-redesign .mobile-contact-btn:hover,
+body.home-redesign .home-header-light .navbar > a.contact-btn:hover,
+body.home-redesign .home-header-light a.contact-btn:hover,
+body.home-redesign .home-header-light .nav-container a.mobile-contact-btn:hover,
+body.home-redesign .home-header-light .mobile-contact-btn:hover {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+/* =========================================================
+   NAV CONTACT BUTTON COLOR REVERT
+   - Applies globally to desktop and mobile navigation Contact Us buttons.
+   - Default: white background with black text.
+   - Hover: black background with white text.
+   - No border, glow, or shadow.
+========================================================= */
+.navbar > a.contact-btn,
+a.contact-btn,
+.nav-container a.mobile-contact-btn,
+.mobile-contact-btn,
+.home-header-light .navbar > a.contact-btn,
+.home-header-light a.contact-btn,
+.home-header-light .nav-container a.mobile-contact-btn,
+.home-header-light .mobile-contact-btn,
+body.home-redesign .navbar > a.contact-btn,
+body.home-redesign a.contact-btn,
+body.home-redesign .nav-container a.mobile-contact-btn,
+body.home-redesign .mobile-contact-btn,
+body.home-redesign .home-header-light .navbar > a.contact-btn,
+body.home-redesign .home-header-light a.contact-btn,
+body.home-redesign .home-header-light .nav-container a.mobile-contact-btn,
+body.home-redesign .home-header-light .mobile-contact-btn {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+.navbar > a.contact-btn:hover,
+a.contact-btn:hover,
+.nav-container a.mobile-contact-btn:hover,
+.mobile-contact-btn:hover,
+.home-header-light .navbar > a.contact-btn:hover,
+.home-header-light a.contact-btn:hover,
+.home-header-light .nav-container a.mobile-contact-btn:hover,
+.home-header-light .mobile-contact-btn:hover,
+body.home-redesign .navbar > a.contact-btn:hover,
+body.home-redesign a.contact-btn:hover,
+body.home-redesign .nav-container a.mobile-contact-btn:hover,
+body.home-redesign .mobile-contact-btn:hover,
+body.home-redesign .home-header-light .navbar > a.contact-btn:hover,
+body.home-redesign .home-header-light a.contact-btn:hover,
+body.home-redesign .home-header-light .nav-container a.mobile-contact-btn:hover,
+body.home-redesign .home-header-light .mobile-contact-btn:hover {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+/* =========================================================
+   FINAL GLOBAL NAV CONTACT BUTTON ALL-PAGES FIX
+   - Highest-priority shared rule for homepage and inner-page nav buttons.
+   - Default: white background with black text.
+   - Hover: black background with white text.
+   - No border, glow, or shadow.
+   - Visual-only update. No links, dropdowns, scripts, forms, or page functions changed.
+========================================================= */
+html body .header .navbar > a.contact-btn,
+html body header.header .navbar > a.contact-btn,
+html body .header.inner-header .navbar > a.contact-btn,
+html body .header.home-header .navbar > a.contact-btn,
+html body .home-header-light .navbar > a.contact-btn,
+html body.home-redesign .header .navbar > a.contact-btn,
+html body.home-redesign header.header .navbar > a.contact-btn,
+html body.home-redesign .header.home-header .navbar > a.contact-btn,
+html body .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body header.header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body .header.inner-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body .header.home-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body .home-header-light .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body.home-redesign .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body.home-redesign header.header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body.home-redesign .header.home-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+html body .header .navbar > a.contact-btn:hover,
+html body header.header .navbar > a.contact-btn:hover,
+html body .header.inner-header .navbar > a.contact-btn:hover,
+html body .header.home-header .navbar > a.contact-btn:hover,
+html body .home-header-light .navbar > a.contact-btn:hover,
+html body.home-redesign .header .navbar > a.contact-btn:hover,
+html body.home-redesign header.header .navbar > a.contact-btn:hover,
+html body.home-redesign .header.home-header .navbar > a.contact-btn:hover,
+html body .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body header.header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body .header.inner-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body .header.home-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body .home-header-light .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body.home-redesign .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body.home-redesign header.header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body.home-redesign .header.home-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+/* =========================================================
+   NAV UNDERLINE SHARP-END UPDATE - MAY 9
+   - Applies globally to homepage and inner-page navigation links.
+   - Makes active and hover underline effects sharp-ended instead of rounded.
+   - Visual-only update. No links, dropdowns, scripts, forms, or page functions changed.
+========================================================= */
+@media (min-width: 901px) {
+  html body .header .nav-links a::after,
+  html body header.header .nav-links a::after,
+  html body .header.inner-header .nav-links a::after,
+  html body .header.home-header .nav-links a::after,
+  html body .home-header-light .nav-links a::after,
+  html body.home-redesign .header .nav-links a::after,
+  html body.home-redesign header.header .nav-links a::after,
+  html body.home-redesign .header.home-header .nav-links a::after,
+  html body.home-redesign .home-header-light .nav-links a::after,
+  html body .header .nav-links a:hover::after,
+  html body .header .nav-links a.active::after,
+  html body header.header .nav-links a:hover::after,
+  html body header.header .nav-links a.active::after,
+  html body .header.inner-header .nav-links a:hover::after,
+  html body .header.inner-header .nav-links a.active::after,
+  html body .header.home-header .nav-links a:hover::after,
+  html body .header.home-header .nav-links a.active::after,
+  html body .home-header-light .nav-links a:hover::after,
+  html body .home-header-light .nav-links a.active::after,
+  html body.home-redesign .header .nav-links a:hover::after,
+  html body.home-redesign .header .nav-links a.active::after,
+  html body.home-redesign header.header .nav-links a:hover::after,
+  html body.home-redesign header.header .nav-links a.active::after,
+  html body.home-redesign .header.home-header .nav-links a:hover::after,
+  html body.home-redesign .header.home-header .nav-links a.active::after,
+  html body.home-redesign .home-header-light .nav-links a:hover::after,
+  html body.home-redesign .home-header-light .nav-links a.active::after {
+    border-radius: 0 !important;
+  }
+}
+
+/* =========================================================
+   HOMEPAGE HERO CTA BUTTON REDESIGN - MAY 9
+   - Updates only the hero CTA buttons on the homepage.
+   - Schedule Consultation: white background, black text, dark hover.
+   - Explore Services: white text and border, white hover with black text.
+   - Removes glow/shadow, removes bold weight, and slightly increases text size.
+========================================================= */
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-primary-btn,
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-primary-btn:link,
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-primary-btn:visited {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-primary-btn:hover,
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-primary-btn:focus,
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-primary-btn:focus-visible {
+  background: linear-gradient(135deg, #222b3c 0%, #161e2c 100%) !important;
+  background-color: #222b3c !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-outline-btn,
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-outline-btn:link,
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-outline-btn:visited {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-outline-btn:hover,
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-outline-btn:focus,
+body.home-redesign .lrs-hero .lrs-hero-actions > a.lrs-outline-btn:focus-visible {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+/* =========================================================
+   NAV CONTACT BUTTON HOVER MATCH - MAY 9
+   - Applies globally to homepage and inner-page navigation Contact Us buttons.
+   - Keeps default state white with black text.
+   - Uses the same dark hover background as the homepage Schedule Consultation button.
+   - Visual-only update. No links, dropdowns, scripts, forms, or page functions changed.
+========================================================= */
+html body .header .navbar > a.contact-btn,
+html body header.header .navbar > a.contact-btn,
+html body .header.inner-header .navbar > a.contact-btn,
+html body .header.home-header .navbar > a.contact-btn,
+html body .home-header-light .navbar > a.contact-btn,
+html body.home-redesign .header .navbar > a.contact-btn,
+html body.home-redesign header.header .navbar > a.contact-btn,
+html body.home-redesign .header.home-header .navbar > a.contact-btn,
+html body .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body header.header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body .header.inner-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body .header.home-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body .home-header-light .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body.home-redesign .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body.home-redesign header.header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body.home-redesign .header.home-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+html body .header .navbar > a.contact-btn:hover,
+html body header.header .navbar > a.contact-btn:hover,
+html body .header.inner-header .navbar > a.contact-btn:hover,
+html body .header.home-header .navbar > a.contact-btn:hover,
+html body .home-header-light .navbar > a.contact-btn:hover,
+html body.home-redesign .header .navbar > a.contact-btn:hover,
+html body.home-redesign header.header .navbar > a.contact-btn:hover,
+html body.home-redesign .header.home-header .navbar > a.contact-btn:hover,
+html body .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body header.header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body .header.inner-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body .header.home-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body .home-header-light .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body.home-redesign .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body.home-redesign header.header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body.home-redesign .header.home-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body .header .navbar > a.contact-btn:focus,
+html body header.header .navbar > a.contact-btn:focus,
+html body .header.inner-header .navbar > a.contact-btn:focus,
+html body .header.home-header .navbar > a.contact-btn:focus,
+html body .home-header-light .navbar > a.contact-btn:focus,
+html body.home-redesign .header .navbar > a.contact-btn:focus,
+html body.home-redesign header.header .navbar > a.contact-btn:focus,
+html body.home-redesign .header.home-header .navbar > a.contact-btn:focus,
+html body .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:focus,
+html body header.header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:focus,
+html body .header.inner-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:focus,
+html body .header.home-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:focus,
+html body .home-header-light .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:focus,
+html body.home-redesign .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:focus,
+html body.home-redesign header.header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:focus,
+html body.home-redesign .header.home-header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:focus {
+  background: linear-gradient(135deg, #222b3c 0%, #161e2c 100%) !important;
+  background-color: #222b3c !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+
+
+/* =========================================================
+   HOMEPAGE HERO PHOTO SIZE FINAL FIX
+   - Strong override to visibly increase the bouncing hero photo by about 30%.
+   - Adjusts only the right-side hero visual and floating cards.
+   - Keeps the left-side heading, description, and CTA buttons unchanged.
+========================================================= */
+@media (min-width: 1121px) {
+  html body.home-redesign .lrs-hero-layout {
+    grid-template-columns: minmax(0, 1.16fr) minmax(520px, 0.84fr) !important;
+  }
+
+  html body.home-redesign .lrs-hero-visual {
+    min-height: 640px !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    top: -10px !important;
+    left: 16% !important;
+    width: 468px !important;
+    max-width: none !important;
+    height: 572px !important;
+    min-height: 572px !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide,
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 572px !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: -96px !important;
+    left: -4% !important;
+    width: 545px !important;
+    max-width: none !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: -1% !important;
+    top: 360px !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    right: -3% !important;
+    top: 78px !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+  html body.home-redesign .lrs-hero-visual {
+    min-height: 670px !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    top: 20px !important;
+    left: 23% !important;
+    width: 468px !important;
+    max-width: none !important;
+    height: 572px !important;
+    min-height: 572px !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide,
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 572px !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: -82px !important;
+    left: 0 !important;
+    width: 545px !important;
+    max-width: none !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: 2% !important;
+    top: 405px !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    right: 0 !important;
+    top: 106px !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  html body.home-redesign .lrs-hero-visual {
+    min-height: 690px !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    width: 429px !important;
+    max-width: 94% !important;
+    height: 533px !important;
+    min-height: 533px !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide,
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide img {
+    height: 100% !important;
+    min-height: 533px !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    top: 505px !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    top: 28px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html body.home-redesign .lrs-hero-visual {
+    min-height: 690px !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    width: min(429px, 94%) !important;
+    height: 533px !important;
+    min-height: 533px !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide,
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide img {
+    height: 100% !important;
+    min-height: 533px !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    top: 510px !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    top: 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html body.home-redesign .lrs-hero-visual {
+    min-height: 760px !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    margin-top: 560px !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    top: 565px !important;
+  }
+
+  html body.home-redesign .lrs-floating-icon {
+    bottom: 98px !important;
+  }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO PHOTO POSITION CLEANUP
+   - Restores the hero background logo/mark position.
+   - Keeps the enlarged bouncing photo.
+   - Moves both floating cards to the left side of the bouncing photo.
+   - Does not change the left-side hero text, description, or CTA buttons.
+========================================================= */
+@media (min-width: 1121px) {
+  html body.home-redesign .lrs-hero-layout {
+    grid-template-columns: minmax(0, 1.16fr) minmax(560px, 0.84fr) !important;
+  }
+
+  html body.home-redesign .lrs-hero-visual {
+    min-height: 640px !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: -74px !important;
+    left: 2% !important;
+    width: min(430px, 70%) !important;
+    max-width: 70% !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    top: -10px !important;
+    left: 32% !important;
+    width: 468px !important;
+    max-width: none !important;
+    height: 572px !important;
+    min-height: 572px !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: 2% !important;
+    right: auto !important;
+    top: 305px !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    left: 0 !important;
+    right: auto !important;
+    top: 106px !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: -74px !important;
+    left: 2% !important;
+    width: min(430px, 70%) !important;
+    max-width: 70% !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    top: 20px !important;
+    left: 34% !important;
+    width: 468px !important;
+    max-width: none !important;
+    height: 572px !important;
+    min-height: 572px !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: 4% !important;
+    right: auto !important;
+    top: 405px !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    left: 2% !important;
+    right: auto !important;
+    top: 112px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: -74px !important;
+    left: 2% !important;
+    width: min(430px, 70%) !important;
+    max-width: 70% !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    left: 0 !important;
+    right: auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html body.home-redesign .lrs-check-card {
+    left: 0 !important;
+    right: auto !important;
+    top: 24px !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: 0 !important;
+    right: auto !important;
+    top: 510px !important;
+  }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO VISUAL FINAL POSITION FIX
+   - Restores the large background logo/mark behind the bouncing photo.
+   - Makes the hero photo fully cover the bouncing placeholder without side gaps.
+   - Places the smaller metric floating card on the lower-right side of the bouncing photo.
+   - Prevents the "Scale." word from being cut.
+========================================================= */
+@media (min-width: 1121px) {
+  html body.home-redesign .lrs-hero-layout {
+    grid-template-columns: minmax(0, 1.22fr) minmax(560px, 0.78fr) !important;
+    gap: clamp(18px, 2.4vw, 34px) !important;
+  }
+
+  html body.home-redesign .lrs-hero-copy {
+    max-width: 840px !important;
+  }
+
+  html body.home-redesign .lrs-hero-copy h1.lrs-gradient-title {
+    width: max-content !important;
+    max-width: none !important;
+    overflow: visible !important;
+    font-size: clamp(48px, 4.8vw, 72px) !important;
+    letter-spacing: -1.8px !important;
+    padding-right: 10px !important;
+  }
+
+  html body.home-redesign .lrs-hero-visual {
+    min-height: 640px !important;
+    overflow: visible !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: -82px !important;
+    left: -6% !important;
+    width: min(620px, 96%) !important;
+    max-width: 96% !important;
+    opacity: 0.36 !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    top: -8px !important;
+    left: 26% !important;
+    width: 468px !important;
+    max-width: none !important;
+    height: 572px !important;
+    min-height: 572px !important;
+    overflow: hidden !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide {
+    inset: -1px !important;
+    width: calc(100% + 2px) !important;
+    height: calc(100% + 2px) !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+    transform: scale(1.035) !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    left: 0 !important;
+    right: auto !important;
+    top: 104px !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: auto !important;
+    right: -2% !important;
+    top: 410px !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+  html body.home-redesign .lrs-hero-copy h1.lrs-gradient-title {
+    width: max-content !important;
+    max-width: none !important;
+    overflow: visible !important;
+    font-size: clamp(46px, 6.4vw, 68px) !important;
+    padding-right: 10px !important;
+  }
+
+  html body.home-redesign .lrs-hero-visual {
+    min-height: 670px !important;
+    overflow: visible !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: -82px !important;
+    left: -2% !important;
+    width: min(610px, 94%) !important;
+    max-width: 94% !important;
+    opacity: 0.36 !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    top: 20px !important;
+    left: 28% !important;
+    width: 468px !important;
+    max-width: none !important;
+    height: 572px !important;
+    min-height: 572px !important;
+    overflow: hidden !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide {
+    inset: -1px !important;
+    width: calc(100% + 2px) !important;
+    height: calc(100% + 2px) !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+    transform: scale(1.035) !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    left: 2% !important;
+    right: auto !important;
+    top: 112px !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: auto !important;
+    right: 1% !important;
+    top: 420px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  html body.home-redesign .lrs-hero-copy h1.lrs-gradient-title {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: -70px !important;
+    left: 50% !important;
+    width: min(560px, 92%) !important;
+    max-width: 92% !important;
+    transform: translateX(-50%) !important;
+    opacity: 0.34 !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    overflow: hidden !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide {
+    inset: -1px !important;
+    width: calc(100% + 2px) !important;
+    height: calc(100% + 2px) !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+    transform: scale(1.035) !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: auto !important;
+    right: 0 !important;
+  }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO LOGO + SMALL CARD FINAL ADJUSTMENT
+   - Makes the background logo larger than the bouncing photo.
+   - Places the logo directly behind the bouncing photo.
+   - Places the small metric floating card outside the lower-right side of the bouncing photo.
+   - Does not affect the left-side hero copy or CTA buttons.
+========================================================= */
+@media (min-width: 1121px) {
+  html body.home-redesign .lrs-hero-visual {
+    min-height: 660px !important;
+    overflow: visible !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: -118px !important;
+    left: 15% !important;
+    width: 680px !important;
+    max-width: none !important;
+    opacity: 0.34 !important;
+    z-index: 1 !important;
+    transform: none !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    top: -8px !important;
+    left: 26% !important;
+    width: 468px !important;
+    height: 572px !important;
+    min-height: 572px !important;
+    z-index: 3 !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    left: 0 !important;
+    right: auto !important;
+    top: 104px !important;
+    z-index: 5 !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: calc(26% + 420px) !important;
+    right: auto !important;
+    top: 458px !important;
+    z-index: 6 !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+  html body.home-redesign .lrs-hero-visual {
+    min-height: 690px !important;
+    overflow: visible !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: -110px !important;
+    left: 13% !important;
+    width: 660px !important;
+    max-width: none !important;
+    opacity: 0.34 !important;
+    z-index: 1 !important;
+    transform: none !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    top: 20px !important;
+    left: 28% !important;
+    width: 468px !important;
+    height: 572px !important;
+    min-height: 572px !important;
+    z-index: 3 !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    left: 2% !important;
+    right: auto !important;
+    top: 112px !important;
+    z-index: 5 !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: calc(28% + 410px) !important;
+    right: auto !important;
+    top: 488px !important;
+    z-index: 6 !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  html body.home-redesign .lrs-hero-visual {
+    overflow: visible !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: -94px !important;
+    left: 50% !important;
+    width: min(680px, 112vw) !important;
+    max-width: none !important;
+    transform: translateX(-42%) !important;
+    opacity: 0.32 !important;
+    z-index: 1 !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    z-index: 3 !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: auto !important;
+    right: -6px !important;
+    top: 520px !important;
+    z-index: 6 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html body.home-redesign .lrs-hero-visual {
+    overflow: visible !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: -86px !important;
+    left: 50% !important;
+    width: min(620px, 130vw) !important;
+    max-width: none !important;
+    transform: translateX(-42%) !important;
+    opacity: 0.30 !important;
+    z-index: 1 !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    z-index: 3 !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: auto !important;
+    right: -8px !important;
+    top: 520px !important;
+    z-index: 6 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: -78px !important;
+    width: min(580px, 150vw) !important;
+    transform: translateX(-44%) !important;
+  }
+
+  html body.home-redesign .lrs-metric-card {
+    left: auto !important;
+    right: -6px !important;
+    top: 575px !important;
+  }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO LOGO BIGGER + BIG CARD LOWER UPDATE
+   - Makes the background logo larger while keeping it fully visible.
+   - Lowers the bigger floating card to around 50% height of the bouncing photo.
+   - Keeps the small floating card outside the lower-right side.
+========================================================= */
+@media (min-width: 1121px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: -132px !important;
+    left: 8% !important;
+    width: min(780px, 112%) !important;
+    max-width: 112% !important;
+    opacity: 0.34 !important;
+    z-index: 1 !important;
+    transform: none !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    left: 0 !important;
+    right: auto !important;
+    top: 265px !important;
+    z-index: 5 !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: -126px !important;
+    left: 6% !important;
+    width: min(760px, 112%) !important;
+    max-width: 112% !important;
+    opacity: 0.34 !important;
+    z-index: 1 !important;
+    transform: none !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    left: 2% !important;
+    right: auto !important;
+    top: 305px !important;
+    z-index: 5 !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: -112px !important;
+    left: 50% !important;
+    width: min(760px, 122vw) !important;
+    max-width: none !important;
+    transform: translateX(-44%) !important;
+    opacity: 0.32 !important;
+    z-index: 1 !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    left: 0 !important;
+    right: auto !important;
+    top: 270px !important;
+    z-index: 5 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: -102px !important;
+    left: 50% !important;
+    width: min(700px, 144vw) !important;
+    max-width: none !important;
+    transform: translateX(-44%) !important;
+    opacity: 0.30 !important;
+    z-index: 1 !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    left: 0 !important;
+    right: auto !important;
+    top: 270px !important;
+    z-index: 5 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: -92px !important;
+    width: min(640px, 162vw) !important;
+    transform: translateX(-45%) !important;
+  }
+
+  html body.home-redesign .lrs-check-card {
+    top: 285px !important;
+  }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO BACKGROUND LOGO FULLER SCREEN UPDATE
+   - Enlarges the background logo so it fills more of the hero screen.
+   - Keeps the full logo visible within the screen.
+   - Keeps the logo behind the bouncing photos.
+========================================================= */
+@media (min-width: 1121px) {
+  html body.home-redesign .lrs-hero {
+    overflow: hidden !important;
+  }
+
+  html body.home-redesign .lrs-hero-visual {
+    overflow: visible !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: 50% !important;
+    left: 50% !important;
+    width: min(88vh, 88vw, 940px) !important;
+    max-width: none !important;
+    height: auto !important;
+    transform: translate(-50%, -50%) !important;
+    opacity: 0.34 !important;
+    z-index: 1 !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    z-index: 3 !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+  html body.home-redesign .lrs-hero {
+    overflow: hidden !important;
+  }
+
+  html body.home-redesign .lrs-hero-visual {
+    overflow: visible !important;
+  }
+
+  html body.home-redesign .lrs-hero-mark {
+    top: 50% !important;
+    left: 50% !important;
+    width: min(86vh, 92vw, 900px) !important;
+    max-width: none !important;
+    height: auto !important;
+    transform: translate(-50%, -50%) !important;
+    opacity: 0.34 !important;
+    z-index: 1 !important;
+  }
+
+  html body.home-redesign .lrs-hero-photo-card {
+    z-index: 3 !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 50% !important;
+    left: 50% !important;
+    width: min(82vh, 112vw, 780px) !important;
+    max-width: none !important;
+    height: auto !important;
+    transform: translate(-50%, -50%) !important;
+    opacity: 0.32 !important;
+    z-index: 1 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 50% !important;
+    left: 50% !important;
+    width: min(76vh, 132vw, 690px) !important;
+    max-width: none !important;
+    height: auto !important;
+    transform: translate(-50%, -50%) !important;
+    opacity: 0.30 !important;
+    z-index: 1 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html body.home-redesign .lrs-hero-mark {
+    width: min(70vh, 150vw, 620px) !important;
+  }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO BACKGROUND LOGO POSITION UPDATE
+   - Keeps the current larger logo size.
+   - Moves the logo slightly upward so the lower part is visible without scrolling.
+========================================================= */
+@media (min-width: 1121px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 44% !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 44% !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 45% !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 45% !important;
+  }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO BACKGROUND LOGO BALANCED POSITION UPDATE
+   - Keeps the current logo size.
+   - Moves the logo a little more upward for more balanced top and bottom screen spacing.
+========================================================= */
+@media (min-width: 1121px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 40% !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 40% !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 41% !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 41% !important;
+  }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO BOUNCING IMAGE SHARP EDGES UPDATE
+   - Removes the border radius of the bouncing hero photo container.
+   - Keeps all homepage hero sizing, positioning, and animations unchanged.
+========================================================= */
+html body.home-redesign .lrs-hero-photo-card,
+html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide,
+html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide img {
+  border-radius: 0 !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO BOUNCING IMAGE RADIUS REVERT + BORDER REMOVAL
+   - Restores the previous rounded corners of the bouncing hero photo.
+   - Removes the visible border line around the bouncing hero photo.
+   - Keeps the current size, position, background logo, and floating-card layout unchanged.
+========================================================= */
+html body.home-redesign .lrs-hero-photo-card {
+  border-radius: 14px !important;
+  border: 0 !important;
+}
+
+html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide,
+html body.home-redesign .lrs-hero-photo-card .hero-carousel-slide img {
+  border-radius: inherit !important;
+}
+
+
+/* =========================================================
+   GLOBAL NAVIGATION THIN WHITE UNDERLINE UPDATE
+   - Replaces the thick active/hover nav underline with a thin pure white line.
+   - Applies to homepage and all inner pages.
+========================================================= */
+html body .header .nav-container .nav-links > li:not(.mobile-contact-item) > a::after,
+html body .header.inner-header .nav-container .nav-links > li:not(.mobile-contact-item) > a::after,
+html body .header.home-header .nav-container .nav-links > li:not(.mobile-contact-item) > a::after,
+html body.home-redesign .header .nav-container .nav-links > li:not(.mobile-contact-item) > a::after,
+html body.home-redesign .header.home-header .nav-container .nav-links > li:not(.mobile-contact-item) > a::after,
+html body.home-redesign .home-header-light .nav-container .nav-links > li:not(.mobile-contact-item) > a::after {
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 1px !important;
+  width: 100% !important;
+  height: 1px !important;
+  border-radius: 0 !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+  transform: scaleX(0) !important;
+  transform-origin: center !important;
+  transition: transform 0.28s ease, opacity 0.28s ease !important;
+}
+
+html body .header .nav-container .nav-links > li:not(.mobile-contact-item) > a:hover::after,
+html body .header .nav-container .nav-links > li:not(.mobile-contact-item) > a.active::after,
+html body .header.inner-header .nav-container .nav-links > li:not(.mobile-contact-item) > a:hover::after,
+html body .header.inner-header .nav-container .nav-links > li:not(.mobile-contact-item) > a.active::after,
+html body .header.home-header .nav-container .nav-links > li:not(.mobile-contact-item) > a:hover::after,
+html body .header.home-header .nav-container .nav-links > li:not(.mobile-contact-item) > a.active::after,
+html body.home-redesign .header .nav-container .nav-links > li:not(.mobile-contact-item) > a:hover::after,
+html body.home-redesign .header .nav-container .nav-links > li:not(.mobile-contact-item) > a.active::after,
+html body.home-redesign .header.home-header .nav-container .nav-links > li:not(.mobile-contact-item) > a:hover::after,
+html body.home-redesign .header.home-header .nav-container .nav-links > li:not(.mobile-contact-item) > a.active::after,
+html body.home-redesign .home-header-light .nav-container .nav-links > li:not(.mobile-contact-item) > a:hover::after,
+html body.home-redesign .home-header-light .nav-container .nav-links > li:not(.mobile-contact-item) > a.active::after {
+  opacity: 1 !important;
+  transform: scaleX(1) !important;
+}
+
+
+/* =========================================================
+   SERVICES DROPDOWN NAV UNDERLINE FIX
+   - Fixes the Services nav underline separately because it uses dropdown markup.
+   - Keeps the underline thin, sharp-ended, and pure white.
+   - Applies to homepage and all inner pages.
+========================================================= */
+html body .header .nav-container .nav-links a[href="services.html"]::after,
+html body .header.inner-header .nav-container .nav-links a[href="services.html"]::after,
+html body .header.home-header .nav-container .nav-links a[href="services.html"]::after,
+html body.home-redesign .header .nav-container .nav-links a[href="services.html"]::after,
+html body.home-redesign .header.home-header .nav-container .nav-links a[href="services.html"]::after,
+html body.home-redesign .home-header-light .nav-container .nav-links a[href="services.html"]::after,
+html body .header .nav-container .nav-links .services-dropdown > a::after,
+html body .header .nav-container .nav-links .nav-dropdown > a::after,
+html body .header .nav-container .nav-links .dropdown > a::after,
+html body .header .nav-container .nav-links .has-dropdown > a::after,
+html body .header .nav-container .nav-links .services-nav-link::after,
+html body .header .nav-container .nav-links .services-link::after,
+html body .header .nav-container .nav-links .dropdown-toggle::after,
+html body .header .nav-container .nav-links .services-dropdown-toggle::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 1px !important;
+  width: 100% !important;
+  height: 1px !important;
+  border-radius: 0 !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+  transform: scaleX(0) !important;
+  transform-origin: center !important;
+  transition: transform 0.28s ease, opacity 0.28s ease !important;
+}
+
+html body .header .nav-container .nav-links a[href="services.html"]:hover::after,
+html body .header .nav-container .nav-links a[href="services.html"].active::after,
+html body .header .nav-container .nav-links li:hover > a[href="services.html"]::after,
+html body .header.inner-header .nav-container .nav-links a[href="services.html"]:hover::after,
+html body .header.inner-header .nav-container .nav-links a[href="services.html"].active::after,
+html body .header.home-header .nav-container .nav-links a[href="services.html"]:hover::after,
+html body .header.home-header .nav-container .nav-links a[href="services.html"].active::after,
+html body.home-redesign .header .nav-container .nav-links a[href="services.html"]:hover::after,
+html body.home-redesign .header .nav-container .nav-links a[href="services.html"].active::after,
+html body.home-redesign .header.home-header .nav-container .nav-links a[href="services.html"]:hover::after,
+html body.home-redesign .header.home-header .nav-container .nav-links a[href="services.html"].active::after,
+html body.home-redesign .home-header-light .nav-container .nav-links a[href="services.html"]:hover::after,
+html body.home-redesign .home-header-light .nav-container .nav-links a[href="services.html"].active::after,
+html body .header .nav-container .nav-links .services-dropdown:hover > a::after,
+html body .header .nav-container .nav-links .nav-dropdown:hover > a::after,
+html body .header .nav-container .nav-links .dropdown:hover > a::after,
+html body .header .nav-container .nav-links .has-dropdown:hover > a::after,
+html body .header .nav-container .nav-links .services-nav-link:hover::after,
+html body .header .nav-container .nav-links .services-nav-link.active::after,
+html body .header .nav-container .nav-links .services-link:hover::after,
+html body .header .nav-container .nav-links .services-link.active::after,
+html body .header .nav-container .nav-links .dropdown-toggle:hover::after,
+html body .header .nav-container .nav-links .dropdown-toggle.active::after,
+html body .header .nav-container .nav-links .services-dropdown-toggle:hover::after,
+html body .header .nav-container .nav-links .services-dropdown-toggle.active::after {
+  opacity: 1 !important;
+  transform: scaleX(1) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE ONLY INITIAL NAV TRANSPARENT UPDATE
+   - Removes the homepage navbar background only before scrolling.
+   - Keeps the logo, nav buttons, and Contact Us button visible.
+   - Restores/fades in the dark navbar background when the homepage is scrolled.
+   - Does not affect inner page navigation bars.
+========================================================= */
+html body.home-redesign header.header.home-header:not(.shrink),
+html body.home-redesign header.header.home-header.home-header-light:not(.shrink) {
+  background: transparent !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+html body.home-redesign header.header.home-header:not(.shrink)::before,
+html body.home-redesign header.header.home-header.home-header-light:not(.shrink)::before {
+  opacity: 0 !important;
+  background: transparent !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body.home-redesign header.header.home-header.shrink,
+html body.home-redesign header.header.home-header.home-header-light.shrink {
+  background: rgba(3, 16, 29, 0.76) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+html body.home-redesign header.header.home-header.shrink::before,
+html body.home-redesign header.header.home-header.home-header-light.shrink::before {
+  opacity: 1 !important;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(42, 149, 125, 0.13), transparent 34%),
+    linear-gradient(90deg, rgba(4, 18, 31, 0.92), rgba(8, 24, 38, 0.86)) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(18px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(140%) !important;
+}
+
+html body.home-redesign header.header.home-header,
+html body.home-redesign header.header.home-header::before {
+  transition:
+    background 0.35s ease,
+    opacity 0.35s ease,
+    backdrop-filter 0.35s ease,
+    -webkit-backdrop-filter 0.35s ease !important;
+}
+
+
+/* =========================================================
+   GLOBAL NAVIGATION LINKS LEFT POSITION UPDATE
+   - Places Home, Services, Portfolio, About Us, and Careers beside the logo.
+   - Keeps Contact Us on the right side.
+   - Applies to homepage and all inner pages.
+   - Mobile navigation layout remains unchanged.
+========================================================= */
+@media (min-width: 901px) {
+  html body .header .navbar,
+  html body .header.inner-header .navbar,
+  html body .header.home-header .navbar,
+  html body.home-redesign .header .navbar,
+  html body.home-redesign .header.home-header .navbar {
+    grid-template-columns: auto 1fr auto !important;
+    gap: clamp(24px, 3vw, 42px) !important;
+  }
+
+  html body .header .nav-container,
+  html body .header.inner-header .nav-container,
+  html body .header.home-header .nav-container,
+  html body.home-redesign .header .nav-container,
+  html body.home-redesign .header.home-header .nav-container,
+  html body.home-redesign .home-header-light .nav-container {
+    justify-content: flex-start !important;
+  }
+
+  html body .header .nav-links,
+  html body .header.inner-header .nav-links,
+  html body .header.home-header .nav-links,
+  html body.home-redesign .header .nav-links,
+  html body.home-redesign .header.home-header .nav-links,
+  html body.home-redesign .home-header-light .nav-links {
+    justify-content: flex-start !important;
+    gap: clamp(18px, 2.1vw, 30px) !important;
+  }
+
+  html body .header .contact-btn,
+  html body .header.inner-header .contact-btn,
+  html body .header.home-header .contact-btn,
+  html body.home-redesign .header .contact-btn,
+  html body.home-redesign .header.home-header .contact-btn {
+    justify-self: end !important;
+  }
+}
+
+
+/* =========================================================
+   GLOBAL NAVIGATION TRUE LEFT LAYOUT FIX
+   - Changes the desktop navbar columns so nav links sit directly beside the logo.
+   - Contact Us remains pinned to the far right.
+   - Applies to homepage and all inner pages.
+   - Mobile layout is not changed.
+========================================================= */
+@media (min-width: 901px) {
+  html body header.header .navbar,
+  html body header.header.inner-header .navbar,
+  html body header.header.home-header .navbar,
+  html body.home-redesign header.header .navbar,
+  html body.home-redesign header.header.home-header .navbar,
+  html body.home-redesign header.header.home-header.home-header-light .navbar {
+    display: grid !important;
+    grid-template-columns: auto auto minmax(0, 1fr) !important;
+    grid-template-areas: "logo nav contact" !important;
+    align-items: center !important;
+    column-gap: clamp(24px, 3vw, 40px) !important;
+  }
+
+  html body header.header .logo,
+  html body header.header.inner-header .logo,
+  html body header.header.home-header .logo,
+  html body.home-redesign header.header .logo,
+  html body.home-redesign header.header.home-header .logo {
+    grid-area: logo !important;
+    justify-self: start !important;
+  }
+
+  html body header.header .nav-container,
+  html body header.header.inner-header .nav-container,
+  html body header.header.home-header .nav-container,
+  html body.home-redesign header.header .nav-container,
+  html body.home-redesign header.header.home-header .nav-container,
+  html body.home-redesign header.header.home-header.home-header-light .nav-container {
+    grid-area: nav !important;
+    justify-self: start !important;
+    justify-content: flex-start !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  html body header.header .nav-links,
+  html body header.header.inner-header .nav-links,
+  html body header.header.home-header .nav-links,
+  html body.home-redesign header.header .nav-links,
+  html body.home-redesign header.header.home-header .nav-links,
+  html body.home-redesign header.header.home-header.home-header-light .nav-links {
+    justify-content: flex-start !important;
+    gap: clamp(18px, 2vw, 28px) !important;
+    width: auto !important;
+  }
+
+  html body header.header .contact-btn,
+  html body header.header.inner-header .contact-btn,
+  html body header.header.home-header .contact-btn,
+  html body.home-redesign header.header .contact-btn,
+  html body.home-redesign header.header.home-header .contact-btn,
+  html body.home-redesign header.header.home-header.home-header-light .contact-btn {
+    grid-area: contact !important;
+    justify-self: end !important;
+  }
+}
+
+
+/* =========================================================
+   GLOBAL NAVIGATION CENTER POSITION UPDATE
+   - Positions Home, Services, Portfolio, About Us, and Careers at the center.
+   - Keeps the logo on the left and Contact Us on the right.
+   - Applies to homepage and all inner pages.
+   - Mobile navigation remains unchanged.
+========================================================= */
+@media (min-width: 901px) {
+  html body header.header .navbar,
+  html body header.header.inner-header .navbar,
+  html body header.header.home-header .navbar,
+  html body.home-redesign header.header .navbar,
+  html body.home-redesign header.header.home-header .navbar,
+  html body.home-redesign header.header.home-header.home-header-light .navbar {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+    grid-template-areas: "logo nav contact" !important;
+    align-items: center !important;
+    column-gap: clamp(24px, 3vw, 42px) !important;
+  }
+
+  html body header.header .logo,
+  html body header.header.inner-header .logo,
+  html body header.header.home-header .logo,
+  html body.home-redesign header.header .logo,
+  html body.home-redesign header.header.home-header .logo {
+    grid-area: logo !important;
+    justify-self: start !important;
+  }
+
+  html body header.header .nav-container,
+  html body header.header.inner-header .nav-container,
+  html body header.header.home-header .nav-container,
+  html body.home-redesign header.header .nav-container,
+  html body.home-redesign header.header.home-header .nav-container,
+  html body.home-redesign header.header.home-header.home-header-light .nav-container {
+    grid-area: nav !important;
+    justify-self: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  html body header.header .nav-links,
+  html body header.header.inner-header .nav-links,
+  html body header.header.home-header .nav-links,
+  html body.home-redesign header.header .nav-links,
+  html body.home-redesign header.header.home-header .nav-links,
+  html body.home-redesign header.header.home-header.home-header-light .nav-links {
+    justify-content: center !important;
+    gap: clamp(18px, 2vw, 28px) !important;
+    width: auto !important;
+  }
+
+  html body header.header .contact-btn,
+  html body header.header.inner-header .contact-btn,
+  html body header.header.home-header .contact-btn,
+  html body.home-redesign header.header .contact-btn,
+  html body.home-redesign header.header.home-header .contact-btn,
+  html body.home-redesign header.header.home-header.home-header-light .contact-btn {
+    grid-area: contact !important;
+    justify-self: end !important;
+  }
+}
+
+
+/* =========================================================
+   GLOBAL NAVIGATION TRUE DISPLAY CENTER FIX
+   - Centers the nav links on the actual visual center of the navbar/display.
+   - Keeps the logo fixed on the left and Contact Us fixed on the right.
+   - Applies to homepage and all inner pages.
+   - Mobile navigation remains unchanged.
+========================================================= */
+@media (min-width: 901px) {
+  html body header.header .navbar,
+  html body header.header.inner-header .navbar,
+  html body header.header.home-header .navbar,
+  html body.home-redesign header.header .navbar,
+  html body.home-redesign header.header.home-header .navbar,
+  html body.home-redesign header.header.home-header.home-header-light .navbar {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+    grid-template-areas: "logo spacer contact" !important;
+    align-items: center !important;
+  }
+
+  html body header.header .logo,
+  html body header.header.inner-header .logo,
+  html body header.header.home-header .logo,
+  html body.home-redesign header.header .logo,
+  html body.home-redesign header.header.home-header .logo {
+    grid-area: logo !important;
+    justify-self: start !important;
+    z-index: 3 !important;
+  }
+
+  html body header.header .contact-btn,
+  html body header.header.inner-header .contact-btn,
+  html body header.header.home-header .contact-btn,
+  html body.home-redesign header.header .contact-btn,
+  html body.home-redesign header.header.home-header .contact-btn,
+  html body.home-redesign header.header.home-header.home-header-light .contact-btn {
+    grid-area: contact !important;
+    justify-self: end !important;
+    z-index: 3 !important;
+  }
+
+  html body header.header .nav-container,
+  html body header.header.inner-header .nav-container,
+  html body header.header.home-header .nav-container,
+  html body.home-redesign header.header .nav-container,
+  html body.home-redesign header.header.home-header .nav-container,
+  html body.home-redesign header.header.home-header.home-header-light .nav-container {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: auto !important;
+    max-width: none !important;
+    justify-content: center !important;
+    z-index: 2 !important;
+  }
+
+  html body header.header .nav-links,
+  html body header.header.inner-header .nav-links,
+  html body header.header.home-header .nav-links,
+  html body.home-redesign header.header .nav-links,
+  html body.home-redesign header.header.home-header .nav-links,
+  html body.home-redesign header.header.home-header.home-header-light .nav-links {
+    justify-content: center !important;
+    align-items: center !important;
+    gap: clamp(18px, 2vw, 28px) !important;
+    width: max-content !important;
+    white-space: nowrap !important;
+  }
+}
+
+
+/* =========================================================
+   GLOBAL NAV CONTACT BUTTON EXPLORE SERVICES STYLE UPDATE
+   - Makes the navbar Contact Us button match the homepage Explore Services button.
+   - Default: transparent/dark-glass background, white text, white border.
+   - Hover: white background, black text, no visible border.
+   - Applies to homepage, inner pages, and mobile nav Contact Us button.
+========================================================= */
+html body header.header .contact-btn,
+html body header.header.inner-header .contact-btn,
+html body header.header.home-header .contact-btn,
+html body.home-redesign header.header .contact-btn,
+html body.home-redesign header.header.home-header .contact-btn,
+html body.home-redesign header.header.home-header.home-header-light .contact-btn,
+html body .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn,
+html body.home-redesign .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn {
+  background: rgba(255, 255, 255, 0.02) !important;
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.92) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  font-weight: 500 !important;
+}
+
+html body header.header .contact-btn:hover,
+html body header.header.inner-header .contact-btn:hover,
+html body header.header.home-header .contact-btn:hover,
+html body.home-redesign header.header .contact-btn:hover,
+html body.home-redesign header.header.home-header .contact-btn:hover,
+html body.home-redesign header.header.home-header.home-header-light .contact-btn:hover,
+html body .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:focus,
+html body.home-redesign .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:hover,
+html body.home-redesign .header .nav-container .nav-links .mobile-contact-item > a.mobile-contact-btn:focus {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  transform: translateY(-2px) !important;
+}
+
+
+/* =========================================================
+   FINAL GLOBAL NAV CONTACT BUTTON ALL-PAGES FIX
+   - Strongest override for homepage and inner-page Contact Us buttons.
+   - Matches the homepage Explore Services button style.
+   - Default: transparent background, white text, white border.
+   - Hover: white background, black text, no visible border.
+========================================================= */
+html body a.contact-btn,
+html body .contact-btn,
+html body .navbar > a.contact-btn,
+html body header.header a.contact-btn,
+html body header.header .navbar > a.contact-btn,
+html body header.header.inner-header a.contact-btn,
+html body header.header.inner-header .navbar > a.contact-btn,
+html body header.header.home-header a.contact-btn,
+html body header.header.home-header .navbar > a.contact-btn,
+html body.home-redesign a.contact-btn,
+html body.home-redesign .contact-btn,
+html body.home-redesign header.header a.contact-btn,
+html body.home-redesign header.header .navbar > a.contact-btn,
+html body.home-redesign header.header.home-header a.contact-btn,
+html body.home-redesign header.header.home-header .navbar > a.contact-btn,
+html body .mobile-contact-btn,
+html body a.mobile-contact-btn,
+html body .nav-links .mobile-contact-item a.mobile-contact-btn,
+html body header.header .nav-links .mobile-contact-item a.mobile-contact-btn,
+html body header.header.inner-header .nav-links .mobile-contact-item a.mobile-contact-btn,
+html body header.header.home-header .nav-links .mobile-contact-item a.mobile-contact-btn,
+html body.home-redesign header.header .nav-links .mobile-contact-item a.mobile-contact-btn {
+  background: rgba(255, 255, 255, 0.02) !important;
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.92) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  font-weight: 500 !important;
+}
+
+html body a.contact-btn:hover,
+html body .contact-btn:hover,
+html body .navbar > a.contact-btn:hover,
+html body header.header a.contact-btn:hover,
+html body header.header .navbar > a.contact-btn:hover,
+html body header.header.inner-header a.contact-btn:hover,
+html body header.header.inner-header .navbar > a.contact-btn:hover,
+html body header.header.home-header a.contact-btn:hover,
+html body header.header.home-header .navbar > a.contact-btn:hover,
+html body.home-redesign a.contact-btn:hover,
+html body.home-redesign .contact-btn:hover,
+html body.home-redesign header.header a.contact-btn:hover,
+html body.home-redesign header.header .navbar > a.contact-btn:hover,
+html body.home-redesign header.header.home-header a.contact-btn:hover,
+html body.home-redesign header.header.home-header .navbar > a.contact-btn:hover,
+html body .mobile-contact-btn:hover,
+html body .mobile-contact-btn:focus,
+html body a.mobile-contact-btn:hover,
+html body a.mobile-contact-btn:focus,
+html body .nav-links .mobile-contact-item a.mobile-contact-btn:hover,
+html body .nav-links .mobile-contact-item a.mobile-contact-btn:focus,
+html body header.header .nav-links .mobile-contact-item a.mobile-contact-btn:hover,
+html body header.header .nav-links .mobile-contact-item a.mobile-contact-btn:focus,
+html body header.header.inner-header .nav-links .mobile-contact-item a.mobile-contact-btn:hover,
+html body header.header.inner-header .nav-links .mobile-contact-item a.mobile-contact-btn:focus,
+html body header.header.home-header .nav-links .mobile-contact-item a.mobile-contact-btn:hover,
+html body header.header.home-header .nav-links .mobile-contact-item a.mobile-contact-btn:focus,
+html body.home-redesign header.header .nav-links .mobile-contact-item a.mobile-contact-btn:hover,
+html body.home-redesign header.header .nav-links .mobile-contact-item a.mobile-contact-btn:focus {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  transform: translateY(-2px) !important;
+}
+
+
+/* =========================================================
+   INNER PAGE NAVBAR BACKGROUND MATCH HOME SCROLLED UPDATE
+   - Makes all inner page navbars match the homepage navbar background when scrolled.
+   - Keeps the homepage initial transparent navbar behavior unchanged.
+========================================================= */
+html body:not(.home-redesign) header.header.inner-header,
+html body:not(.home-redesign) .header.inner-header {
+  background: rgba(3, 16, 29, 0.76) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+html body:not(.home-redesign) header.header.inner-header::before,
+html body:not(.home-redesign) .header.inner-header::before {
+  opacity: 1 !important;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(42, 149, 125, 0.13), transparent 34%),
+    linear-gradient(90deg, rgba(4, 18, 31, 0.92), rgba(8, 24, 38, 0.86)) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(18px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(140%) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO DARK BACKGROUND + NEON LOGO EDGE UPDATE
+   - Applies only to the homepage hero section.
+   - Makes the hero background much darker.
+   - Adds a neon blue edge glow/border effect to the background logo.
+========================================================= */
+html body.home-redesign .lrs-hero {
+  background:
+    radial-gradient(circle at 24% 14%, rgba(0, 91, 160, 0.20), transparent 28%),
+    radial-gradient(circle at 72% 32%, rgba(0, 219, 255, 0.10), transparent 30%),
+    radial-gradient(circle at 50% 78%, rgba(17, 34, 58, 0.28), transparent 34%),
+    linear-gradient(135deg, #01040a 0%, #020814 42%, #00030a 100%) !important;
+}
+
+html body.home-redesign .lrs-hero::before {
+  background:
+    linear-gradient(90deg, rgba(0, 3, 10, 0.34), rgba(0, 22, 42, 0.16) 45%, rgba(0, 3, 10, 0.42)),
+    radial-gradient(circle at 86% 18%, rgba(0, 198, 255, 0.10), transparent 26%) !important;
+}
+
+html body.home-redesign .lrs-hero-grid-bg {
+  opacity: 0.22 !important;
+  background-image:
+    linear-gradient(rgba(45, 221, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 221, 255, 0.045) 1px, transparent 1px) !important;
+}
+
+html body.home-redesign .lrs-hero-mark {
+  filter:
+    drop-shadow(0 0 1px rgba(82, 224, 255, 1))
+    drop-shadow(0 0 8px rgba(0, 209, 255, 0.82))
+    drop-shadow(0 0 18px rgba(0, 153, 255, 0.58))
+    drop-shadow(0 0 38px rgba(0, 94, 255, 0.34)) !important;
+}
+
+html body.home-redesign .lrs-hero-mark img {
+  filter:
+    drop-shadow(0 0 1px rgba(122, 236, 255, 0.98))
+    drop-shadow(0 0 9px rgba(0, 212, 255, 0.72))
+    drop-shadow(0 0 22px rgba(0, 123, 255, 0.45)) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO LESS DARK + THIN NEON LOGO LINE UPDATE
+   - Applies only to the homepage hero section.
+   - Makes the hero background slightly lighter than the previous version.
+   - Removes the glowing logo border effect.
+   - Uses a thin neon-blue line around the logo edges without blur/glow.
+========================================================= */
+html body.home-redesign .lrs-hero {
+  background:
+    radial-gradient(circle at 24% 14%, rgba(0, 121, 180, 0.24), transparent 30%),
+    radial-gradient(circle at 72% 32%, rgba(0, 190, 215, 0.13), transparent 32%),
+    radial-gradient(circle at 50% 78%, rgba(26, 51, 82, 0.30), transparent 36%),
+    linear-gradient(135deg, #06101d 0%, #071729 44%, #030b16 100%) !important;
+}
+
+html body.home-redesign .lrs-hero::before {
+  background:
+    linear-gradient(90deg, rgba(1, 9, 19, 0.22), rgba(10, 44, 68, 0.16) 45%, rgba(1, 9, 19, 0.26)),
+    radial-gradient(circle at 86% 18%, rgba(0, 188, 220, 0.08), transparent 26%) !important;
+}
+
+html body.home-redesign .lrs-hero-grid-bg {
+  opacity: 0.18 !important;
+  background-image:
+    linear-gradient(rgba(110, 220, 245, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110, 220, 245, 0.04) 1px, transparent 1px) !important;
+}
+
+html body.home-redesign .lrs-hero-mark {
+  filter:
+    drop-shadow(1px 0 0 #00d9ff)
+    drop-shadow(-1px 0 0 #00d9ff)
+    drop-shadow(0 1px 0 #00d9ff)
+    drop-shadow(0 -1px 0 #00d9ff) !important;
+}
+
+html body.home-redesign .lrs-hero-mark img {
+  filter: none !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO ABSTRACT LOGO TRACING / WIREFRAME UPDATE
+   - Applies only to the homepage hero background logo.
+   - Replaces the simple border-line treatment with a subtle geometric outline / brand-mark tracing.
+   - Uses thin, low-opacity teal line art and abstract wireframe-style tracing without glow blur.
+========================================================= */
+html body.home-redesign .lrs-hero-mark {
+  position: absolute !important;
+  isolation: isolate !important;
+  filter: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark img {
+  opacity: 0.06 !important;
+  filter: grayscale(1) saturate(0) brightness(1.8) contrast(1.1) !important;
+  mix-blend-mode: screen !important;
+}
+
+html body.home-redesign .lrs-hero-mark::before,
+html body.home-redesign .lrs-hero-mark::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  -webkit-mask: url("images/favicon.png") center / contain no-repeat !important;
+  mask: url("images/favicon.png") center / contain no-repeat !important;
+}
+
+html body.home-redesign .lrs-hero-mark::before {
+  background: rgba(82, 169, 185, 0.08) !important;
+  transform: scale(1) !important;
+  opacity: 1 !important;
+}
+
+html body.home-redesign .lrs-hero-mark::after {
+  background: rgba(82, 169, 185, 0.16) !important;
+  opacity: 0.92 !important;
+  transform: scale(1.002) !important;
+  filter:
+    drop-shadow(1px 0 0 rgba(82, 169, 185, 0.34))
+    drop-shadow(-1px 0 0 rgba(82, 169, 185, 0.34))
+    drop-shadow(0 1px 0 rgba(82, 169, 185, 0.34))
+    drop-shadow(0 -1px 0 rgba(82, 169, 185, 0.34)) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO STRONGER NEON LOGO LINE UPDATE
+   - Applies only to the homepage hero background logo.
+   - Keeps the logo as subtle background tracing, but with stronger neon cyan/teal line art.
+   - Inspired by geometric neon line edges, without adding a soft glow haze.
+========================================================= */
+html body.home-redesign .lrs-hero-mark {
+  position: absolute !important;
+  isolation: isolate !important;
+  filter: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark img {
+  opacity: 0.025 !important;
+  filter: grayscale(1) saturate(0) brightness(1.55) contrast(1.04) !important;
+  mix-blend-mode: screen !important;
+}
+
+html body.home-redesign .lrs-hero-mark::before,
+html body.home-redesign .lrs-hero-mark::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  -webkit-mask: url("images/favicon.png") center / contain no-repeat !important;
+  mask: url("images/favicon.png") center / contain no-repeat !important;
+}
+
+html body.home-redesign .lrs-hero-mark::before {
+  background: rgba(20, 224, 255, 0.05) !important;
+  opacity: 0.85 !important;
+  transform: scale(1) !important;
+}
+
+html body.home-redesign .lrs-hero-mark::after {
+  background: rgba(28, 232, 255, 0.22) !important;
+  opacity: 1 !important;
+  transform: scale(1.0015) !important;
+  filter:
+    drop-shadow(1px 0 0 rgba(35, 232, 255, 0.92))
+    drop-shadow(-1px 0 0 rgba(35, 232, 255, 0.92))
+    drop-shadow(0 1px 0 rgba(35, 232, 255, 0.92))
+    drop-shadow(0 -1px 0 rgba(35, 232, 255, 0.92))
+    drop-shadow(2px 0 0 rgba(18, 188, 228, 0.68))
+    drop-shadow(-2px 0 0 rgba(18, 188, 228, 0.68))
+    drop-shadow(0 2px 0 rgba(18, 188, 228, 0.68))
+    drop-shadow(0 -2px 0 rgba(18, 188, 228, 0.68)) !important;
+}
+
+/* Extra crisp line accent for the wireframe feel */
+html body.home-redesign .lrs-hero-mark {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO LOGO OUTLINE-ONLY FIX
+   - Replaces the filled logo treatment with outline-only geometric line art.
+   - Keeps the logo mark behind the bouncing photos.
+   - No full logo fill, no mask fill, only strong neon border/trace lines.
+========================================================= */
+html body.home-redesign .lrs-hero-mark {
+  filter: none !important;
+  z-index: 1 !important;
+}
+
+html body.home-redesign .lrs-hero-mark::before,
+html body.home-redesign .lrs-hero-mark::after {
+  display: none !important;
+  content: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark > img {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  filter: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark-outline {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  overflow: visible !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark-outline path {
+  fill: none !important;
+  stroke: #16e6ff !important;
+  stroke-width: 1.7 !important;
+  stroke-linecap: square !important;
+  stroke-linejoin: miter !important;
+  vector-effect: non-scaling-stroke !important;
+  opacity: 0.92 !important;
+}
+
+html body.home-redesign .lrs-hero-mark-outline path:nth-child(2n) {
+  stroke: #38f0ff !important;
+  opacity: 0.78 !important;
+}
+
+html body.home-redesign .lrs-hero-mark-outline path:nth-child(3n) {
+  stroke: #26b8d8 !important;
+  opacity: 0.72 !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO LOGO ACTUAL OUTLINE REPAIR
+   - Removes the incorrect manual SVG tracing.
+   - Restores the real favicon logo placement behind the bouncing photos.
+   - Creates a clean outline using the actual favicon shape.
+   - The logo itself is not filled; only a crisp neon-blue border remains.
+========================================================= */
+html body.home-redesign .lrs-hero-mark-outline {
+  display: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark {
+  position: absolute !important;
+  top: 40% !important;
+  left: 50% !important;
+  width: min(88vh, 88vw, 940px) !important;
+  max-width: none !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1 !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 1 !important;
+  opacity: 1 !important;
+  filter: none !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+  isolation: isolate !important;
+}
+
+html body.home-redesign .lrs-hero-mark > img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  filter: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark::before,
+html body.home-redesign .lrs-hero-mark::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background: #19e6ff !important;
+  -webkit-mask: url("images/favicon.png") center / contain no-repeat !important;
+  mask: url("images/favicon.png") center / contain no-repeat !important;
+}
+
+/* The outer layer creates the crisp logo border from the real logo shape. */
+html body.home-redesign .lrs-hero-mark::before {
+  opacity: 1 !important;
+  filter:
+    drop-shadow(1px 0 0 #19e6ff)
+    drop-shadow(-1px 0 0 #19e6ff)
+    drop-shadow(0 1px 0 #19e6ff)
+    drop-shadow(0 -1px 0 #19e6ff)
+    drop-shadow(2px 0 0 rgba(25, 230, 255, 0.72))
+    drop-shadow(-2px 0 0 rgba(25, 230, 255, 0.72))
+    drop-shadow(0 2px 0 rgba(25, 230, 255, 0.72))
+    drop-shadow(0 -2px 0 rgba(25, 230, 255, 0.72)) !important;
+}
+
+/* This dark fill covers the center so the result appears as outline-only, not a filled logo. */
+html body.home-redesign .lrs-hero-mark::after {
+  inset: 2px !important;
+  opacity: 1 !important;
+  background:
+    radial-gradient(circle at 24% 14%, #061526 0%, #071729 46%, #030b16 100%) !important;
+  filter: none !important;
+}
+
+/* Keep the outline behind the bouncing photo and cards. */
+html body.home-redesign .lrs-hero-photo-card {
+  z-index: 3 !important;
+}
+
+html body.home-redesign .lrs-check-card,
+html body.home-redesign .lrs-metric-card {
+  z-index: 6 !important;
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 40% !important;
+    width: min(86vh, 92vw, 900px) !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 41% !important;
+    width: min(82vh, 112vw, 780px) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html body.home-redesign .lrs-hero-mark {
+    top: 41% !important;
+    width: min(76vh, 132vw, 690px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html body.home-redesign .lrs-hero-mark {
+    width: min(70vh, 150vw, 620px) !important;
+  }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO LOGO ALL EDGES OUTLINE FIX
+   - Uses the real favicon shape.
+   - Creates a full outline around all logo edges, not partial edges only.
+   - Keeps the center covered so it still reads as outline-only.
+========================================================= */
+html body.home-redesign .lrs-hero-mark {
+  isolation: isolate !important;
+  overflow: visible !important;
+}
+
+html body.home-redesign .lrs-hero-mark > img {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+html body.home-redesign .lrs-hero-mark::before,
+html body.home-redesign .lrs-hero-mark::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  pointer-events: none !important;
+  -webkit-mask: url("images/favicon.png") center / contain no-repeat !important;
+  mask: url("images/favicon.png") center / contain no-repeat !important;
+}
+
+/* Strong full outer outline using the actual logo silhouette */
+html body.home-redesign .lrs-hero-mark::before {
+  background: #1ce8ff !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transform-origin: center !important;
+  filter:
+    drop-shadow(1px 0 0 #1ce8ff)
+    drop-shadow(-1px 0 0 #1ce8ff)
+    drop-shadow(0 1px 0 #1ce8ff)
+    drop-shadow(0 -1px 0 #1ce8ff)
+    drop-shadow(1px 1px 0 #1ce8ff)
+    drop-shadow(-1px -1px 0 #1ce8ff)
+    drop-shadow(1px -1px 0 #1ce8ff)
+    drop-shadow(-1px 1px 0 #1ce8ff) !important;
+}
+
+/* Slightly smaller inner mask to reveal a complete border on every edge */
+html body.home-redesign .lrs-hero-mark::after {
+  background:
+    radial-gradient(circle at 24% 14%, #061526 0%, #071729 46%, #030b16 100%) !important;
+  opacity: 1 !important;
+  transform: scale(0.972) !important;
+  transform-origin: center !important;
+  filter: none !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO LOGO THIN FULL-EDGE OUTLINE FIX
+   - Keeps the outline thin like the earlier version.
+   - Makes the outline visible on all logo edges, not just perspective-like sides.
+   - Uses the real favicon shape only.
+========================================================= */
+html body.home-redesign .lrs-hero-mark {
+  isolation: isolate !important;
+  overflow: visible !important;
+  filter: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark > img {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  filter: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark::before,
+html body.home-redesign .lrs-hero-mark::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  pointer-events: none !important;
+  -webkit-mask: url("images/favicon.png") center / contain no-repeat !important;
+  mask: url("images/favicon.png") center / contain no-repeat !important;
+  transform-origin: center !important;
+}
+
+/* Thin outer logo border line */
+html body.home-redesign .lrs-hero-mark::before {
+  background: #18e6ff !important;
+  opacity: 0.95 !important;
+  transform: scale(1) !important;
+  filter: none !important;
+}
+
+/* Slightly smaller inner shape to reveal a thin full outline on every edge */
+html body.home-redesign .lrs-hero-mark::after {
+  background:
+    radial-gradient(circle at 24% 14%, #061526 0%, #071729 46%, #030b16 100%) !important;
+  opacity: 1 !important;
+  transform: scale(0.9915) !important;
+  filter: none !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO LOGO SVG EDGE OUTLINE FIX
+   - Replaces the previous mask/scale outline effect.
+   - Uses the actual favicon image alpha to create a thin uniform edge outline.
+   - Outlines outer edges and inner/middle transparent edges without perspective-shadow thickness.
+========================================================= */
+html body.home-redesign .lrs-hero-mark {
+  isolation: isolate !important;
+  overflow: visible !important;
+  filter: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark::before,
+html body.home-redesign .lrs-hero-mark::after {
+  display: none !important;
+  content: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark > img {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  filter: none !important;
+}
+
+html body.home-redesign .lrs-hero-edge-outline {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+html body.home-redesign .lrs-hero-edge-outline image {
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO BACKGROUND LOGO ORIGINAL COLOR RESTORE
+   - Removes the SVG/logo outline border treatment.
+   - Restores the original favicon logo with its original colors.
+   - Keeps the current large background logo size and position.
+========================================================= */
+html body.home-redesign .lrs-hero-edge-outline {
+  display: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark::before,
+html body.home-redesign .lrs-hero-mark::after {
+  display: none !important;
+  content: none !important;
+  background: transparent !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  filter: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark {
+  opacity: 0.36 !important;
+  filter: none !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+html body.home-redesign .lrs-hero-mark > img {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO FLOATING CARDS DARK GLASS UPDATE
+   - Applies only to the floating cards beside the bouncing hero photos.
+   - Dark translucent glass style to match the homepage hero theme.
+   - Removes borders and shadows.
+========================================================= */
+html body.home-redesign .lrs-hero .lrs-floating-card {
+  background:
+    linear-gradient(135deg, rgba(7, 20, 34, 0.72), rgba(10, 36, 52, 0.48)) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(18px) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(145%) !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card small,
+html body.home-redesign .lrs-hero .lrs-floating-card li {
+  color: rgba(255, 255, 255, 0.74) !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card strong {
+  color: #ffffff !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-metric-card strong {
+  color: #7debf1 !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-check-card li::before {
+  color: #7debf1 !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-mini-chart span {
+  background: linear-gradient(180deg, rgba(125, 235, 241, 0.95), rgba(42, 149, 125, 0.86)) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO FLOATING CARDS PHOTO-BASED DARK THEME UPDATE
+   - Applies only to the floating cards beside the bouncing hero photos.
+   - Bases the dark glass theme on the bouncing photo placeholder/background.
+   - Keeps the cards translucent with no borders and no shadows.
+========================================================= */
+html body.home-redesign .lrs-hero .lrs-floating-card {
+  background:
+    linear-gradient(145deg, rgba(4, 21, 35, 0.82), rgba(4, 21, 35, 0.58)) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(16px) saturate(125%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(125%) !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card small,
+html body.home-redesign .lrs-hero .lrs-floating-card li {
+  color: rgba(255, 255, 255, 0.76) !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card strong {
+  color: #ffffff !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-metric-card strong,
+html body.home-redesign .lrs-hero .lrs-check-card li::before {
+  color: #8fe6ef !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-mini-chart span {
+  background: linear-gradient(180deg, rgba(143, 230, 239, 0.92), rgba(54, 132, 150, 0.86)) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO FLOATING CARDS EXACT PHOTO BACKGROUND UPDATE
+   - Uses the same base dark background as the bouncing photo container.
+   - Keeps the cards glass-like, slightly translucent, with no borders and no shadows.
+   - Applies only to the homepage hero floating cards.
+========================================================= */
+html body.home-redesign .lrs-hero .lrs-floating-card {
+  background: rgba(4, 21, 35, 0.72) !important;
+  background-color: rgba(4, 21, 35, 0.72) !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(18px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(120%) !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card small,
+html body.home-redesign .lrs-hero .lrs-floating-card li {
+  color: rgba(255, 255, 255, 0.74) !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card strong {
+  color: #ffffff !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-metric-card strong,
+html body.home-redesign .lrs-hero .lrs-check-card li::before {
+  color: #8fe6ef !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-mini-chart span {
+  background: linear-gradient(180deg, rgba(143, 230, 239, 0.92), rgba(54, 132, 150, 0.86)) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO FLOATING CARDS ACTIVE PHOTO BACKGROUND UPDATE
+   - Floating cards now use the active bouncing photo as their background.
+   - Adds a dark translucent overlay so text remains readable.
+   - No borders and no shadows.
+========================================================= */
+:root {
+  --hero-card-photo-bg: url("images/hero/hero_1.jpg");
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card {
+  position: absolute !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(rgba(3, 12, 22, 0.68), rgba(3, 12, 22, 0.68)),
+    var(--hero-card-photo-bg) center / cover no-repeat !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(12px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
+  transition: background-image 0.45s ease, background-color 0.45s ease !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(3, 12, 22, 0.22) !important;
+  backdrop-filter: blur(8px) saturate(115%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(115%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card small,
+html body.home-redesign .lrs-hero .lrs-floating-card li {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card strong {
+  color: #ffffff !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-metric-card strong,
+html body.home-redesign .lrs-hero .lrs-check-card li::before {
+  color: #a8f4ff !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-mini-chart span {
+  background: linear-gradient(180deg, rgba(168, 244, 255, 0.94), rgba(60, 145, 165, 0.84)) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO FLOATING CARDS PHOTO-COLOR ONLY FIX
+   - Removes the photo-as-background treatment.
+   - Uses only the dark color tone from the bouncing photo area.
+   - Keeps the floating cards glass-like, translucent, borderless, and shadowless.
+========================================================= */
+html body.home-redesign .lrs-hero .lrs-floating-card {
+  background: rgba(4, 21, 35, 0.76) !important;
+  background-color: rgba(4, 21, 35, 0.76) !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+  backdrop-filter: blur(18px) saturate(125%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(125%) !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card::before {
+  display: none !important;
+  content: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card small,
+html body.home-redesign .lrs-hero .lrs-floating-card li {
+  color: rgba(255, 255, 255, 0.76) !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-floating-card strong {
+  color: #ffffff !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-metric-card strong,
+html body.home-redesign .lrs-hero .lrs-check-card li::before {
+  color: #8fe6ef !important;
+}
+
+html body.home-redesign .lrs-hero .lrs-mini-chart span {
+  background: linear-gradient(180deg, rgba(143, 230, 239, 0.92), rgba(54, 132, 150, 0.86)) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO SMALL FLOATING CARD POSITION UPDATE
+   - Moves the smaller metric floating card slightly upward.
+   - Keeps it outside the lower-right side of the bouncing photo.
+   - Prevents it from sitting below the bouncing photo area.
+========================================================= */
+@media (min-width: 1121px) {
+  html body.home-redesign .lrs-hero .lrs-metric-card {
+    top: 410px !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+  html body.home-redesign .lrs-hero .lrs-metric-card {
+    top: 430px !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  html body.home-redesign .lrs-hero .lrs-metric-card {
+    top: 470px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html body.home-redesign .lrs-hero .lrs-metric-card {
+    top: 470px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html body.home-redesign .lrs-hero .lrs-metric-card {
+    top: 520px !important;
+  }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO VISION PHRASE UPDATE
+   - Adds a simple phrase above Launch. Run. Scale.
+   - No border and no background.
+   - Uses theme-matching text color only.
+========================================================= */
+html body.home-redesign .lrs-hero-vision-line {
+  margin: 0 0 14px !important;
+  padding: 0 !important;
+  max-width: 620px !important;
+  color: #7debf1 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  font-size: clamp(15px, 1.25vw, 18px) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.2px !important;
+}
+
+@media (max-width: 700px) {
+  html body.home-redesign .lrs-hero-vision-line {
+    font-size: 15px !important;
+    margin-bottom: 12px !important;
+  }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO VISION PHRASE POSITION UPDATE
+   - Moves the phrase above Launch. Run. Scale. slightly upward.
+   - Keeps the phrase design unchanged.
+========================================================= */
+html body.home-redesign .lrs-hero-vision-line {
+  transform: translateY(-10px) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO VISION PHRASE HIGHLIGHT UPDATE
+   - Adds a subtle theme-matching highlight background.
+   - No border.
+   - Keeps the phrase positioned slightly above the hero heading.
+========================================================= */
+html body.home-redesign .lrs-hero-vision-line {
+  display: inline-flex !important;
+  width: fit-content !important;
+  padding: 7px 14px !important;
+  background: rgba(125, 235, 241, 0.12) !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(10px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
+}

@@ -39,14 +39,32 @@
 
         <div class="nav-container" id="navContainer">
                     <ul class="nav-links">
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li class="mobile-contact-item">
-              <a href="contact.html" class="mobile-contact-btn">Contact Us</a>
-            </li>
-          </ul>
+          <li><a class="active" href="index.html">Home</a></li>
+          <li class="nav-service-item">
+            <div class="nav-service-top">
+              <a class="service-nav-link" href="services.html">Services</a>
+              <button class="services-dropdown-toggle" type="button" aria-label="Open services menu" aria-expanded="false">
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+              </button>
+            </div>
+            <ul class="services-dropdown" aria-label="Services submenu">
+              <li><a href="services.html#customer-service-support">Customer Service Support</a></li>
+              <li><a href="services.html#operational-support-strategy">Operational Support &amp; Strategy</a></li>
+              <li><a href="services.html#virtual-assistant-services">Virtual Assistant Services</a></li>
+              <li><a href="services.html#process-optimization">Process Optimization</a></li>
+              <li><a href="services.html#custom-team-building-training">Custom Team Building &amp; Training</a></li>
+              <li><a href="services.html#consultation-services">Consultation Services</a></li>
+              <li><a href="services.html#social-media-management">Social Media Management</a></li>
+              <li><a href="services.html#course-building-e-learning">Course Building &amp; E-Learning</a></li>
+              <li><a href="services.html#crm-optimization">CRM Optimization</a></li>
+              <li><a href="services.html#project-management">Project Management</a></li>
+            </ul>
+          </li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li class="mobile-contact-item"><a href="contact.html" class="mobile-contact-btn">Contact Us</a></li>
+        </ul>
         </div>
 
         <a href="contact.html" class="contact-btn">Contact Us</a>
@@ -61,27 +79,13 @@
       <div class="lrs-hero-grid-bg" aria-hidden="true"></div>
       <div class="container lrs-hero-layout">
         <div class="lrs-hero-copy fade-up">
+          <p class="lrs-hero-vision-line">Trusted support systems built to empower growing businesses</p>
           <h1 class="lrs-gradient-title">Launch. Run. Scale.</h1>
           <p>Run your business with seamless, day-to-day support that takes work off your plate.</p>
 
           <div class="lrs-hero-actions">
             <a href="contact.html" class="lrs-primary-btn">Schedule Consultation</a>
             <a href="services.html" class="lrs-outline-btn">Explore Services</a>
-          </div>
-
-          <div class="lrs-hero-trust-row">
-            <div class="lrs-trust-item">
-              <i class="fas fa-fingerprint"></i>
-              <div><strong>Reliable &amp; Secure</strong><span>Your operations, protected.</span></div>
-            </div>
-            <div class="lrs-trust-item">
-              <i class="fas fa-user-check"></i>
-              <div><strong>Expert Support</strong><span>Real people, real results.</span></div>
-            </div>
-            <div class="lrs-trust-item">
-              <i class="fas fa-arrow-trend-up"></i>
-              <div><strong>Built for Growth</strong><span>Scalable solutions for your future.</span></div>
-            </div>
           </div>
         </div>
 
@@ -262,12 +266,11 @@
     <section class="lrs-testimonial-section">
       <div class="container lrs-testimonial-card fade-up">
         <div class="lrs-quote-mark">“</div>
-        <div class="lrs-avatar"><img src="images/team_01.jpg" alt="Client testimonial placeholder"></div>
-        <blockquote>Ligon-Razon Solutions has been an extension of our team. Their reliability, attention to detail, and proactive support have made a huge impact on our daily operations and growth.</blockquote>
+        <div class="lrs-avatar"><img src="images/review.jpg" alt="Client testimonial placeholder"></div>
+        <blockquote>I have worked with Mico for 4 years now. She is nothing short of amazing. The team she has built has followed suit. Need trust, transparency, and results? They are a top choice.</blockquote>
         <div class="lrs-testimonial-author">
-          <strong>Maria Santos</strong>
-          <span>Operations Manager, Elevate Co.</span>
-          <div>★★★★★</div>
+          <strong>Kaitlyn Buskirk</strong>
+          <span>Affiliate Manager, Fractional Affiliate Management LLC</span>
         </div>
       </div>
     </section>
@@ -311,6 +314,8 @@
         nav.classList.remove("show");
         overlay.classList.remove("show");
         document.body.style.overflow = "";
+        document.querySelectorAll(".nav-service-item.dropdown-open").forEach(item => item.classList.remove("dropdown-open"));
+        document.querySelectorAll(".services-dropdown-toggle[aria-expanded='true']").forEach(button => button.setAttribute("aria-expanded", "false"));
       }
 
       function openMenu() {
@@ -346,6 +351,25 @@
 
       document.querySelectorAll(".nav-links a").forEach(link => {
         link.addEventListener("click", closeMenu);
+      });
+
+      const serviceDropdownButtons = document.querySelectorAll(".services-dropdown-toggle");
+      serviceDropdownButtons.forEach(button => {
+        button.addEventListener("click", event => {
+          event.preventDefault();
+          event.stopPropagation();
+
+          const item = button.closest(".nav-service-item");
+          const isOpen = item.classList.toggle("dropdown-open");
+          button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      });
+
+      document.addEventListener("click", event => {
+        if (!event.target.closest(".nav-service-item")) {
+          document.querySelectorAll(".nav-service-item.dropdown-open").forEach(item => item.classList.remove("dropdown-open"));
+          document.querySelectorAll(".services-dropdown-toggle[aria-expanded='true']").forEach(button => button.setAttribute("aria-expanded", "false"));
+        }
       });
 
       const faders = document.querySelectorAll(".fade-up");

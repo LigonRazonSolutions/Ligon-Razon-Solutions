@@ -62,9 +62,29 @@
       <div class="nav-container" id="navContainer">
                 <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li class="nav-service-item">
+            <div class="nav-service-top">
+              <a class="service-nav-link" href="services.html">Services</a>
+              <button class="services-dropdown-toggle" type="button" aria-label="Open services menu" aria-expanded="false">
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+              </button>
+            </div>
+            <ul class="services-dropdown" aria-label="Services submenu">
+              <li><a href="services.html#customer-service-support">Customer Service Support</a></li>
+              <li><a href="services.html#operational-support-strategy">Operational Support &amp; Strategy</a></li>
+              <li><a href="services.html#virtual-assistant-services">Virtual Assistant Services</a></li>
+              <li><a href="services.html#process-optimization">Process Optimization</a></li>
+              <li><a href="services.html#custom-team-building-training">Custom Team Building &amp; Training</a></li>
+              <li><a href="services.html#consultation-services">Consultation Services</a></li>
+              <li><a href="services.html#social-media-management">Social Media Management</a></li>
+              <li><a href="services.html#course-building-e-learning">Course Building &amp; E-Learning</a></li>
+              <li><a href="services.html#crm-optimization">CRM Optimization</a></li>
+              <li><a href="services.html#project-management">Project Management</a></li>
+            </ul>
+          </li>
           <li><a class="active" href="portfolio.html">Portfolio</a></li>
           <li><a href="about.html">About Us</a></li>
+          <li><a href="careers.html">Careers</a></li>
           <li class="mobile-contact-item"><a href="contact.html" class="mobile-contact-btn">Contact Us</a></li>
         </ul>
       </div>
@@ -333,6 +353,7 @@
     </div>
   </div>
 
+
   <div class="portfolio-templates" hidden>
     <template id="portfolio-template-posters" data-title="Posters" data-prefix="poster" data-images="poster_01.jpg,poster_02.jpg,poster_03.jpg,poster_04.jpg,poster_05.jpg,poster_06.jpg,poster_07.jpg,poster_08.jpg,poster_09.jpg,poster_10.jpg">
       <div class="portfolio-modal-copy">
@@ -413,6 +434,8 @@
     nav.classList.remove("show");
     overlay.classList.remove("show");
     document.body.style.overflow = "";
+        document.querySelectorAll(".nav-service-item.dropdown-open").forEach(item => item.classList.remove("dropdown-open"));
+        document.querySelectorAll(".services-dropdown-toggle[aria-expanded='true']").forEach(button => button.setAttribute("aria-expanded", "false"));
   }
 
   function openMenu() {
@@ -438,6 +461,25 @@
   document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", closeMenu);
   });
+
+      const serviceDropdownButtons = document.querySelectorAll(".services-dropdown-toggle");
+      serviceDropdownButtons.forEach(button => {
+        button.addEventListener("click", event => {
+          event.preventDefault();
+          event.stopPropagation();
+
+          const item = button.closest(".nav-service-item");
+          const isOpen = item.classList.toggle("dropdown-open");
+          button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      });
+
+      document.addEventListener("click", event => {
+        if (!event.target.closest(".nav-service-item")) {
+          document.querySelectorAll(".nav-service-item.dropdown-open").forEach(item => item.classList.remove("dropdown-open"));
+          document.querySelectorAll(".services-dropdown-toggle[aria-expanded='true']").forEach(button => button.setAttribute("aria-expanded", "false"));
+        }
+      });
 
   const faders = document.querySelectorAll(".fade-up");
   const observer = new IntersectionObserver(entries => {
