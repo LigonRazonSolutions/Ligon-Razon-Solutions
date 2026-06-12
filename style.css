@@ -16743,3 +16743,574 @@ html body.home-redesign .lrs-hero-vision-line {
   backdrop-filter: blur(10px) saturate(120%) !important;
   -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
 }
+
+
+/* =========================================================
+   SERVICE LIST IMAGE PLACEHOLDER UPDATE
+   - Replaces service icons with image placeholders for service1.jpg to service7.jpg.
+   - Keeps existing card behavior and hover/active functions intact.
+========================================================= */
+.services-grid-redesign {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)) !important;
+}
+
+.services-card-redesign {
+  min-height: 360px;
+}
+
+.service-image-placeholder,
+.lrs-solution-image-placeholder {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(82, 169, 185, 0.16), rgba(42, 149, 125, 0.10)),
+    #edf5f7;
+  border: 1px solid rgba(82, 169, 185, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.55);
+}
+
+.service-image-placeholder {
+  aspect-ratio: 16 / 10;
+  margin-bottom: 22px;
+}
+
+.lrs-solution-image-placeholder {
+  aspect-ratio: 16 / 9;
+  margin: -2px 0 18px;
+  border-radius: 10px;
+}
+
+.service-image-placeholder img,
+.lrs-solution-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.service-image-placeholder span,
+.lrs-solution-image-placeholder span {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  color: rgba(21, 32, 51, 0.62);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-align: center;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.62), rgba(255,255,255,0.34)),
+    repeating-linear-gradient(135deg, rgba(82,169,185,0.10) 0 10px, rgba(42,149,125,0.08) 10px 20px);
+}
+
+.service-image-placeholder.image-missing span,
+.lrs-solution-image-placeholder.image-missing span {
+  display: flex;
+}
+
+.services-card-redesign.is-active .service-image-placeholder {
+  border-color: rgba(255,255,255,0.28);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 18px 38px rgba(0,0,0,0.18);
+}
+
+.services-card-redesign.is-active .service-image-placeholder span {
+  color: rgba(255,255,255,0.84);
+  background:
+    linear-gradient(135deg, rgba(82,169,185,0.28), rgba(42,149,125,0.18)),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.08) 0 10px, rgba(255,255,255,0.04) 10px 20px);
+}
+
+@media (max-width: 700px) {
+  .services-card-redesign {
+    min-height: auto;
+  }
+}
+
+/* =========================================================
+   HOMEPAGE SERVICES PREVIEW UPDATE
+   - Shows only three linked services on the homepage.
+   - Uses the same photo/card style language as the Results that speak for themselves section.
+   - Keeps the full seven-service list on the Services page intact.
+========================================================= */
+body.home-redesign .lrs-home-services-preview-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body.home-redesign .lrs-home-service-preview-card .lrs-work-image {
+  height: 150px;
+}
+
+body.home-redesign .lrs-home-service-preview-card .lrs-work-body {
+  display: flex;
+  min-height: 210px;
+  flex-direction: column;
+}
+
+body.home-redesign .lrs-home-service-preview-card .lrs-text-link {
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  body.home-redesign .lrs-home-services-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.home-redesign .lrs-home-service-preview-card .lrs-work-image {
+    height: 220px;
+  }
+
+  body.home-redesign .lrs-home-service-preview-card .lrs-work-body {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  body.home-redesign .lrs-home-service-preview-card .lrs-work-image {
+    height: 180px;
+  }
+}
+
+/* =========================================================
+   SERVICES PAGE SERVICE EXPERIENCE BOARD UPDATE
+   - Reworks only the service-listing section on services.html.
+   - Keeps the Services hero, value strip, CTA, header, footer, and scripts intact.
+   - Uses service1.jpg to service7.jpg as future image placeholders.
+========================================================= */
+.services-redesign .services-experience-board {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  margin-top: 0 !important;
+  padding: clamp(22px, 3vw, 42px) !important;
+  overflow: hidden !important;
+  border-radius: 34px !important;
+  border: 1px solid rgba(82, 169, 185, 0.16) !important;
+  background:
+    radial-gradient(circle at 80% 8%, rgba(82, 169, 185, 0.18), transparent 26%),
+    radial-gradient(circle at 14% 52%, rgba(42, 149, 125, 0.11), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(247,252,253,0.96) 48%, rgba(237,247,249,0.98) 100%) !important;
+  box-shadow: 0 28px 70px rgba(34, 43, 60, 0.10) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+.services-redesign .services-experience-board::before,
+.services-redesign .services-experience-board::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.services-redesign .services-experience-board::before {
+  inset: 0 !important;
+  background:
+    linear-gradient(90deg, transparent 0 49.9%, rgba(82, 169, 185, 0.10) 50%, transparent 50.12%),
+    linear-gradient(0deg, transparent 0 33.333%, rgba(82, 169, 185, 0.10) 33.413%, transparent 33.513%, transparent 66.666%, rgba(82, 169, 185, 0.10) 66.746%, transparent 66.846%);
+  opacity: 0.72 !important;
+}
+
+.services-redesign .services-experience-board::after {
+  top: clamp(24px, 4vw, 58px) !important;
+  right: clamp(22px, 4vw, 58px) !important;
+  width: min(470px, 44%) !important;
+  height: clamp(230px, 24vw, 330px) !important;
+  border-radius: 44% 56% 34% 66% / 50% 44% 56% 50% !important;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.96) 0 24%, transparent 25%),
+    url("images/favicon.png") center / min(170px, 44%) no-repeat,
+    radial-gradient(circle at 60% 40%, rgba(82, 169, 185, 0.22), transparent 32%),
+    linear-gradient(135deg, rgba(82, 169, 185, 0.18), rgba(42, 149, 125, 0.10));
+  border: 1px solid rgba(82, 169, 185, 0.14) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.64), 0 28px 62px rgba(34,43,60,0.08) !important;
+  opacity: 0.78 !important;
+}
+
+.services-redesign .services-board-intro,
+.services-redesign .services-showcase-card {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.services-redesign .services-board-intro {
+  grid-column: 1 / 6 !important;
+  min-height: 275px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  padding: clamp(24px, 3.5vw, 46px) clamp(22px, 3vw, 38px) !important;
+}
+
+.services-redesign .services-board-intro span {
+  display: inline-flex !important;
+  width: fit-content !important;
+  margin-bottom: 18px !important;
+  color: var(--brand-green) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 2.6px !important;
+  text-transform: uppercase !important;
+}
+
+.services-redesign .services-board-intro h2 {
+  max-width: 520px !important;
+  margin: 0 0 16px !important;
+  color: var(--brand-dark) !important;
+  font-size: clamp(36px, 4.5vw, 66px) !important;
+  font-weight: 500 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -2.4px !important;
+}
+
+.services-redesign .services-board-intro p {
+  max-width: 460px !important;
+  margin: 0 !important;
+  color: #526170 !important;
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+}
+
+.services-redesign .services-experience-board .services-card-redesign {
+  cursor: pointer !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card {
+  min-height: 275px !important;
+  display: grid !important;
+  align-items: center !important;
+  gap: clamp(18px, 2vw, 30px) !important;
+  padding: clamp(26px, 3vw, 42px) !important;
+  overflow: hidden !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+  border-top: 1px solid rgba(82, 169, 185, 0.12) !important;
+  background: rgba(255,255,255,0.34) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transform: none !important;
+  color: var(--brand-dark) !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card::before,
+.services-redesign .services-experience-board .services-showcase-card::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card::before {
+  width: 260px !important;
+  height: 190px !important;
+  border-radius: 50% !important;
+  right: -90px !important;
+  bottom: -90px !important;
+  background: rgba(82, 169, 185, 0.10) !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card::after {
+  width: 210px !important;
+  height: 150px !important;
+  left: -80px !important;
+  top: -70px !important;
+  border-radius: 50% !important;
+  background: rgba(42, 149, 125, 0.07) !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card:hover {
+  transform: translateY(-3px) !important;
+  background: rgba(255,255,255,0.68) !important;
+  box-shadow: 0 18px 38px rgba(34, 43, 60, 0.08) !important;
+  z-index: 3 !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card.is-active {
+  background:
+    radial-gradient(circle at 86% 18%, rgba(82, 169, 185, 0.15), transparent 28%),
+    linear-gradient(135deg, rgba(255,255,255,0.86), rgba(239,249,250,0.92)) !important;
+  border-color: rgba(82, 169, 185, 0.26) !important;
+  box-shadow: inset 0 0 0 2px rgba(82, 169, 185, 0.22), 0 20px 44px rgba(34, 43, 60, 0.10) !important;
+  color: var(--brand-dark) !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card.is-active h3,
+.services-redesign .services-experience-board .services-showcase-card.is-active p,
+.services-redesign .services-experience-board .services-showcase-card.is-active li {
+  color: inherit !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-copy {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-number {
+  display: inline-block !important;
+  margin-bottom: 8px !important;
+  color: var(--brand-green) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.1px !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card h3 {
+  margin: 0 0 12px !important;
+  color: var(--brand-dark) !important;
+  font-family: var(--font-heading) !important;
+  font-size: clamp(22px, 2.1vw, 30px) !important;
+  font-weight: 500 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.8px !important;
+}
+
+.services-redesign .services-experience-board .service-card-4 h3 {
+  font-size: clamp(20px, 1.9vw, 27px) !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card p {
+  margin: 0 0 16px !important;
+  color: #526170 !important;
+  font-size: 13.5px !important;
+  line-height: 1.68 !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card ul {
+  display: grid !important;
+  gap: 7px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card li {
+  position: relative !important;
+  padding-left: 22px !important;
+  color: #3e5162 !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+  font-weight: 600 !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card li::before {
+  content: "✓" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 15px !important;
+  height: 15px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, var(--brand-teal), var(--brand-green)) !important;
+  font-size: 9px !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-photo {
+  position: relative !important;
+  z-index: 2 !important;
+  min-height: 170px !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  border-radius: 34% 66% 38% 62% / 58% 44% 56% 42% !important;
+  border: 1px solid rgba(82, 169, 185, 0.16) !important;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,0.94), transparent 30%),
+    linear-gradient(135deg, rgba(82, 169, 185, 0.15), rgba(42, 149, 125, 0.09)),
+    #edf5f7 !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.62), 0 18px 38px rgba(34,43,60,0.08) !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 170px !important;
+  object-fit: cover !important;
+  display: block !important;
+  filter: saturate(0.92) contrast(0.98) brightness(1.04) !important;
+  transition: transform 0.38s ease, filter 0.38s ease !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-card:hover .services-showcase-photo img {
+  transform: scale(1.035) !important;
+  filter: saturate(1.04) contrast(1.02) brightness(1.04) !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-photo span {
+  display: none !important;
+  position: absolute !important;
+  inset: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 18px !important;
+  color: rgba(34, 43, 60, 0.66) !important;
+  background:
+    radial-gradient(circle at 24% 24%, rgba(255,255,255,0.82), transparent 34%),
+    repeating-linear-gradient(135deg, rgba(82, 169, 185, 0.11) 0 14px, rgba(42, 149, 125, 0.08) 14px 28px),
+    linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.30)) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.6px !important;
+  text-align: center !important;
+}
+
+.services-redesign .services-experience-board .services-showcase-photo.image-missing span {
+  display: flex !important;
+}
+
+.services-redesign .services-experience-board .service-card-1,
+.services-redesign .services-experience-board .service-card-2,
+.services-redesign .services-experience-board .service-card-6,
+.services-redesign .services-experience-board .service-card-7 {
+  grid-template-columns: minmax(0, 1fr) minmax(170px, 42%) !important;
+}
+
+.services-redesign .services-experience-board .service-card-3,
+.services-redesign .services-experience-board .service-card-4,
+.services-redesign .services-experience-board .service-card-5 {
+  grid-template-columns: 1fr !important;
+  align-content: center !important;
+}
+
+.services-redesign .services-experience-board .service-card-3 .services-showcase-photo,
+.services-redesign .services-experience-board .service-card-5 .services-showcase-photo {
+  min-height: 150px !important;
+}
+
+.services-redesign .services-experience-board .service-card-4 .services-showcase-photo {
+  min-height: 132px !important;
+  max-height: 160px !important;
+  border-radius: 28% 72% 46% 54% / 62% 44% 56% 38% !important;
+}
+
+.services-redesign .services-experience-board .service-card-1 { grid-column: 1 / 7 !important; grid-row: 1 !important; border-right: 1px solid rgba(82,169,185,0.12) !important; }
+.services-redesign .services-experience-board .service-card-2 { grid-column: 7 / 13 !important; grid-row: 1 !important; }
+.services-redesign .services-experience-board .service-card-3 { grid-column: 1 / 5 !important; grid-row: 2 !important; border-right: 1px solid rgba(82,169,185,0.12) !important; }
+.services-redesign .services-experience-board .service-card-4 { grid-column: 5 / 8 !important; grid-row: 2 !important; border-right: 1px solid rgba(82,169,185,0.12) !important; }
+.services-redesign .services-experience-board .service-card-5 { grid-column: 8 / 13 !important; grid-row: 2 !important; }
+.services-redesign .services-experience-board .service-card-6 { grid-column: 1 / 7 !important; grid-row: 3 !important; border-right: 1px solid rgba(82,169,185,0.12) !important; }
+.services-redesign .services-experience-board .service-card-7 { grid-column: 7 / 13 !important; grid-row: 3 !important; }
+
+@media (max-width: 1180px) {
+  .services-redesign .services-experience-board {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  }
+
+  .services-redesign .services-experience-board::after {
+    width: min(390px, 42%) !important;
+  }
+
+  .services-redesign .services-board-intro { grid-column: 1 / 5 !important; }
+  .services-redesign .services-experience-board .service-card-1 { grid-column: 1 / 4 !important; grid-row: auto !important; }
+  .services-redesign .services-experience-board .service-card-2 { grid-column: 4 / 7 !important; grid-row: auto !important; }
+  .services-redesign .services-experience-board .service-card-3 { grid-column: 1 / 3 !important; grid-row: auto !important; }
+  .services-redesign .services-experience-board .service-card-4 { grid-column: 3 / 5 !important; grid-row: auto !important; }
+  .services-redesign .services-experience-board .service-card-5 { grid-column: 5 / 7 !important; grid-row: auto !important; }
+  .services-redesign .services-experience-board .service-card-6 { grid-column: 1 / 4 !important; grid-row: auto !important; }
+  .services-redesign .services-experience-board .service-card-7 { grid-column: 4 / 7 !important; grid-row: auto !important; }
+
+  .services-redesign .services-experience-board .service-card-1,
+  .services-redesign .services-experience-board .service-card-2,
+  .services-redesign .services-experience-board .service-card-6,
+  .services-redesign .services-experience-board .service-card-7 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .services-redesign .services-experience-board .services-showcase-photo {
+    min-height: 155px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .services-redesign .services-experience-board {
+    grid-template-columns: 1fr !important;
+    padding: 18px !important;
+    border-radius: 26px !important;
+  }
+
+  .services-redesign .services-experience-board::before {
+    background:
+      linear-gradient(0deg, transparent 0 12.5%, rgba(82, 169, 185, 0.10) 12.56%, transparent 12.64%, transparent 25%, rgba(82, 169, 185, 0.10) 25.06%, transparent 25.14%, transparent 37.5%, rgba(82, 169, 185, 0.10) 37.56%, transparent 37.64%, transparent 50%, rgba(82, 169, 185, 0.10) 50.06%, transparent 50.14%, transparent 62.5%, rgba(82, 169, 185, 0.10) 62.56%, transparent 62.64%, transparent 75%, rgba(82, 169, 185, 0.10) 75.06%, transparent 75.14%, transparent 87.5%, rgba(82, 169, 185, 0.10) 87.56%, transparent 87.64%) !important;
+  }
+
+  .services-redesign .services-experience-board::after {
+    display: none !important;
+  }
+
+  .services-redesign .services-board-intro,
+  .services-redesign .services-experience-board .service-card-1,
+  .services-redesign .services-experience-board .service-card-2,
+  .services-redesign .services-experience-board .service-card-3,
+  .services-redesign .services-experience-board .service-card-4,
+  .services-redesign .services-experience-board .service-card-5,
+  .services-redesign .services-experience-board .service-card-6,
+  .services-redesign .services-experience-board .service-card-7 {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    border-right: 0 !important;
+  }
+
+  .services-redesign .services-board-intro {
+    min-height: auto !important;
+    padding: 28px 20px 34px !important;
+  }
+
+  .services-redesign .services-experience-board .services-showcase-card {
+    min-height: auto !important;
+    padding: 28px 20px !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .services-redesign .services-experience-board .services-showcase-photo,
+  .services-redesign .services-experience-board .service-card-3 .services-showcase-photo,
+  .services-redesign .services-experience-board .service-card-5 .services-showcase-photo,
+  .services-redesign .services-experience-board .service-card-4 .services-showcase-photo {
+    min-height: 220px !important;
+    max-height: none !important;
+    order: -1 !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .services-redesign .services-experience-board {
+    padding: 12px !important;
+    border-radius: 22px !important;
+  }
+
+  .services-redesign .services-board-intro h2 {
+    font-size: clamp(34px, 12vw, 46px) !important;
+    letter-spacing: -1.8px !important;
+  }
+
+  .services-redesign .services-experience-board .services-showcase-photo,
+  .services-redesign .services-experience-board .service-card-3 .services-showcase-photo,
+  .services-redesign .services-experience-board .service-card-5 .services-showcase-photo,
+  .services-redesign .services-experience-board .service-card-4 .services-showcase-photo {
+    min-height: 180px !important;
+  }
+}
+
+/* =========================================================
+   SERVICES PAGE DECORATIVE BACKGROUND ICON REMOVAL
+   - Removes the remaining right-side service-board logo/icon shape.
+   - Keeps the service cards, header, footer, hero, CTA, and other designs unchanged.
+========================================================= */
+.services-redesign .services-experience-board::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
